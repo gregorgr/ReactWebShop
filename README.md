@@ -112,6 +112,7 @@ brenkalo/
 
 - **Gregor Grajzar** - GitHub profil
 - **Jan Repar** - GitHub profil
+- **Tea Zakšek** - GitHub profil
 
 ## Licenca
 
