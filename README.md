@@ -40,7 +40,7 @@ Uporabniki lahko nastavijo obvestila za izdelke, ki trenutno niso na zalogi, in 
 - **Frontend:** React
 - **Backend:** .NET
 - **DB:** SQLite
-- **Testni strežnik Backend:** test
+- **Testni strežnik Frontend:** test
 - **Testni strežnik Backend:** http://localhost:5020/ 
 
 ## Namestitev
