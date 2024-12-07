@@ -39,7 +39,9 @@ Uporabniki lahko nastavijo obvestila za izdelke, ki trenutno niso na zalogi, in 
 
 - **Frontend:** React
 - **Backend:** .NET
-- **Testni strežnik:** http://localhost:5020/
+- **DB:** SQLite
+- **Testni strežnik Backend:** test
+- **Testni strežnik Backend:** http://localhost:5020/ 
 
 ## Namestitev
 
@@ -112,7 +114,7 @@ brenkalo/
 
 - **Gregor Grajzar** - GitHub profil
 - **Jan Repar** - GitHub profil
-- **Tea Zakšek** - GitHub profil
+- **Tea Zakšek** - Github profil
 
 ## Licenca
 
