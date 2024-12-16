@@ -100,6 +100,73 @@ brenkalo/
 └── README.md
 ```
 
+## Razvojno drevo za Frontend REACT
+BrenkaloWebStore/web-shop-light/
+├── eslint.config.js
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── public
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── crown.svg
+│   │   ├── css
+│   │   ├── data
+│   │   ├── flagSlo.80.png
+│   │   ├── flagSlo.png
+│   │   ├── flagUsa.png
+│   │   ├── img
+│   │   ├── istockphoto-1176410812-612x612.jpg
+│   │   ├── js
+│   │   ├── logo.png
+│   │   ├── react.svg
+│   │   ├── sloFlag-sq-50.png
+│   │   ├── sloFlag-sq.png
+│   │   ├── transparent_logo512.png
+│   │   └── webfonts
+│   ├── components
+│   │   ├── header
+│   │   ├── language-navigator
+│   │   ├── main-navigator
+│   │   ├── product-list
+│   │   └── user-navigation
+│   ├── img
+│   │   └── products
+│   ├── index.css
+│   ├── main.jsx
+│   ├── navigation
+│   └── pages
+│       ├── contact
+│       ├── home-page
+│       ├── shop
+│       ├── stores
+│       └── user
+├── vite.config.js
+└── yarn.lock
+
+
+## Namestitev frontenda
+
+1. Gremo v direktorij:
+cd web-shop-light
+
+2. Namestimo vse potrebne module:
+yarn install
+
+3. Zaženemo z ukazom:
+yarn dev
+
+4. Odpremo brkalnik in vstopimo v aplikacijo na naslovu:
+
+Local:   http://localhost:5173/
+
+
+
 ## Prispevanje
 
 Če želite prispevati k projektu, sledite tem korakom:

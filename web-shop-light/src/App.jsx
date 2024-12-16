@@ -88,7 +88,7 @@ function App() {
       {
         id: 3,
         category: 'Klasične kitare',
-        image: '/src/img/products/akusticna-martin.jpg',
+        image: '/src/img/products/alhambra-7p-classic-classical-guitar.webp',
         description: 'Klasične kitare z najlonskimi strunami za začetnike in profesionalce.',
         price: '2.800,00€',
         translations: {
