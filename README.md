@@ -102,6 +102,8 @@ brenkalo/
 
 ## Razvojno drevo za Frontend REACT
 
+
+
 ```plaintext
 BrenkaloWebStore/web-shop-light/
 ├── eslint.config.js
