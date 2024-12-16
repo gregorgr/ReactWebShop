@@ -101,6 +101,8 @@ brenkalo/
 ```
 
 ## Razvojno drevo za Frontend REACT
+
+```plaintext
 BrenkaloWebStore/web-shop-light/
 ├── eslint.config.js
 ├── .gitignore
@@ -148,22 +150,31 @@ BrenkaloWebStore/web-shop-light/
 │       └── user
 ├── vite.config.js
 └── yarn.lock
-
+```
 
 ## Namestitev frontenda
 
 1. Gremo v direktorij:
+```bash
 cd web-shop-light
+```
 
 2. Namestimo vse potrebne module:
+```bash
 yarn install
+```
 
 3. Zaženemo z ukazom:
+```bash
 yarn dev
+```
 
-4. Odpremo brkalnik in vstopimo v aplikacijo na naslovu:
 
-Local:   http://localhost:5173/
+
+## Uporaba
+
+1. Odpremo brkalnik in vstopimo v aplikacijo na naslovu: `http://localhost:5173/` za dostop do spletne trgovine.
+2. Prebrskajte in izberite kitare, ki vas zanimajo.
 
 
 
