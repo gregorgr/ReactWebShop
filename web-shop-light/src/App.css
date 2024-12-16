@@ -1,10 +1,70 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+body{
+  margin: 0;
+  line-height: 1.5;
+  background-color: #fff;
+  /*display: grid;*/
+    
+    place-items: flex-start;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
+body, ul, li, p, a, label, input, div {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+#root {
+  /*max-width: 1280px;
+
+  /*padding: 2rem;*/
+  /*padding: 70px 0 70px 0;*/
+  margin: 0;
+  width: 100%;
+ /* text-align: center;*/
+}
+/*  .container-fluid n*/
+.container
+{
+  margin: 0 10%;
+}
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,6 +77,10 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+  
+
+
+*/
 
 @keyframes logo-spin {
   from {
@@ -33,10 +97,3 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

@@ -1,0 +1,32 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex; /* Uporabi Flexbox */
+    flex-wrap: wrap; /* Omogoči prelom vrstic, če zmanjka prostora */
+    justify-content: center; /* Poravnava elementov na sredino */
+    gap: 1.5rem; /* Razmak med elementi */
+  }
+  
+  .col-12 {
+    flex: 1 1 calc(33.333% - 1.5rem); /* Trije elementi v eni vrsti */
+    max-width: calc(33.333% - 1.5rem); /* Maksimalna širina posameznega elementa */
+  }
+  
+  img.rounded-circle {
+    border: 3px solid #ccc;
+  }
+  
+  
+
+  
+  .btn-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }

@@ -1,0 +1,96 @@
+
+
+/* Dropdown vsebina (privzeto skrita) */
+.dropdown-content {
+    display: none; /* Skrij privzeto */
+    position: absolute;
+    right: 0; /* Poravna desni rob */
+    top: 100%; /* Razpre se navzdol pod glavni element */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  
+    /* Dodamo tranzicijo za gladko animacijo */
+    opacity: 0;
+    transform: translateY(-20px); /* Meni je premaknjen navzgor za animacijo */
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  
+  /* Prikaz dropdowna na hover */
+  .dropdown:hover .dropdown-content {
+    display: block; /* Pokaži vsebino */
+    opacity: 1; /* Prikaže meni */
+    transform: translateY(0); /* Povrne na začetno pozicijo */
+  }
+  
+  /* Slog za povezave znotraj dropdowna */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease; /* Gladek hover efekt */
+  }
+  
+  /* Hover nad posameznimi povezavami */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+ }
+  
+ .user-chart-nav{
+  float: right;
+  width: 200px;
+  text-align: right;
+  align-items: right;
+ }
+  
+
+
+/*
+.dropbtn {
+
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #dadb85;}
+
+  .dropdown-content a {
+    height: 2em;
+    background-color: rgb(194, 182, 77);
+    padding: 10px 20px;
+    margin: 3px;
+    display: inline-block;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 250px;
+  }*/

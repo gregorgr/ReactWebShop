@@ -1,0 +1,27 @@
+.product-wap {
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .product-wap:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-overlay ul li a {
+    background-color: rgba(40, 167, 69, 0.9);
+    transition: background-color 0.3s;
+  }
+  
+  .product-overlay ul li a:hover {
+    background-color: rgba(40, 167, 69, 1);
+  }
+  
+  .card-img-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .card:hover .card-img-overlay {
+    opacity: 1;
+  }
