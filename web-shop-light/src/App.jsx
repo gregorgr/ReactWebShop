@@ -33,7 +33,7 @@ function App() {
     <>
     <Router>
       <Header language={language} setLanguage={setLanguage} />
-      <div class="container-fluid text-center page-content">    
+      <div class="container-fluid text-center">    
           <div class="row content">
           <Routes>
             <Route path="/" element={<Home language={language} setLanguage={setLanguage} />} />

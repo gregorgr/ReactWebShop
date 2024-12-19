@@ -29,7 +29,7 @@ const StoresPage = ({ language='sl' }) => {
       <h1 className="mb-4 text-center">{language === 'sl' ? 'Naše Poslovalnice' : 'Our Stores'}</h1>
       <div className="row g-0">
         {stores.map((store) => {
-          
+
      const messagesSelLanguage = notificationsForStore(store);
 
      const lat = store.latitude;
@@ -60,7 +60,7 @@ const StoresPage = ({ language='sl' }) => {
                   <p><strong>{language === 'sl' ? 'Kontakt' : 'Contact'}:</strong> {store.contact.email}, {store.contact.phone}</p>
                   <div className="manager-info d-flex align-items-center mb-3">
                     <img 
-                      src={storeManager} //store.managerImage} 
+                      src={storeManager} //{store.managerImage}  //
                       alt={store.managerName} 
                       className="manager-image me-3" 
                       style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '50%' }}

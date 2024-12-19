@@ -1,4 +1,3 @@
-//export const stores = [];
 export const stores = [
     {
       id: 1,
@@ -10,10 +9,10 @@ export const stores = [
         phone: "+386 1 234 5678",
       },
       managerName: "Janez Novak",
-      managerImage: "/images/managers/janez_novak.jpg",
+      managerImage: "/img/managers/janez_novak.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer1",
-      latitude: 46.056946, // dodano
-      longitude: 14.505751, // dodano
+      latitude: 46.0514,
+      longitude: 14.5023,
       notifications: {
         sl: [
           {
@@ -55,10 +54,10 @@ export const stores = [
         phone: "+386 2 345 6789",
       },
       managerName: "Marija Kranjc",
-      managerImage: "/images/managers/marija_kranjc.jpg",
+      managerImage: "/img/managers/marija_kranjc.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer2",
-      latitude: 46.056946, // dodano
-      longitude: 14.505751, // dodano
+      latitude: 46.5570,
+      longitude: 15.6459,
       notifications: {
         sl: [
           {
@@ -100,10 +99,10 @@ export const stores = [
         phone: "+386 3 456 7890",
       },
       managerName: "Robert Smole",
-      managerImage: "/images/managers/robert_smole.jpg",
+      managerImage: "/img/managers/robert_smole.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer3",
-      latitude: 46.056946, // dodano
-      longitude: 14.505751, // dodano
+      latitude: 46.2300,
+      longitude: 15.2650,
       notifications: {
         sl: [
           {
@@ -145,10 +144,10 @@ export const stores = [
         phone: "+386 5 123 4567",
       },
       managerName: "Ana Pirnat",
-      managerImage: "/images/managers/ana_pirnat.jpg",
+      managerImage: "/img/managers/ana_pirnat.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer4",
-      latitude: 46.056946, // dodano
-      longitude: 14.505751, // dodano
+      latitude: 45.5475,
+      longitude: 13.7300,
       notifications: {
         sl: [
           {
@@ -190,10 +189,10 @@ export const stores = [
         phone: "+386 7 234 5678",
       },
       managerName: "Maja Hudales",
-      managerImage: "/images/managers/maja_hudales.jpg",
+      managerImage: "https://picsum.photos/seed/marija_kranjc/50/50",
       googleMapsLink: "https://goo.gl/maps/Primer5",
-      latitude: 46.056946, // dodano
-      longitude: 14.505751, // dodano
+      latitude: 45.8011,
+      longitude: 15.1667,
       notifications: {
         sl: [
           {
