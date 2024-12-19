@@ -2,17 +2,18 @@
 
 import './stores-page.styles.scss';
 
-import storeImage  from '../../img/stores/store1.jpeg';
+
 import { stores } from '../../services/stores/stores.component';
 
-
+import storeImage  from '../../img/stores/store1.jpeg';
+import storeManager  from '../../img/stores/janez-novak.jpg';
 
 const StoresPage = ({ language='sl' }) => {
   const texts = {
     en: { title: 'Our Stores', message: 'Find stores near you.' },
     sl: { title: 'Naše trgovine', message: 'Poiščite trgovine v vaši bližini.' },
   };
-  const  xtitle = language === 'sl' ? "Sporočila" : "Messages";
+  const  xtitle = language === 'sl' ? "Sporočila trgovine" : "Store Notifications";
   // console.log(stores);
 
   const notificationsForStore = (store) => {
@@ -24,46 +25,70 @@ const StoresPage = ({ language='sl' }) => {
     <>
 
 
-    <div className="container my-5">
-      <h1 className="mb-4">{texts[language].title}</h1>
-      <p>{texts[language].message}</p>
-   
-      <div className="row g-4">
-           
-  
-                {stores.map((store) => {
-          const messagesSelLanguage = notificationsForStore(store);
+<div className="store-page">
+      <h1 className="mb-4 text-center">{language === 'sl' ? 'Naše Poslovalnice' : 'Our Stores'}</h1>
+      <div className="row g-0">
+        {stores.map((store) => {
+          
+     const messagesSelLanguage = notificationsForStore(store);
+
+     const lat = store.latitude;
+     const lng = store.longitude;
+     const delta = 0.01; 
+     // Bbox: minLon, minLat, maxLon, maxLat
+     const minLon = lng - delta;
+     const minLat = lat - delta;
+     const maxLon = lng + delta;
+     const maxLat = lat + delta;
+     const bbox = [minLon, minLat, maxLon, maxLat].join('%2C');
+     // Marker: lat,lon
+     const marker = `${lat}%2C${lng}`;
+     const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&marker=${marker}&layer=M`;
+
           return (
-            <div className="col-md-4" key={store.id}>
-              <div className="card h-100">
+            <div className="col-md-3" key={store.id}>
+              <div className="card h-100 border-1">
                 <div className="card-body">
-                <div>
-                 <img src={storeImage} alt={store.name} title ={store.name} />
-                </div>
+                  <div className="card-image">
+                    <img src={storeImage} alt={store.name} title={store.name} />
+                  </div>
                   <h2 className="card-title">{store.name}</h2>
-                  <p><strong>Naslov:</strong> {store.address}</p>
-                  <p><strong>Delovni čas:</strong> {store.workingHours}</p>
-                  <p><strong>Kontakt:</strong> {store.contact.email}, {store.contact.phone}</p>
+                  <div className="card-box">
+
+                  <p><strong>{language === 'sl' ? 'Naslov' : 'Address'}:</strong> {store.address}</p>
+                  <p><strong>{language === 'sl' ? 'Delovni čas' : 'Working Hours'}:</strong> {store.workingHours}</p>
+                  <p><strong>{language === 'sl' ? 'Kontakt' : 'Contact'}:</strong> {store.contact.email}, {store.contact.phone}</p>
                   <div className="manager-info d-flex align-items-center mb-3">
                     <img 
-                      src={store.managerImage} 
+                      src={storeManager} //store.managerImage} 
                       alt={store.managerName} 
                       className="manager-image me-3" 
                       style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '50%' }}
                     />
-                    <span><strong>Vodja poslovalnice:</strong> {store.managerName}</span>
+                    <span><strong>{language === 'sl' ? 'Vodja poslovalnice' : 'Store Manager'}:</strong> {store.managerName}</span>
                   </div>
-                  <p>
-                  <strong>{language === 'sl' ? 'Lokacija:' : 'Location:'} </strong>
-                    <a href={store.googleMapsLink} target="_blank" rel="noopener noreferrer">
-                      Oglej si na Google Maps
-                    </a>
-                  </p>
+                  </div>
+                 
+                
+
+                  <strong>{language === 'sl' ? 'Lokacija:' : 'Location:'}</strong>
+                  <div style={{width: '100%', height: '200px', border: '1px solid #ccc', marginBottom: '15px'}}>
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      frameBorder="0" 
+                      scrolling="no" 
+                      marginHeight="0" 
+                      marginWidth="0"
+                      src={osmUrl} 
+                      title="Store Location"
+                    ></iframe>
+                  </div>
 
                   <hr />
-                  <h4>{xtitle}</h4>
+                  <h4 className='store-messages'>{xtitle}:</h4>
                   {messagesSelLanguage.length > 0 ? (
-                    <ul className="list-unstyled">
+                    <ul className="list-unstyled store-messages">
                       {messagesSelLanguage.map((note, idx) => (
                         <li key={idx} className="mb-3">
                           <strong>{note.title}</strong><br/>

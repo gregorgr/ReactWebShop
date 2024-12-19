@@ -12,6 +12,8 @@ export const stores = [
       managerName: "Janez Novak",
       managerImage: "/images/managers/janez_novak.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer1",
+      latitude: 46.056946, // dodano
+      longitude: 14.505751, // dodano
       notifications: {
         sl: [
           {
@@ -55,6 +57,8 @@ export const stores = [
       managerName: "Marija Kranjc",
       managerImage: "/images/managers/marija_kranjc.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer2",
+      latitude: 46.056946, // dodano
+      longitude: 14.505751, // dodano
       notifications: {
         sl: [
           {
@@ -98,6 +102,8 @@ export const stores = [
       managerName: "Robert Smole",
       managerImage: "/images/managers/robert_smole.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer3",
+      latitude: 46.056946, // dodano
+      longitude: 14.505751, // dodano
       notifications: {
         sl: [
           {
@@ -141,6 +147,8 @@ export const stores = [
       managerName: "Ana Pirnat",
       managerImage: "/images/managers/ana_pirnat.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer4",
+      latitude: 46.056946, // dodano
+      longitude: 14.505751, // dodano
       notifications: {
         sl: [
           {
@@ -184,6 +192,8 @@ export const stores = [
       managerName: "Maja Hudales",
       managerImage: "/images/managers/maja_hudales.jpg",
       googleMapsLink: "https://goo.gl/maps/Primer5",
+      latitude: 46.056946, // dodano
+      longitude: 14.505751, // dodano
       notifications: {
         sl: [
           {
