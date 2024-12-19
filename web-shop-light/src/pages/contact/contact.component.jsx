@@ -39,7 +39,9 @@ const Contact = ({ language }) => {
 
         <button type="submit">{texts[language].submit}</button>
       </form>
-    </div></div></section>
+    </div>
+    </div>
+    </section>
   );
 };
 

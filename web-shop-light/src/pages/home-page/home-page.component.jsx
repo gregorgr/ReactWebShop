@@ -1,12 +1,14 @@
  import { useState } from 'react';
 
+ import { categories } from '../../services/categories/categories.component.jsx';
 // import React from 'react';
 import PropTypes from 'prop-types';
 import './home-page.styles.scss';
 
 
 
-const Home = ({ language, categories }) => {
+const Home = ({ language }) => {
+
   const texts = {
     en: { title: 'Categories of The Month', message: 'Explore our website.' },
     sl: { title: 'Kategorije meseca', message: 'Raziščite našo spletno stran.' },
