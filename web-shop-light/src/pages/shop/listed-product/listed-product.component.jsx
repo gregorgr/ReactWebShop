@@ -66,6 +66,7 @@ ListedProduct.propTypes = {
     product: PropTypes.shape({
         id: PropTypes.number.isRequired,
         category: PropTypes.string.isRequired,
+        category_id: PropTypes.number.isRequired,
         image: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         price: PropTypes.string.isRequired,

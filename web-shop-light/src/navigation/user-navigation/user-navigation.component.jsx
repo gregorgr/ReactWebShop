@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 import './user-navigation.stayles.scss';
 
 
-const UserNavavigation = ({ language }) => {
+
+const UserNavigation = ({ language }) => {
   const labels = {
     en: ['Search', 'Cart', 'User', 'Edit', 'Orders', 'Theme'],
     sl: ['Iskanje', 'Košarica', 'Uporabnik', 'Uredi', 'Naročila', 'Tema' ],
@@ -19,6 +20,12 @@ const UserNavavigation = ({ language }) => {
     en: ['Cart', 'Go to your shopping cart'],
     sl: ['Košarica', 'Pojdi v svojo košarico'],
   };
+
+  const themeLabels = {
+    en: ['Dark/white'],
+    sl: ['Temen/svetel']
+  }
+
 
   return (
     <div className='user-chart-nav'>
@@ -104,37 +111,99 @@ const UserNavavigation = ({ language }) => {
             
             
             >{labels[language][4]}</Link>
-            <Link to="/orders"
-                      title={labels[language][5]} // Tooltip za vizualne uporabnike
-                      aria-label={labels[language][5]}// Dostopna oznaka za bralnike zaslona
-                      tabIndex="23" // Omogoča fokus s tipkovnico
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                      }}
-            
-            
-            ><FontAwesomeIcon icon={faPaintbrush} size="lg" />{labels[language][5]}</Link>
+      
 
-        </div>
-       
-        
+          </div>  
         </li>
-       
+
+          <li className='dropdown'><Link
+            to="/theme"
+            title={labels[language][5]} // Tooltip za vizualne uporabnike
+            aria-label={labels[language][5]}// Dostopna oznaka za bralnike zaslona
+            tabIndex="30" // Omogoča fokus s tipkovnico
+            className='dropbtn'
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+          >
+         
+            
+              <FontAwesomeIcon icon={faPaintbrush} size="lg" /><span></span>
+              </Link>
+                <div className="dropdown-content dropdwn-theme">
+                <Link to="/theme/dark"
+                        title={labels[language][4]} // Tooltip za vizualne uporabnike
+                        aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                        tabIndex="31" // Omogoča fokus s tipkovnico
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          textDecoration: 'none',
+                          color: 'inherit',
+                        }}
+              
+              
+              >dark-white</Link>
+               <Link to="/theme/dark"
+                        title={labels[language][4]} // Tooltip za vizualne uporabnike
+                        aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                        tabIndex="31" // Omogoča fokus s tipkovnico
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          textDecoration: 'none',
+                          color: 'inherit',
+                        }}
+              
+              
+              >črno-bela (Visok kontrast)</Link>
+               <Link to="/theme/dark"
+                        title={labels[language][4]} // Tooltip za vizualne uporabnike
+                        aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                        tabIndex="31" // Omogoča fokus s tipkovnico
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          textDecoration: 'none',
+                          color: 'inherit',
+                        }}
+              
+              
+              >Modro-rumena</Link>
+                             <Link to="/theme/dark"
+                        title={labels[language][4]} // Tooltip za vizualne uporabnike
+                        aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                        tabIndex="31" // Omogoča fokus s tipkovnico
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          textDecoration: 'none',
+                          color: 'inherit',
+                        }}
+              
+              
+              >Pastelna shema z visoko berljivostjo</Link>
+              </div>
+            </li>       
       </ul>
     </div>
   );
 };
 
-UserNavavigation.propTypes = {
+UserNavigation.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
   setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
-export default UserNavavigation;
+export default UserNavigation;
 
 
 /*

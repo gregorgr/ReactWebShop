@@ -68,7 +68,34 @@ body, ul, li, p, a, label, input, div {
       }
       .row.content {height:auto;} 
     }
+
+
+
 /*
+
+    @import './themes/high-contrast.styles';
+    @import './themes/blue-yellow.styles';
+    @import './themes/pastel.styles';
+    @import './themes/light-dark.styles'; // Dodamo svetlo in temno temo
+    
+    .app {
+      &.high-contrast {
+        @extend .high-contrast-theme;
+      }
+      &.blue-yellow {
+        @extend .blue-yellow-theme;
+      }
+      &.pastel {
+        @extend .pastel-theme;
+      }
+      &.light {
+        @extend .light-theme;
+      }
+      &.dark {
+        @extend .dark-theme;
+      }
+    }
+      
 .logo {
   height: 6em;
   padding: 1.5em;

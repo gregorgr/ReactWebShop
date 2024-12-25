@@ -1,8 +1,9 @@
 //import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import MainNavigation from '../main-navigator/main-navigator.component';
-import UserNavavigation from '../user-navigation/user-navigation.component';
+
+import MainNavigation from '../../navigation/main-navigator/main-navigator.component';
+import UserNavigation from  '../../navigation/user-navigation/user-navigation.component';//'../../navigation/user-navigation/user-navigation.component';
 
 import logo from '../../assets/logo.png';
 
@@ -48,7 +49,7 @@ const Header = ({ language, setLanguage }) => {
             <div className="nav navbar-nav navbar-right menu-container" id="templatemo_main_nav">
 
                   <MainNavigation language={language} setLanguage={setLanguage} />
-                  <UserNavavigation language={language}  />
+                  <UserNavigation language={language}  />
             </div>
 
             

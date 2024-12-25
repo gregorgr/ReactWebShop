@@ -1,6 +1,6 @@
  import { useState } from 'react';
 
- import { categories } from '../../services/categories/categories.component.jsx';
+import { categories } from '../../services/categories/categories.component.jsx';
 // import React from 'react';
 import PropTypes from 'prop-types';
 import './home-page.styles.scss';
@@ -14,6 +14,7 @@ const Home = ({ language }) => {
     sl: { title: 'Kategorije meseca', message: 'Raziščite našo spletno stran.' },
   };
 
+  console.log(categories);
   
     const [sortOrder, setSortOrder] = useState('asc');
 
@@ -77,7 +78,13 @@ Home.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
 // setL
   setLanguage: PropTypes.func.isRequired, //
-  categories: PropTypes.arrayOf(
+ 
+
+};
+
+
+/*
+ categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
@@ -91,8 +98,21 @@ Home.propTypes = {
       }).isRequired,
     })
   ).isRequired,
+*/
 
-};
+/*
+      id: 4,
+      category: 'Ukulele',
+      image: '/src/img/products/ukulele-martin.jpg',
+      description: 'Ukulele za zabavo in sprostitev.',
+      translations: {
+        en: {
+          category: 'Ukulele',
+          description: 'Ukulele for fun and relaxation.',
+        },
+      },
+
+*/
 
 export default Home;
 

@@ -1,0 +1,29 @@
+$color-bg: #000000; // Črna podlaga
+$color-text: #ffffff; // Bela pisava
+$color-accent: #ffcc00; // Rumena za poudarke
+$color-link: #00ffff; // Cian za povezave
+$color-border: #ffffff; // Bela obroba
+
+.high-contrast-theme {
+  background-color: $color-bg;
+  color: $color-text;
+
+  a {
+    color: $color-link;
+    text-decoration: underline;
+
+    &:hover {
+      color: lighten($color-link, 10%);
+    }
+  }
+
+  button {
+    background-color: $color-accent;
+    color: $color-bg;
+    border: 2px solid $color-border;
+
+    &:hover {
+      background-color: darken($color-accent, 10%);
+    }
+  }
+}

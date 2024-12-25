@@ -1,0 +1,14 @@
+$color-light-bg: #ffffff; // Svetla podlaga
+$color-light-text: #333333; // Temna pisava
+$color-dark-bg: #1a1a1a; // Temna podlaga
+$color-dark-text: #f0f0f0; // Svetla pisava
+
+.light-theme {
+  background-color: $color-light-bg;
+  color: $color-light-text;
+}
+
+.dark-theme {
+  background-color: $color-dark-bg;
+  color: $color-dark-text;
+}

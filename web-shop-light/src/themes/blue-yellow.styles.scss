@@ -1,0 +1,29 @@
+$color-bg: #002b36; // Temno modra podlaga
+$color-text: #eeeeee; // Svetlo siva pisava
+$color-accent: #ffc107; // Rumena za poudarke
+$color-link: #89cff0; // Svetlo modra za povezave
+$color-border: #ffffff; // Bela obroba
+
+.blue-yellow-theme {
+  background-color: $color-bg;
+  color: $color-text;
+
+  a {
+    color: $color-link;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($color-link, 10%);
+    }
+  }
+
+  button {
+    background-color: $color-accent;
+    color: $color-bg;
+    border: 2px solid $color-border;
+
+    &:hover {
+      background-color: darken($color-accent, 10%);
+    }
+  }
+}

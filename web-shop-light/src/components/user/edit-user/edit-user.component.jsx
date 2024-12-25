@@ -1,9 +1,11 @@
-
-
-
 import PropTypes from 'prop-types';
 
-const User = ({ language }) => {
+//import UserSidebar from './user-sidebar.component.js';
+
+import './edit-user.styles.scss';
+
+
+const EditUser = ({ language }) => {
     // Teksti za večjezičnost
     const texts = {
       en: {
@@ -75,10 +77,10 @@ const User = ({ language }) => {
     );
   };
 
-User.propTypes = {
+  EditUser.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
   setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
 
-export default User;
+export default EditUser;

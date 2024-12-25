@@ -5,6 +5,7 @@ export const products = [
   {
     id: 1,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Fender Telecaster Električna Kitara',
     image: '/src/img/products/elektricna-fender.jpg',
     description: 'Električne kitare za vse stile igranja.',
@@ -24,6 +25,7 @@ export const products = [
   {
     id: 2,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Martin Akustična Kitara',
     image: '/src/img/products/akusticna-martin.jpg',
     description: 'Akustične kitare z jasnim zvokom in vrhunsko izdelavo.',
@@ -43,6 +45,7 @@ export const products = [
   {
     id: 3,
     category: 'Klasične kitare',
+    category_id: 3, // Klasične kitare
     title: 'Alhambra Klasična Kitara',
     image: '/src/img/products/alhambra-7p-classic-classical-guitar.webp',
     description: 'Klasične kitare z najlonskimi strunami za začetnike in profesionalce.',
@@ -62,6 +65,7 @@ export const products = [
   {
     id: 4,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Martin Ukulele',
     image: '/src/img/products/ukulele-martin.jpg',
     description: 'Ukulele za zabavo in sprostitev.',
@@ -81,6 +85,7 @@ export const products = [
   {
     id: 5,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Epiphone Jazz Kitara',
     image: '/src/img/products/jazz-epiphone.jpg',
     description: 'Jazz kitare za sofisticirane igralce.',
@@ -100,6 +105,7 @@ export const products = [
   {
     id: 6,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: '70th Anniversary Stratocaster limited Fat 1954 Relic',
     image: '/src/img/products/fender-stratocaster.png',
     description: 'Električna kitara v stilu legendarne "tele" zasnove ...',
@@ -121,6 +127,7 @@ export const products = [
   {
     id: 7,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Yamaha Standard Plus PACS+12M Sparkle Blue Electric Guitar',
     image: '/src/img/products/pacs_12m_sparkle-blue_front_0001.jpg', //yamaha-fg800.jpg',
     description: 'Kitara v "tele" stilu s konfiguracijo SH magnetov, univerzalna in uporabna.',
@@ -140,6 +147,7 @@ export const products = [
   {
     id: 8,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Ibanez AW54OPN',
     image: '/src/img/products/elektricna-ibanez.jpg', //ibanez-aw54opn.jpg',
     description: 'Ikonična električna kitara za tehnično zahtevne glasbenike...',
@@ -159,6 +167,7 @@ export const products = [
   {
     id: 9,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'PRS SE Custom 24',
     image: '/src/img/products/elektricna-prs.jpg',
     description: 'Vsestranska električna kitara z elegantnim dizajnom...',
@@ -178,6 +187,7 @@ export const products = [
   {
     id: 10,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Jackson JS32 Dinky',
     image: '/src/img/products/elektricna-disc.jpg',
     description: 'Električna kitara z agresivnim tonom in izjemno igrabilnostjo...',
@@ -199,6 +209,7 @@ export const products = [
   {
     id: 11,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Yamaha FG800',
     image: '/src/img/products/akusticna-yamaha.png',
     description: 'Akustična kitara z masivno smrekovo sprednjo ploščo...',
@@ -218,6 +229,7 @@ export const products = [
   {
     id: 12,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Fender CD-60S',
     image: '/src/img/products/akusticna-fender.png',
     description: 'Akustična kitara z masivno smrekovo sprednjo ploščo...',
@@ -237,6 +249,7 @@ export const products = [
   {
     id: 13,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Taylor GS Mini',
     image: '/src/img/products/akusticna-taylor.jpg',
     description: 'Kompaktna akustična kitara z vrhunskim tonom...',
@@ -256,6 +269,7 @@ export const products = [
   {
     id: 14,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Martin LX1 Little Martin',
     image: '/src/img/products/akusticna-martin.jpg', //martin-lx1-little-martin.jpg',
     description: 'Kompaktna akustična kitara z bogatim zvokom...',
@@ -275,6 +289,7 @@ export const products = [
   {
     id: 15,
     category: 'Akustične kitare',
+    category_id: 2, // Akustične kitare
     title: 'Yamaha APXT2',
     image: '/src/img/products/akusticna-yamaha-aptxt2.jpg',
     description: 'Kompaktna elektroakustična kitara...',
@@ -296,6 +311,7 @@ export const products = [
   {
     id: 16,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Kala KA-15S',
     image: '/src/img/products/ukulele-kala.jpg',
     description: 'Klasična sopranska ukulela s svetlim, veselim tonom...',
@@ -315,6 +331,7 @@ export const products = [
   {
     id: 17,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Fender Soprano Grace',
     image: '/src/img/products/ukulele-fender.jpg',
     description: 'Elegantna koncertna ukulela z odličnim zvokom...',
@@ -334,6 +351,7 @@ export const products = [
   {
     id: 18,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Lanikai LU-21 Soprano Ukulele',
     image: '/src/img/products/ukulele-lanikai.317x960.jpg',
     description: 'Priljubljena sopranska ukulela s tradicionalno zasnovo...',
@@ -353,6 +371,7 @@ export const products = [
   {
     id: 19,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Flight TUS-50 Travel Ukulele + torba',
     image: '/src/img/products/ukuelle-flight.jpg',
     description: 'Prenosna sopranska ukulela z vzdržljivim plastičnim hrbtom...',
@@ -372,6 +391,7 @@ export const products = [
   {
     id: 20,
     category: 'Ukulele',
+    category_id: 4, // Ukulele
     title: 'Martin C1K Concert Ukulele',
     image: '/src/img/products/ukulele-martin.jpg',
     description: 'Visokokakovostna koncertna ukulela iz masivnega koa lesa...',
@@ -393,6 +413,7 @@ export const products = [
   {
     id: 21,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Ibanez Artcore AF75',
     image: '/src/img/products/jazz-ibanez.jpg',
     description: 'Klasika v svetu jazz kitare z masivnim zvokom...',
@@ -412,6 +433,7 @@ export const products = [
   {
     id: 22,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Epiphone Dot',
     image: '/src/img/products/jazz-epiphone.jpg',
     description: 'Jazz kitara z toplim tonom in arhiviranimi humbucker pickup-i...',
@@ -431,6 +453,7 @@ export const products = [
   {
     id: 23,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Gretsch G2622 Streamliner',
     image: '/src/img/products/jazz-gretsch.jpg',
     description: 'Jazz kitara z visoko kakovostjo izdelave in Broad’Tron pickup-i...',
@@ -450,6 +473,7 @@ export const products = [
   {
     id: 24,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Ibanez AS73',
     image: '/src/img/products/jazz-ibanez-as73.jpg',
     description: 'Pol telesna jazz kitara z mehkim, a jasnim zvokom...',
@@ -469,6 +493,7 @@ export const products = [
   {
     id: 25,
     category: 'Jazz kitare',
+    category_id: 5, // Jazz kitare
     title: 'Epiphone Riviera',
     image: '/src/img/products/jazz-riviera.png',
     description: 'Klasična jazz kitara z dvema humbucker pickup-oma...',
@@ -490,6 +515,7 @@ export const products = [
   {
     id: 26,
     category: 'Klasične kitare',
+    category_id: 3, // Klasične kitare
     title: 'Alhambra 7P CLASSIC',
     image: '/src/img/products/alhambra-7p-classic.jpg',
     description: 'Klasična kitara z masivno cedrovo zgornjo ploščo in palisandrovim telesom, obletnični model Alhambra.',
@@ -509,6 +535,7 @@ export const products = [
   {
     id: 27,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Fender Player II Stratocaster',
     image: '/src/img/products/fender-stratocaster-player-ii.jpg',
     description: 'Električna kitara v stilu legendarne "tele" zasnove ...',
@@ -528,6 +555,7 @@ export const products = [
   {
     id: 28,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Fender Stratocaster Player Series',
     image: '/src/img/products/fender-starocaster-player.jpg',
     description: 'Električna kitara v stilu legendarne "tele" zasnove ...',
@@ -548,6 +576,7 @@ export const products = [
   
     id: 28,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Fender American Vintage II 1961 Stratocaster, Olympic White',
     image: '/src/img/products/fender-1961-stratocaster-olympic-white.jpg',
     description: 'Električna kitara v stilu legendarne "tele" zasnove ...',
@@ -568,6 +597,7 @@ export const products = [
   
     id: 29,
     category: 'Električne kitare',
+    category_id: 1, // Električne kitare
     title: 'Fender American Original 50s Telecaster Maple in Butterscotch Blonde',
     image: '/src/img/products/fender-telecaster.jpg',
     description: 'Električna kitara v stilu legendarne "tele" zasnove ...',
@@ -588,83 +618,3 @@ export const products = [
 
 
 
-
-
-export const products2 = [
-    {
-      id: 1,
-      category: 'Električne kitare',
-      image: '/src/img/products/elektricna-fender.jpg',
-      description: 'Električne kitare za vse stile igranja.',
-      price: '2.300,00€',
-      producer: 'Fender',
-      original_product_url: 'https://www.fender.com/',
-      translations: {
-        en: {
-          category: 'Electric Guitars',
-          description: 'Electric guitars for all playing styles.',
-        },
-      },
-    },
-    {
-      id: 2,
-      category: 'Akustične kitare',
-      image: '/src/img/products/akusticna-martin.jpg',
-      description: 'Akustične kitare z jasnim zvokom in vrhunsko izdelavo.',
-      price: '450,00€',
-      producer: 'Martin',
-      original_product_url: 'https://www.martinguitar.com/',
-      translations: {
-        en: {
-          category: 'Acoustic Guitars',
-          description: 'Acoustic guitars with clear sound and top-notch craftsmanship.',
-        },
-      },
-    },
-    {
-      id: 3,
-      category: 'Klasične kitare',
-      image: '/src/img/products/alhambra-7p-classic-classical-guitar.webp',
-      description: 'Klasične kitare z najlonskimi strunami za začetnike in profesionalce.',
-      price: '2.800,00€',
-      producer: 'Alhambra',
-      original_product_url: 'https://www.alhambraguitarras.com/',
-      translations: {
-        en: {
-          category: 'Classical Guitars',
-          description: 'Classical guitars with nylon strings for beginners and professionals.',
-        },
-      },
-    },
-    {
-      id: 4,
-      category: 'Ukulele',
-      image: '/src/img/products/ukulele-martin.jpg',
-      description: 'Ukulele za zabavo in sprostitev.',
-      price: '300,00€',
-      producer: 'Martin',
-      original_product_url: 'https://www.martinguitar.com/ukuleles',
-      translations: {
-        en: {
-          category: 'Ukulele',
-          description: 'Ukulele for fun and relaxation.',
-        },
-      },
-    },
-    {
-      id: 5,
-      category: 'Jazz kitare',
-      image: '/src/img/products/jazz-epiphone.jpg',
-      description: 'Jazz kitare za sofisticirane igralce.',
-      price: '99,00€',
-      producer: 'Epiphone',
-      original_product_url: 'https://www.epiphone.com/',
-      translations: {
-        en: {
-          category: 'Jazz Guitars',
-          description: 'Jazz guitars for sophisticated players.',
-        },
-      },
-    },
-  
-  ];

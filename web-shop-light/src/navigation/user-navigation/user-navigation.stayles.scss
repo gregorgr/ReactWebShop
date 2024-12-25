@@ -39,13 +39,24 @@
  }
   
  .user-chart-nav{
-  float: right;
-  width: 200px;
-  text-align: right;
-  align-items: right;
+    float: right;
+    width: 220px;
+    text-align: right;
+    align-items: right;
+ }
+
+ .user-chart-nav ul{
+    float: right;
+ }
+ .dropdwn-theme{
+    width: 80px;
+   background: #f3fbfd;
  }
   
 
+ .nav-wrapper .sl-nav ul li{
+  width: 100%;
+ }
 
 /*
 .dropbtn {

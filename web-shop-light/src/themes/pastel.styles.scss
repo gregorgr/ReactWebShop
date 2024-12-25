@@ -1,0 +1,29 @@
+$color-bg: #f7f9fc; // Svetlo siva podlaga
+$color-text: #333333; // Temno siva pisava
+$color-accent: #3e9dcc; // Svetlo modra za poudarke
+$color-link: #ff6600; // Oranžna za povezave
+$color-border: #cccccc; // Svetlo siva obroba
+
+.pastel-theme {
+  background-color: $color-bg;
+  color: $color-text;
+
+  a {
+    color: $color-link;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($color-link, 10%);
+    }
+  }
+
+  button {
+    background-color: $color-accent;
+    color: $color-bg;
+    border: 2px solid $color-border;
+
+    &:hover {
+      background-color: darken($color-accent, 10%);
+    }
+  }
+}

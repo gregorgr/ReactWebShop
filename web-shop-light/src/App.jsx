@@ -12,13 +12,17 @@ import Chart from './pages/shop/chart/chart.component';
 import StoresPage from './pages/stores-page/stores-page.component';
 import Contact from './pages/contact/contact.component';
 
-import User from './pages/user/user.component';
+//import User from './components/user/edit-user/edit-user.component';
+//
+import UserPage from './pages/user-pages/user-pages.components';
 import Orders from './pages/shop/orders/orders.component';
-import RegisterUser from './pages/user/user-register/user-register.component';
-import ChangePassword from './pages/user/user-change-password/user-change-password.component';
-import ForgotPassword from './pages/user/user-forgot-pass/user-forgot-pass.component';
+import RegisterUser from './pages/user-register/user-register.component';
+import ChangePassword from './components/user/user-change-password/user-change-password.component';
+import ForgotPassword from './components/user/user-forgot-pass/user-forgot-pass.component';
+/*import { themes } from './themes'; // Uvozimo zbirko tem
+*/
 
-import './App.css';
+import './App.scss';
 
 
 function App() {
@@ -26,7 +30,7 @@ function App() {
   const [language, setLanguage] = useState('en'); // Dvojezična podpora
 
 
-
+//  <Route path="/user/change-password" element={<ChangePassword language={language} />} />
 
 
   return (
@@ -43,12 +47,14 @@ function App() {
             <Route path="/shop/page/:page" element={<Shop language={language}  />} />
             <Route path="/shop/:category" element={<Shop language={language}  />} />
             <Route path="/shop/:category/page/:page" element={<Shop language={language}  />} />
+            <Route path="/shop/brand/:brand/:page" element={<Shop language={language}  />} />
             <Route path="/chart" element={<Chart language={language} />} />
             <Route path="/stores" element={<StoresPage language={language} />} />
             <Route path="/contact" element={<Contact language={language}/>} />
-            <Route path="/user" element={<User language={language} />} />
+            <Route path="/user" element={<UserPage language={language} />} />
+           
             <Route path="/register" element={<RegisterUser language={language} />} />
-            <Route path="/change-password" element={<ChangePassword language={language} />} />
+           
             <Route path="/forgot-password" element={<ForgotPassword language={language} />} />
             <Route path="/orders" element={<Orders language={language} />} />
           </Routes>
