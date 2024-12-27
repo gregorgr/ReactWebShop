@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import './user-sidebar-navigation.styles.scss';
+
 const texts = {
     sl: {
       edit: 'Uredi podatke',
@@ -30,7 +32,7 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
             </a>
           </li>
           <li className="list-group-item">
-            <a href={`/user/adress`} className="text-decoration-none text-dark">
+            <a href={`/user/addresses`} className="text-decoration-none text-dark">
               {texts[language].address}
             </a>
           </li>
@@ -39,6 +41,7 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
               {texts[language].change_pass}
             </a>
           </li>
+          <li className="list-group-item libreak"><span></span></li>
           <li className="list-group-item">
             <a href={`/user/orders`} className="text-decoration-none text-dark">
               {texts[language].orders}

@@ -8,7 +8,7 @@ import Header from './components/header/header.component';
 import Home from './pages/home-page/home-page.component';
 import Shop from './pages/shop/shop.component';
 //import Product from './pages/shop/product/product.component';
-import Chart from './pages/shop/chart/chart.component';
+import Cart from './pages/shop/cart/cart.component';
 import StoresPage from './pages/stores-page/stores-page.component';
 import Contact from './pages/contact/contact.component';
 
@@ -37,7 +37,7 @@ function App() {
     <>
     <Router>
       <Header language={language} setLanguage={setLanguage} />
-      <div class="container-fluid text-center">    
+      <div class="container-fluid text-center main-content">    
           <div class="row content">
           <Routes>
             <Route path="/" element={<Home language={language} setLanguage={setLanguage} />} />
@@ -48,10 +48,10 @@ function App() {
             <Route path="/shop/:category" element={<Shop language={language}  />} />
             <Route path="/shop/:category/page/:page" element={<Shop language={language}  />} />
             <Route path="/shop/brand/:brand/:page" element={<Shop language={language}  />} />
-            <Route path="/chart" element={<Chart language={language} />} />
+            <Route path="/cart" element={<Cart language={language} />} />
             <Route path="/stores" element={<StoresPage language={language} />} />
             <Route path="/contact" element={<Contact language={language}/>} />
-            <Route path="/user" element={<UserPage language={language} />} />
+            <Route path="/user/*" element={<UserPage language={language} />} />
            
             <Route path="/register" element={<RegisterUser language={language} />} />
            
