@@ -15,6 +15,8 @@ const Header = ({ language, setLanguage }) => {
       en: ['Home', 'User', 'Orders', 'Search'],
       sl: ['Na prvo stran', 'Uporabnik', 'Naročila', 'Iskanje'],
  };
+ // console.log("Header:Language prop:", language);
+
 
   return (
     <header>
@@ -47,7 +49,6 @@ const Header = ({ language, setLanguage }) => {
              // flex-fill  d-lg-flex justify-content-lg-between
             }
             <div className="nav navbar-nav navbar-right menu-container" id="templatemo_main_nav">
-
                   <MainNavigation language={language} setLanguage={setLanguage} />
                   <UserNavigation language={language}  />
             </div>

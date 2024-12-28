@@ -26,6 +26,7 @@ const UserNavigation = ({ language }) => {
     sl: ['Temen/svetel']
   }
 
+  const cartCount = 2;
 
   return (
     <div className='user-chart-nav'>
@@ -50,6 +51,7 @@ const UserNavigation = ({ language }) => {
             title={cartLabels[language][1]} // Tooltip za vizualne uporabnike
             aria-label={cartLabels[language][1]} // Dostopna oznaka za bralnike zaslona
             tabIndex="21" // Omogoča fokus s tipkovnico
+            className='cart-icon'
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -64,7 +66,7 @@ const UserNavigation = ({ language }) => {
               role="img" // Označi ikono kot sliko
               aria-label={language === 'en' ? 'Shopping Cart Icon' : 'Ikona košarice'}
             />  
-            <span></span>
+            <span className="cart-counter">{cartCount}</span>
           </Link>
         </li>
         <li className='dropdown'><Link to="/user"
@@ -81,6 +83,8 @@ const UserNavigation = ({ language }) => {
           }}
         ><FontAwesomeIcon icon={faUser} size="lg" /></Link>
         {/* Dropdown meni */}
+        {
+          /*
         <div className="dropdown-content">
 
             <Link to="/user"
@@ -113,7 +117,9 @@ const UserNavigation = ({ language }) => {
             >{labels[language][4]}</Link>
       
 
-          </div>  
+          </div> 
+          */
+      } 
         </li>
 
           <li className='dropdown'><Link
@@ -200,7 +206,7 @@ const UserNavigation = ({ language }) => {
 
 UserNavigation.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
-  setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
+ // setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
 export default UserNavigation;

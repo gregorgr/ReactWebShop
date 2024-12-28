@@ -1,37 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const ChangePassword = ({ language }) => {
-  const texts = {
-    en: {
-      title: 'Change Password',
-      oldPassword: 'Old Password',
-      newPassword: 'New Password',
-      confirmPassword: 'Confirm New Password',
-      submit: 'Change Password',
-    },
-    sl: {
-      title: 'Spremeni geslo',
-      oldPassword: 'Staro geslo',
-      newPassword: 'Novo geslo',
-      confirmPassword: 'Potrdite novo geslo',
-      submit: 'Spremeni geslo',
-    },
-  };
+//import { LanguageContext } from '../../../context/language-context/language-context';
+
+const ChangePassword = () => {
+  //const { language } = useContext(LanguageContext);
+  const { t } = useTranslation();
+
 
   return (
     <div>
-      <h2>{texts[language].title}</h2>
+      <h2>{t("ChangePassword.title")}</h2>
       <form>
-        <label>{texts[language].oldPassword}</label>
-        <input type="password" placeholder={texts[language].oldPassword} />
+        <label>{t("ChangePassword.oldPassword")}</label>
+        <input type="password" placeholder={t("ChangePassword.oldPassword")} />
 
-        <label>{texts[language].newPassword}</label>
-        <input type="password" placeholder={texts[language].newPassword} />
+        <label>{t("ChangePassword.newPassword")}</label>
+        <input type="password" placeholder={t("ChangePassword.newPassword")} />
 
-        <label>{texts[language].confirmPassword}</label>
-        <input type="password" placeholder={texts[language].confirmPassword} />
+        <label>{t("ChangePassword.confirmPassword")}</label>
+        <input type="password" placeholder={t("ChangePassword.confirmPassword")} />
 
-        <button type="submit">{texts[language].submit}</button>
+        <button type="submit">{t("ChangePassword.submit")}</button>
       </form>
     </div>
   );

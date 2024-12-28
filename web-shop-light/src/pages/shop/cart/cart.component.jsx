@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import './cart.styles.scss';
 
+
+import { CartContext } from '../../../context/cart-context/cart-context.provider';
+
 const Cart = ({ language }) => {
+// const { cart } = useContext(CartContext);
   const texts = {
     en: {
       title: 'Your Cart',
@@ -34,7 +38,7 @@ const Cart = ({ language }) => {
       id: 1,
       name: 'Item Name 1',
       image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-      itemNumber: '#QUE-007544-001',
+      //itemNumber: '#QUE-007544-001',
       quantity: 3,
       price: 5.0,
       inStock: true,
@@ -43,7 +47,7 @@ const Cart = ({ language }) => {
       id: 2,
       name: 'Item Name 2',
       image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-      itemNumber: '#QUE-007544-002',
+     // itemNumber: '#QUE-007544-002',
       quantity: 2,
       price: 15.0,
       inStock: true,
@@ -52,12 +56,13 @@ const Cart = ({ language }) => {
       id: 3,
       name: 'Item Name 3',
       image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-      itemNumber: '#QUE-007544-003',
+     // itemNumber: '#QUE-007544-003',
       quantity: 1,
       price: 25.0,
       inStock: false,
     },
   ];
+  
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2);

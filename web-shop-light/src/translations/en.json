@@ -1,0 +1,40 @@
+{
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login",
+      "register": "Don't have an account? Register",
+      "forgotPassword": "Forgot your password?"
+    },
+    "register":{
+        "title": "Register new user",
+        "name": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "submit": "Register"
+    },
+    "forgotPassword":{    
+            "title": "Forgot Password",
+            "email": "Your Email",
+            "submit": "Reset Password"     
+    },
+    "EditUser":{
+      "title": "User Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "submit": "Save Information"
+    },
+    "ChangePassword": {
+      "title": "Change Password",
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "submit": "Change Password"
+    }
+  }
+  
+  

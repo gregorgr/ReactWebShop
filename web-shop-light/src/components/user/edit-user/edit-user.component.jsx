@@ -1,12 +1,19 @@
-import PropTypes from 'prop-types';
-
+import { useState , useContext} from 'react';
+// import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 //import UserSidebar from './user-sidebar.component.js';
-
+import { LanguageContext } from '../../../context/language-context/language-context';
+// 
 import './edit-user.styles.scss';
 
 
-const EditUser = ({ language }) => {
+const EditUser = ({  }) => {
+  const { language } = useContext(LanguageContext);
+  const { t } = useTranslation();
+  
+  console.log("EditUser")
     // Teksti za večjezičnost
+    /*
     const texts = {
       en: {
         title: 'User Information',
@@ -24,63 +31,65 @@ const EditUser = ({ language }) => {
         phone: 'Telefonska številka',
         submit: 'Shrani podatke',
       },
-    };
+    };*/
   
     return (
       <div>
-        <h2>{texts[language].title}</h2>
+        <h2>{t('EditUser.title')}</h2>
         <form>
           {/* Ime */}
           <div>
-            <label>{texts[language].firstName}</label>
+            <label>{t('EditUser.firstName')}</label>
             <input
               type="text"
-              placeholder={texts[language].firstName}
+              placeholder={t('EditUser.firstName')}
               name="firstName"
             />
           </div>
   
           {/* Priimek */}
           <div>
-            <label>{texts[language].lastName}</label>
+            <label>{t('EditUser.lastName')}</label>
             <input
               type="text"
-              placeholder={texts[language].lastName}
+              placeholder={t('EditUser.lastName')}
               name="lastName"
             />
           </div>
   
           {/* Email */}
           <div>
-            <label>{texts[language].email}</label>
+            <label>{t('EditUser.email')}</label>
             <input
               type="email"
-              placeholder={texts[language].email}
+              placeholder={t('EditUser.email')}
               name="email"
             />
           </div>
   
           {/* Telefon */}
           <div>
-            <label>{texts[language].phone}</label>
+            <label>{t('EditUser.phone')}</label>
             <input
               type="tel"
-              placeholder={texts[language].phone}
+              placeholder={t('EditUser.phone')}
               name="phone"
             />
           </div>
   
           {/* Gumb za oddajo */}
-          <button type="submit">{texts[language].submit}</button>
+          <button type="submit">{t('EditUser.submit')}</button>
         </form>
       </div>
     );
   };
 
-  EditUser.propTypes = {
+  /*EditUser.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
   setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
-};
+
+  */
+// };
 
 
 export default EditUser;

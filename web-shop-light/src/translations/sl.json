@@ -1,0 +1,44 @@
+{
+    "login": {
+      "title": "Prijava",
+      "email": "E-pošta",
+      "password": "Geslo",
+      "submit": "Prijava",
+      "register": "Nimate računa? Registrirajte se",
+      "forgotPassword": "Ste pozabili geslo?"
+    },
+    "register":{
+        "title": "Registracija novega uporabnika",
+        "name": "Polno ime",
+        "email": "E-naslov",
+        "password": "Geslo",
+        "confirmPassword": "Potrdite geslo",
+        "submit": "Registriraj se"
+    },
+    "forgotPassword":{    
+        "title": "Pozabljeno geslo",
+        "email": "Vaš e-naslov",
+        "submit": "Ponastavi geslo"     
+    },
+    "EditUser":{
+      "title": "Uporabniški podatki",
+      "firstName": "Ime",
+      "lastName": "Priimek",
+      "email": "E-poštni naslov",
+      "phone": "Telefonska številka",
+      "submit": "Shrani podatke"
+    },
+    "ChangePassword": {
+      "title": "Spremeni geslo",
+      "oldPassword": "Staro geslo",
+      "newPassword": "Novo geslo",
+      "confirmPassword": "Potrdite novo geslo",
+      "submit": "Spremeni geslo"
+    }
+  }
+  
+  
+
+
+
+
