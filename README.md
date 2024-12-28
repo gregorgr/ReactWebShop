@@ -112,44 +112,55 @@ BrenkaloWebStore/web-shop-light/
 ├── package.json
 ├── package-lock.json
 ├── public
-│   └── vite.svg
 ├── README.md
 ├── src
-│   ├── App.css
 │   ├── App.jsx
+│   ├── App.scss
 │   ├── assets
-│   │   ├── crown.svg
 │   │   ├── css
 │   │   ├── data
-│   │   ├── flagSlo.80.png
-│   │   ├── flagSlo.png
-│   │   ├── flagUsa.png
 │   │   ├── img
-│   │   ├── istockphoto-1176410812-612x612.jpg
 │   │   ├── js
-│   │   ├── logo.png
-│   │   ├── react.svg
-│   │   ├── sloFlag-sq-50.png
-│   │   ├── sloFlag-sq.png
-│   │   ├── transparent_logo512.png
 │   │   └── webfonts
 │   ├── components
 │   │   ├── header
-│   │   ├── language-navigator
-│   │   ├── main-navigator
 │   │   ├── product-list
-│   │   └── user-navigation
+│   │   └── user
+│   ├── context
+│   │   ├── cart-context
+│   │   └── language-context
+│   ├── i18n.js
 │   ├── img
-│   │   └── products
+│   │   ├── products
+│   │   └── stores
 │   ├── index.css
 │   ├── main.jsx
 │   ├── navigation
-│   └── pages
-│       ├── contact
-│       ├── home-page
-│       ├── shop
-│       ├── stores
-│       └── user
+│   │   ├── language-navigator
+│   │   ├── main-navigator
+│   │   ├── user-navigation
+│   │   └── user-sidebar-navigation
+│   ├── pages
+│   │   ├── contact
+│   │   ├── home-page
+│   │   ├── shop
+│   │   ├── stores
+│   │   ├── stores-page
+│   │   └── user
+│   ├── services
+│   │   ├── authentication
+│   │   ├── categories
+│   │   ├── products
+│   │   └── stores
+│   ├── themes
+│   │   ├── blue-yellow.styles.scss
+│   │   ├── dark.styles.scss
+│   │   ├── high-contrast.styles.scss
+│   │   ├── light-dark.styles.scss
+│   │   └── pastel.styles.scss
+│   └── translations
+│       ├── en.json
+│       └── sl.json
 ├── vite.config.js
 └── yarn.lock
 ```
