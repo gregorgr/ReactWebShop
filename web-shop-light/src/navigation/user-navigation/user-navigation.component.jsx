@@ -1,8 +1,10 @@
-//import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser, faCartShopping , faPenToSquare, faPaintbrush } from '@fortawesome/free-solid-svg-icons';
+
+import { AuthContext } from '../../context/auth-context/auth-context.utils';
 
 import PropTypes from 'prop-types';
 
@@ -11,6 +13,8 @@ import './user-navigation.stayles.scss';
 
 
 const UserNavigation = ({ language }) => {
+
+  const { user, logout } = useContext(AuthContext);
   const labels = {
     en: ['Search', 'Cart', 'User', 'Edit', 'Orders', 'Theme'],
     sl: ['Iskanje', 'Košarica', 'Uporabnik', 'Uredi', 'Naročila', 'Tema' ],
@@ -71,8 +75,8 @@ const UserNavigation = ({ language }) => {
         </li>
         <li className='dropdown'><Link to="/user"
           className='"dropbtn'
-          title={labels[language][2]} // Tooltip za vizualne uporabnike
-          aria-label={labels[language][2]}// Dostopna oznaka za bralnike zaslona
+          title={ user ? labels[language][2] +': '+user : labels[language][2]} // Tooltip za vizualne uporabnike
+          aria-label={ user ? labels[language][2] +': '+user : labels[language][2]}// Dostopna oznaka za bralnike zaslona
           tabIndex="22" // Omogoča fokus s tipkovnico
           style={{
             display: 'flex',

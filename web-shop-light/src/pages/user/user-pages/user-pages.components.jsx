@@ -13,7 +13,7 @@ import EditUser from '../../../components/user/edit-user/edit-user.component';
 import ChangePassword from '../../../components/user/user-change-password/user-change-password.component';
 import UserAddresses  from '../../../components/user/user-addresses/user-addresses.component';
 
-
+import ProtectedRoute from '../../../components/protected-route/protected-route.component';
 
 
 const UserPages = () => {
@@ -33,10 +33,10 @@ const UserPages = () => {
         <h1>UserPage</h1>
         <h2>{language === 'sl' ? 'Stran uporabnika' : 'User Page'}</h2>
         <Routes>
-            <Route path="edit" element={<EditUser language={language} />} />
-            <Route path="addresses" element={<UserAddresses language={language} />} />
-            <Route path="change-password" element={<ChangePassword language={language} />} />
-            <Route path="orders" element={<Orders language={language} />} />
+            <Route path="edit" element={<ProtectedRoute><EditUser language={language} /></ProtectedRoute>} />
+            <Route path="addresses" element={<ProtectedRoute><UserAddresses language={language} /></ProtectedRoute>} />
+            <Route path="change-password" element={<ProtectedRoute><ChangePassword language={language} /></ProtectedRoute>} />
+            <Route path="orders" element={<ProtectedRoute><Orders language={language} /></ProtectedRoute>} />
           </Routes>
         </div>
     </>

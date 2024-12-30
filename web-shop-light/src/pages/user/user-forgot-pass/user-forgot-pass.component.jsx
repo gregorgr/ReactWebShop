@@ -19,15 +19,17 @@ const ForgotPassword = () => {
   };
   */
   return (
-    <div>
-      <h2>{t('forgotPassword.title')}</h2>
+    <div className="container">
+    <div className="row justify-content-center">
+      <div className="col-md-6">
+        <h2 className="text-center my-4">{t('forgotPassword.title')}</h2>
       <form>
         <label>{t('forgotPassword.email')}</label>
         <input type="email" placeholder={t('forgotPassword.email')} />
 
-        <button type="submit">{t('forgotPassword.submit')}</button>
+        <button type="submit" className="btn btn-primary w-100">{t('forgotPassword.submit')}</button>
       </form>
-    </div>
+    </div> </div> </div>
   );
 };
 

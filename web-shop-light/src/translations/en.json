@@ -1,6 +1,8 @@
 {
     "login": {
       "title": "Login",
+      "hello" : "Hello",
+      "username": "User name",
       "email": "Email",
       "password": "Password",
       "submit": "Login",
@@ -9,19 +11,31 @@
     },
     "register":{
         "title": "Register new user",
-        "name": "Full Name",
+        "username": "User name",
+        "firstname": "First Name",
+        "lastname": "Last Name",
         "email": "Email",
         "password": "Password",
+        "passwordmismatch": "Passwords do not match",
         "confirmPassword": "Confirm Password",
-        "submit": "Register"
+        "name": "Full Name",
+        "submit": "Register",
+        "pwdstrength": "Password Strength",
+        "pwdstrength0": "",
+        "pwdstrength1": "Very Weak",
+        "pwdstrength2": "Weak",
+        "pwdstrength3": "Good",
+        "pwdstrength4": "Very Good"
     },
     "forgotPassword":{    
             "title": "Forgot Password",
+            "username": "User name",
             "email": "Your Email",
             "submit": "Reset Password"     
     },
     "EditUser":{
       "title": "User Information",
+      "username": "User name",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",
@@ -30,11 +44,16 @@
     },
     "ChangePassword": {
       "title": "Change Password",
-      "oldPassword": "Old Password",
+      "oldPassword": "Current Password",
       "newPassword": "New Password",
       "confirmPassword": "Confirm New Password",
       "submit": "Change Password"
+    },
+    "orders":{
+      "title":"Your Orders",
+      "empty": "No orders to display at the moment."
     }
+
   }
   
   

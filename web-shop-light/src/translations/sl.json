@@ -1,6 +1,8 @@
 {
     "login": {
       "title": "Prijava",
+      "hello" : "Pozdravljeni",
+      "username": "Uporabniško ime",
       "email": "E-pošta",
       "password": "Geslo",
       "submit": "Prijava",
@@ -8,20 +10,32 @@
       "forgotPassword": "Ste pozabili geslo?"
     },
     "register":{
+
         "title": "Registracija novega uporabnika",
+        "username": "Uporabniško ime",
         "name": "Polno ime",
         "email": "E-naslov",
         "password": "Geslo",
         "confirmPassword": "Potrdite geslo",
-        "submit": "Registriraj se"
+        "submit": "Registriraj se",
+        "firstname": "Ime",
+        "lastname": "Priimek",
+        "pwdstrength":"Jakost gesla",
+        "pwdstrength0":"",
+        "pwdstrength1":"Zelo slabo",
+        "pwdstrength2":"Slabo",
+        "pwdstrength3":"Dobro",
+        "pwdstrength4":"Zelo dobro"
     },
     "forgotPassword":{    
         "title": "Pozabljeno geslo",
+        "username": "Uporabniško ime",
         "email": "Vaš e-naslov",
         "submit": "Ponastavi geslo"     
     },
     "EditUser":{
       "title": "Uporabniški podatki",
+      "username": "Uporabniško ime",
       "firstName": "Ime",
       "lastName": "Priimek",
       "email": "E-poštni naslov",
@@ -34,6 +48,10 @@
       "newPassword": "Novo geslo",
       "confirmPassword": "Potrdite novo geslo",
       "submit": "Spremeni geslo"
+    },
+    "orders":{
+      "title":"Naročila",
+      "empty": "Trenutno ni naročil za prikaz."
     }
   }
   

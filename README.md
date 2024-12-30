@@ -125,8 +125,10 @@ BrenkaloWebStore/web-shop-light/
 │   ├── components
 │   │   ├── header
 │   │   ├── product-list
+│   │   ├── protected-route
 │   │   └── user
 │   ├── context
+│   │   ├── auth-context
 │   │   ├── cart-context
 │   │   └── language-context
 │   ├── i18n.js
