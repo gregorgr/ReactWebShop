@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 import './user-navigation.stayles.scss';
 
-import CartIcon from "../../components/cart-icon/cart-icon.component";
+//import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartPreview from "../../components/cart-preview/cart-preview.component"; 
 // '../components/cart-preview/cart-preview.component';
 
@@ -71,7 +71,7 @@ const UserNavigation = ({ language }) => {
         </li>
        
        <li>
-          <CartIcon />
+
           <CartPreview />
         </li>
         <li className='dropdown'><Link to="/user"

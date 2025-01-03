@@ -29,6 +29,7 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: action.payload.quantity });
       }
+      
       const { totalQuantity, totalAmount, totalVAT } = calculateTotals(state.items);
       state.totalQuantity = totalQuantity;
       state.totalAmount = totalAmount;

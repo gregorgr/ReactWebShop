@@ -73,6 +73,7 @@
       "shipping" : "Shipping",
       "taxinfo" : "Tax",
       "total" :"Total",
+      "totalInclVat": "Total (incl. VAT)",
       "promoCode":"Have A Promo Code?",
       "icon": "Shopping Cart Icon",
       "checkout": "Checkout",
@@ -80,7 +81,10 @@
       "outofstock":"Out of Stock",
       "onstock":"On Stock",
       "removefromcart": "Remove from cart",
-      "clearcart": "Clear cart"
+      "clearcart": "Clear cart",
+      "selectShipping": "Select Shipping",
+      "standardShipping": "Standard Shipping",
+      "expressShipping": "Express Shipping"
 
     }
   }

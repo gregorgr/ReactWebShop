@@ -13,50 +13,16 @@ import './cart.styles.scss';
 
 const Cart = ({ language }) => {
   const { t } = useTranslation();
-  const { items, totalQuantity, totalAmount, totalVAT } = useSelector((state) => state.cart);
+  const { items, totalQuantity, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-// const { cart } = useContext(CartContext);
 
+  // Stalna vrednost za DDV in poštnino
+  const VAT_RATE = 0.22; // 22%
+  const SHIPPING_COST = 5.0; // Poštnina
 
-  const cartlist = [
-    {
-      id: 1,
-      name: 'Item Name 1',
-      image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-      //itemNumber: '#QUE-007544-001',
-      quantity: 3,
-      price: 5.0,
-      inStock: true,
-    },
-    {
-      id: 2,
-      name: 'Item Name 2',
-      image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-     // itemNumber: '#QUE-007544-002',
-      quantity: 2,
-      price: 15.0,
-      inStock: true,
-    },
-    {
-      id: 3,
-      name: 'Item Name 3',
-      image: 'http://lorempixel.com/output/technics-q-c-300-300-4.jpg',
-     // itemNumber: '#QUE-007544-003',
-      quantity: 1,
-      price: 25.0,
-      inStock: false,
-    },
-  ];
-  
-
-  const calculateTotal = () => {
-    return cartlist.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2);
-  };
-
-  const subtotal = calculateTotal();
-  const shipping = 5.0;
-  const tax = 4.0;
-  const total = (parseFloat(subtotal) + shipping + tax).toFixed(2);
+  // Izračuni
+  const totalVAT = (totalAmount * VAT_RATE).toFixed(2); // Izračun DDV
+  const grandTotal = (parseFloat(totalAmount) + parseFloat(totalVAT) + SHIPPING_COST).toFixed(2); // Skupaj z DDV in poštnino
 
   return (
     <div className="wrap cf">
@@ -66,48 +32,56 @@ const Cart = ({ language }) => {
         <a href="/shop" className="continue">{t("cart.continueShopping")}</a>
       </div>
 
-
-
       <div className="cart">
-      <ul className="cartWrap">
-      {items.map((item, index) => (
-         <li className={`items ${index % 2 === 0 ? 'odd' : 'even'}`} key={item.id}>
-            <div className="infoWrap">
-              <div className="cartSection">
-                <img src={item.image} alt={item.name} className="itemImg" />
-                <p className="itemNumber">{item.itemNumber}</p>
-                <h3>{item.name}</h3>
-                <p>
+        <ul className="cartWrap">
+          {items.map((item, index) => (
+            <li className={`items ${index % 2 === 0 ? 'odd' : 'even'}`} key={item.id}>
+              <div className="infoWrap">
+                <div className="cartSection">
+                  <img src={item.image} alt={item.name} className="itemImg" />
+                  <p className="itemNumber">{item.itemNumber}</p>
+                  <h3>{item.name}</h3>
+                  <p>
                     <input
                       type="text"
                       className="qty"
                       value={item.quantity}
                       readOnly
                     />{' '}
-                    x {item.price}€
-                    {
-                      // x ${item.price.toFixed(2)}
-                    }
+                    x {item.price.toFixed(2)}€
                   </p>
                   <p className={`stockStatus ${item.inStock ? '' : 'out'}`}>
-                    {item.item_stock>0 ? t("cart.onstock") : t("cart.outofstock")}
+                    {item.inStock ? t("cart.onstock") : t("cart.outofstock")}
                   </p>
-              </div>
-              <div className="prodTotal cartSection">
+                </div>
+                <div className="prodTotal cartSection">
                   <p>{(item.quantity * item.price).toFixed(2)} €</p>
                 </div>
                 <div className="cartSection removeWrap">
-                  <button className="remove" title={t("cart.removefromcart")} onClick={() => dispatch(removeItem({ id: item.id }))}>x</button>
+                  <button
+                    className="cart-button"
+                    title={t("cart.removefromcart")}
+                    onClick={() => dispatch(removeItem({ id: item.id }))}
+                  >
+                    x
+                  </button>
                 </div>
-            </div>
-         </li>
-      ))}
-      </ul>
-      <p>Total Items: {totalQuantity}</p>
-      <p>Subtotal: {totalAmount.toFixed(2)} €</p>
-      <p>VAT (22%): {totalVAT.toFixed(2)} €</p> {/* Prikaz DDV */}
-      <p>Total (incl. VAT): ${(totalAmount + totalVAT).toFixed(2)}</p> {/* Skupen znesek z DDV */}
-      <button onClick={() => dispatch(clearCart())}>{("cart.clearcart")}</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <p>{t("cart.totalItems")}: {totalQuantity}</p>
+        <p>{t("cart.subtotal")}: {totalAmount.toFixed(2)} €</p>
+        <p>{t("cart.vat")}: {totalVAT} €</p> {/* Prikaz DDV */}
+        <p>{t("cart.totalInclVat")}: {grandTotal} €</p> {/* Skupen znesek z DDV in poštnino */}
+
+        <button
+          className="cart-button"
+          onClick={() => dispatch(clearCart())}
+        >
+          {t("cart.clearcart")}
+        </button>
       </div>
 
       <div className="promoCode">
@@ -120,22 +94,22 @@ const Cart = ({ language }) => {
         <ul>
           <li className="totalRow">
             <span className="label">{t("cart.subtotal")}</span>
-            <span className="value">${subtotal}</span>
+            <span className="value">{totalAmount.toFixed(2)} €</span>
           </li>
           <li className="totalRow">
             <span className="label">{t("cart.shipping")}</span>
-            <span className="value">${shipping.toFixed(2)}</span>
+            <span className="value">{SHIPPING_COST.toFixed(2)} €</span>
           </li>
           <li className="totalRow">
-            <span className="label">{t("cart.tax")}</span>
-            <span className="value">${tax.toFixed(2)}</span>
+            <span className="label">{t("cart.vat")}</span>
+            <span className="value">{totalVAT} €</span>
           </li>
           <li className="totalRow final">
             <span className="label">{t("cart.total")}</span>
-            <span className="value">${total}</span>
+            <span className="value">{grandTotal} €</span>
           </li>
           <li className="totalRow">
-            <a href="#" className="btn continue">{t("cart.checkout")}</a>
+            <a href="/checkout" className="btn continue">{t("cart.checkout")}</a>
           </li>
         </ul>
       </div>

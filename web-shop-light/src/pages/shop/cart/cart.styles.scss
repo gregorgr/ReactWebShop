@@ -100,7 +100,12 @@ body {
     }
   }
 }
-
+.cart-button{
+  padding:  0.2rem 0.75rem;
+  margin-left: 1em;
+  color:  #fff;
+  background-color:  rgb(60, 207, 212);;
+}
 // TABLE HEADING 
 
 .tableHead {
@@ -238,7 +243,7 @@ a.remove {
   font-family: $fontSans;
   color: #ffffff;
   font-weight: bold;
-  background: #e0e0e0;
+  background:  rgb(60, 207, 212);;
   padding: .5em;
   font-size: .75em;
   display: inline-block;

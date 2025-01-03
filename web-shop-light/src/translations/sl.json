@@ -77,9 +77,12 @@
       "gotocheckout": "Na blagajno",
       "outofstock":"Ni na zalogi",
       "onstock":"Ni na zalogi",
-       "removefromcart": "Odstrani iz košarice",
-      "clearcart": "Izprazni košarico"
-
+      "removefromcart": "Odstrani iz košarice",
+      "clearcart": "Izprazni košarico",
+      "totalInclVat": "Skupaj (z DDBT)",
+      "selectShipping": "Izberi način pošiljanja",
+      "standardShipping": "Klasično",
+      "expressShipping": "Hitra pošta"
     }
   }
   

@@ -6,6 +6,9 @@ import { removeItem, clearCart } from '../../features/cart/cartSlice';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Uvozi useNavigate
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping} from '@fortawesome/free-solid-svg-icons';
+
 //import B
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -57,7 +60,15 @@ const CartPreview = () =>{
         <div className="cart-icon-container">
         <div className={`cart-preview ${isOpen ? 'open' : ''}`}>
         <div className="cart-icon" onClick={toggleCartPreview}>
-          <i className="fas fa-shopping-cart"></i>
+             <FontAwesomeIcon
+                                  icon={faCartShopping}
+                                  size="lg"
+                                  role="img" // Označi ikono kot sliko
+                                  aria-label={t("shop.icon")}
+                                /> 
+          {
+            // <i className="fas fa-shopping-cart"></i>
+          } 
           {cart.items.length > 0 && <span className="cart-count">{cart.items.length}</span>}
         </div>
   
