@@ -1,5 +1,6 @@
-import  { useState, useMemo } from 'react';
+import  { useState, useMemo, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 // import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,15 +10,20 @@ import './shop.styles.scss';
 
 import ListedProduct from './listed-product/listed-product.component.jsx';
 
-import { products } from '../../services/products/products.component.jsx'; // As
+
 import {categories} from '../../services/categories/categories.component.jsx';
+
+import { ProductContext } from '../../context/products/products.context.jsx';
+// import { products } from '../../services/product/products.component.jsx'; // As
 
 
 //const getRandomStars = () => Math.floor(Math.random() * 5) + 1;
 
 const Shop = ({ language}) => {
  // const { category, page } = useParams(); 
+  const { t } = useTranslation();
   const { category: rawCategory, page } = useParams();
+  const {products} = useContext( ProductContext);
   const category = rawCategory ? decodeURIComponent(rawCategory) : null;
 
   const { brand: rawBrand, bpage } = useParams();
@@ -28,16 +34,13 @@ const Shop = ({ language}) => {
   const navigate = useNavigate();
 
   const [sortOption, setSortOption] = useState('');
-  const texts = {
-    en: { title: 'Welcome to the Shop', message: 'Browse our products!', cat: 'Product Categories' },
-    sl: { title: 'Dobrodošli v trgovini', message: 'Prebrskajte naše izdelke!' , cat: 'Kategorije izdelkov'},
-  };
+
 
   //const filteredProducts = category
   // ? products.filter((product) => product.category === category)
   //: products;
    // Filter products if a category is specified
-   const filteredProducts1 = useMemo(() => {
+  const filteredProducts1 = useMemo(() => {
     return category
       ? products.filter((product) => product.category === category)
       : products;
@@ -144,10 +147,11 @@ const handlePageChange = (newPage) => {
 
 
     <div className="col-sm-2 sidenav">
-      <h5>{texts[language].cat}</h5>
+      
+      <h5>{t("shop.cat")}</h5>
       <ul className="list-group">
         <li className="list-group-item"> <a href={`/shop/`} className="text-decoration-none text-dark">
-              {language === 'sl' ? "Vse" : "All"}
+          {t("shop.all")}  
               </a>
          </li>
         { 
@@ -184,7 +188,7 @@ const handlePageChange = (newPage) => {
 
       </ul>
       <div className="brands-section">
-  <h5>{language === 'sl' ? 'Znamke' : 'Brands'}</h5>
+  <h5>{t("shop.brands")}</h5>
   <ul className="list-group">
    
     { /* /
@@ -216,12 +220,15 @@ const handlePageChange = (newPage) => {
 
   <div className="col-sm-8 text-left product-list"> 
 
-      <h2>{texts[language].title}</h2>
-      <p>{texts[language].message}</p>
+      <h2>{t("shop.title")}</h2>
+      <p>{t("shop.message")}</p>
 
       <div className="ccontainer-fluid p-0">
+      <div className="title-row">
       <div className="row mb-3 gx-0">
-        <div className="col-12 d-flex justify-content-end">
+      <div className="col-10 d-flex justify-content-end">
+        </div>
+        <div className="col-11 d-flex justify-content-end">
           <select className="form-select w-auto" value={sortOption} onChange={handleSortChange}>
           {sortLabels.map(({ value, label, icon }) => (
                 <option key={value} value={value}>
@@ -230,6 +237,7 @@ const handlePageChange = (newPage) => {
               ))}
           </select>
         </div>
+      </div>
       </div>
       <div className="row gx-0 gy-3">
 

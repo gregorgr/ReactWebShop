@@ -1,11 +1,14 @@
 {
     "login": {
       "title": "Login",
+      "login": "Login",
+      "logout": "Log out",
       "hello" : "Hello",
       "username": "User name",
       "email": "Email",
       "password": "Password",
       "submit": "Login",
+
       "register": "Don't have an account? Register",
       "forgotPassword": "Forgot your password?"
     },
@@ -52,8 +55,34 @@
     "orders":{
       "title":"Your Orders",
       "empty": "No orders to display at the moment."
-    }
+    },
+    "shop" : {
+      "title" : "Welcome to the Shop",
+      "message": "Browse our products!",
+      "cat" :"Product Categories",
+      "all" : "All",
+      "brands": "Brands",
+      "icon": "Shopping Cart Icon",
+      "gotocheckout": "Go to checkout"
+    },
+    "cart":{
+      "title": "Your Cart",
+      "message": "Review your cart details.",
+      "continueShopping":"Continue Shopping",
+      "subtotal" : "Subtotal",
+      "shipping" : "Shipping",
+      "taxinfo" : "Tax",
+      "total" :"Total",
+      "promoCode":"Have A Promo Code?",
+      "icon": "Shopping Cart Icon",
+      "checkout": "Checkout",
+      "gotocheckout": "Go to checkout",
+      "outofstock":"Out of Stock",
+      "onstock":"On Stock",
+      "removefromcart": "Remove from cart",
+      "clearcart": "Clear cart"
 
+    }
   }
   
   

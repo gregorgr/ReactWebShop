@@ -15,7 +15,7 @@ body{
 
 body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px !important;
+  font-size: 10px !important;
   font-weight: 300 !important;
 }
 .main-content{
@@ -73,7 +73,15 @@ body, ul, li, p, a, label, input, div {
       .row.content {height:auto;} 
     }
 
+    .list-group{
+      padding-bottom: 1em;
+    }
+    .list-group-item ,
+    .list-group-item a{
 
+      font-size: 1.2em !important;
+      text-align: left;
+    }
 
 /*
 

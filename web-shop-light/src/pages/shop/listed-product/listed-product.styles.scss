@@ -1,12 +1,12 @@
 
 .card-body h2{
-    line-height: 1em;
+    line-height: 0.85em;
     padding: 0;
     margin: 0;
 }
 .card-body h2 a {
   text-align: center;
-    font-size: 1.0em !important;
+    font-size: 0.55em !important;
     color: #252525;
     font-weight: 300 !important;
     font-weight: bold;
@@ -14,7 +14,7 @@
 
 
   .card-body h2 a:hover{
-    font-size: 3.0em;
+  /*  font-size: 0.85em;*/
     color: #39a848;
     font-weight: bold;
 }

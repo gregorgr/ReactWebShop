@@ -2,18 +2,29 @@
 //import { useState } from 'react';
 import  { useContext }  from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../../context/cart-context/cart-context.provider';
+//import { CartContext } from '../../../context/cart-context/cart-context.provider';
+
+
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../../features/cart/cartSlice';
 // import React from 'react';
 import PropTypes from 'prop-types';
 import './listed-product.styles.scss';
 
 function ListedProduct({ product, language }) {
 
-  const { addItemToCart } = useContext(CartContext);
+  //const { addItemToCart } = useContext(CartContext);
   const languageToUse = language || 'en'; 
   const translatedCategory = product.translations?.[language]?.category || product.category;
   const translatedProductTitle = product.translations?.[language]?.title || product.title;
 
+  const dispatch = useDispatch();
+
+  const VAT_RATE = 0.22; // DDV (20%)
+
+
+  /*
   const handleAddToCart = (e) => {
     e.preventDefault(); // Prepreči preusmeritev strani
     console.log(product.id);
@@ -32,6 +43,7 @@ function ListedProduct({ product, language }) {
       quantity: 1, // Začetna količina
     });
   };
+*/
 
   /*
       id: product.id,
@@ -40,6 +52,18 @@ function ListedProduct({ product, language }) {
       image: product.image,
       quantity: 1, // Začetna količina
   */
+
+ const handleAddToCart = () => {
+        dispatch(addItem({ 
+          id: product.id, 
+          name: translatedProductTitle, 
+          price: product.price, 
+          quantity: 1,
+          vat_rate: product.vat_rate,
+          item_stock: product.item_stock,
+          image: product.image }));
+ };
+
   return (
     <div className="card  product-wap rounded-0">
       <div className="card rounded-0">
@@ -109,6 +133,8 @@ ListedProduct.propTypes = {
         price: PropTypes.string.isRequired,
         producer: PropTypes.string,
         original_product_url: PropTypes.string,
+        vat_rate: PropTypes.number.isRequired,
+        item_stock: PropTypes.number.isRequired,
         translations: PropTypes.objectOf(
           PropTypes.shape({
             category: PropTypes.string,

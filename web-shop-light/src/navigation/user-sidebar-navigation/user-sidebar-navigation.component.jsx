@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './user-sidebar-navigation.styles.scss';
+
+import { AuthContext } from '../../context/auth-context/auth-context.utils';
 
 const texts = {
     sl: {
@@ -35,6 +38,15 @@ const texts = {
 
 */
 const UserSidebarNavigation = ({ language = 'sl' }) => {
+
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = (e) => {
+    e.preventDefault(); // Preprečimo privzeto obnašanje povezave
+    logout();
+   // navigate('/login'); // Preusmeritev na stran za prijavo
+  };
+
     return (
       <>
  
@@ -62,6 +74,17 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
               {texts[language].orders}
             </Link>
           </li>
+          <li className="list-group-item libreak"><span></span></li>
+          <li className="list-group-item">
+          <a
+                href="/logout"
+                onClick={handleLogout}
+                style={{ marginLeft: '10px', cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+              >
+                Logout
+              </a>
+          </li>
+      
         </ul>
 
       </>
@@ -69,3 +92,9 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
   };
   
   export default UserSidebarNavigation;
+
+
+  /*
+<button onClick={handleLogout} style={{ marginLeft: '10px' }}>Logout</button>
+
+  */

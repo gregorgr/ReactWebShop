@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faUser, faCartShopping , faPenToSquare, faPaintbrush } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faUser, faPenToSquare, faPaintbrush } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthContext } from '../../context/auth-context/auth-context.utils';
 
@@ -10,27 +11,46 @@ import PropTypes from 'prop-types';
 
 import './user-navigation.stayles.scss';
 
-
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartPreview from "../../components/cart-preview/cart-preview.component"; 
+// '../components/cart-preview/cart-preview.component';
 
 const UserNavigation = ({ language }) => {
-
+  const { t } = useTranslation();
   const { user, logout } = useContext(AuthContext);
   const labels = {
     en: ['Search', 'Cart', 'User', 'Edit', 'Orders', 'Theme'],
     sl: ['Iskanje', 'Košarica', 'Uporabnik', 'Uredi', 'Naročila', 'Tema' ],
   };
-
+/*
   const cartLabels = {
     en: ['Cart', 'Go to your shopping cart'],
     sl: ['Košarica', 'Pojdi v svojo košarico'],
   };
-
+*/
+/*
   const themeLabels = {
     en: ['Dark/white'],
     sl: ['Temen/svetel']
   }
+*/
+  /*
+ <FontAwesomeIcon
+              icon={faCartShopping}
+              size="lg"
+              role="img" // Označi ikono kot sliko
+              aria-label={language === 'en' ? 'Shopping Cart Icon' : 'Ikona košarice'}
+            />  
+            <span className="cart-counter">{cartCount}</span>
+  */
+ 
 
-  const cartCount = 2;
+
+  const handleLogout = (e) => {
+    e.preventDefault(); // Preprečimo privzeto obnašanje povezave
+    logout();
+   // navigate('/login'); // Preusmeritev na stran za prijavo
+  };
 
   return (
     <div className='user-chart-nav'>
@@ -50,28 +70,9 @@ const UserNavigation = ({ language }) => {
         <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" /></Link>
         </li>
        
-       <li><Link
-            to="/cart"
-            title={cartLabels[language][1]} // Tooltip za vizualne uporabnike
-            aria-label={cartLabels[language][1]} // Dostopna oznaka za bralnike zaslona
-            tabIndex="21" // Omogoča fokus s tipkovnico
-            className='cart-icon'
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              size="lg"
-              role="img" // Označi ikono kot sliko
-              aria-label={language === 'en' ? 'Shopping Cart Icon' : 'Ikona košarice'}
-            />  
-            <span className="cart-counter">{cartCount}</span>
-          </Link>
+       <li>
+          <CartIcon />
+          <CartPreview />
         </li>
         <li className='dropdown'><Link to="/user"
           className='"dropbtn'
@@ -86,6 +87,73 @@ const UserNavigation = ({ language }) => {
             color: 'inherit',
           }}
         ><FontAwesomeIcon icon={faUser} size="lg" /></Link>
+          <div className="dropdown-content">
+            { user ? (
+              <>
+                  <Link to="/user"
+                                
+                  title={labels[language][3]} // Tooltip za vizualne uporabnike
+                  aria-label={labels[language][3]}// Dostopna oznaka za bralnike zaslona
+                  tabIndex="22" // Omogoča fokus s tipkovnico
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                  }}
+                  ><FontAwesomeIcon icon={faPenToSquare} size="lg" />{labels[language][3]} </Link>
+                              <Link to="/orders"
+                      title={labels[language][4]} // Tooltip za vizualne uporabnike
+                      aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                      tabIndex="23" // Omogoča fokus s tipkovnico
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                      }}
+            
+            
+            >{labels[language][4]}</Link>
+                  <Link to="/logout"
+                                
+                  title={t("login.logout")} // Tooltip za vizualne uporabnike
+                  aria-label={t("login.logout")}// Dostopna oznaka za bralnike zaslona
+                  tabIndex="22" // Omogoča fokus s tipkovnico
+                  href="/user/logout"
+                  onClick={handleLogout}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                  }}
+                  >{t("login.logout")}</Link>
+              </>
+
+             ) : (
+
+  <Link to="/user/login"
+              
+              title={t("login.login")} // Tooltip za vizualne uporabnike
+              aria-label={t("login.login")}// Dostopna oznaka za bralnike zaslona
+              tabIndex="22" // Omogoča fokus s tipkovnico
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              >{t("login.login")}</Link>
+              )}
+           
+
+
+              </div>
         {/* Dropdown meni */}
         {
           /*
@@ -105,20 +173,7 @@ const UserNavigation = ({ language }) => {
               }}
             ><FontAwesomeIcon icon={faPenToSquare} size="lg" />{labels[language][3]} </Link>
             
-            <Link to="/orders"
-                      title={labels[language][4]} // Tooltip za vizualne uporabnike
-                      aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
-                      tabIndex="23" // Omogoča fokus s tipkovnico
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                      }}
-            
-            
-            >{labels[language][4]}</Link>
+
       
 
           </div> 
@@ -204,6 +259,7 @@ const UserNavigation = ({ language }) => {
               </div>
             </li>       
       </ul>
+      
     </div>
   );
 };

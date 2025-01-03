@@ -1,6 +1,8 @@
 {
     "login": {
-      "title": "Prijava",
+      "title": "Prijava",     
+      "login": "Prijava",
+      "logout": "Odjava",
       "hello" : "Pozdravljeni",
       "username": "Uporabniško ime",
       "email": "E-pošta",
@@ -10,7 +12,6 @@
       "forgotPassword": "Ste pozabili geslo?"
     },
     "register":{
-
         "title": "Registracija novega uporabnika",
         "username": "Uporabniško ime",
         "name": "Polno ime",
@@ -52,6 +53,33 @@
     "orders":{
       "title":"Naročila",
       "empty": "Trenutno ni naročil za prikaz."
+    },
+    "shop" : {
+      "title" : "Dobrodošli v trgovini",
+      "message": "Prebrskajte naše izdelke!",
+      "cat" :"Kategorije izdelkov",
+      "all" : "Vse",
+      "brands": "Znamke",
+      "icon": "Ikona košarice",
+      "gotocheckout": "Na blagajno"
+    },
+    "cart":{
+      "title": "Vaša košarica",
+      "message": "Preglejte podrobnosti vaše košarice.",
+      "continueShopping":"Nadaljujte z nakupovanjem",
+      "subtotal" : "Vmesni seštevek",
+      "shipping" : "Poštnina",
+      "taxinfo" : "Davek",
+      "total" :"Skupaj",
+      "promoCode":"Imate promocijsko kodo?",
+      "icon": "Ikona košarice",
+      "checkout": "Na blagajno",
+      "gotocheckout": "Na blagajno",
+      "outofstock":"Ni na zalogi",
+      "onstock":"Ni na zalogi",
+       "removefromcart": "Odstrani iz košarice",
+      "clearcart": "Izprazni košarico"
+
     }
   }
   

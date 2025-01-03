@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 //import { createContext, useState, useContext } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n'; // See setup below
 import { LanguageProvider } from './context/language-context/language-context.jsx';
@@ -29,27 +30,25 @@ import Orders from './pages/shop/orders/orders.component';
 */
 
 import { CartProvider } from './context/cart-context/cart-context.provider';
-
+import { ProductsProvider } from './context/products/products.context.jsx';
 //import Cart from './context/cart-context/cart-context.component';
 
 import './App.scss';
 
 
 function App() {
-
   const [language, setLanguage] = useState('en'); // Dvojezična podpora
-
-
-//  <Route path="/user/change-password" element={<ChangePassword language={language} />} />
 
 
   return (
     <>
     <LanguageProvider>
       <I18nextProvider i18n={i18n}>
+  
         <AuthProvider>
+          <ProductsProvider>
             <CartProvider>
-              <Router>
+             
                 <Header language={language} setLanguage={setLanguage} />
                 <div className="container-fluid text-center main-content">    
                   <div className="row content">
@@ -81,10 +80,12 @@ function App() {
                     </Routes>
                   </div>
                 </div>
-              </Router>
             </CartProvider>
+            </ProductsProvider>
         </AuthProvider>
+        
       </I18nextProvider>
+
     </LanguageProvider>
     </>
   )

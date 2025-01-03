@@ -44,7 +44,7 @@ body {
    font-family: $fontSans;
     font-weight: bold;
   text-align: center;
-  font-size: 2em;
+  font-size: 1em;
   padding: 1em 0;
   border-bottom: 1px solid #dadada;
   letter-spacing: 3px;
@@ -151,7 +151,7 @@ body {
       
       h3 {
    
-        font-size: 1em;
+        font-size: 0.75em;
       font-family: $fontSans;
         font-weight: bold;
         text-transform: uppercase;
@@ -190,7 +190,7 @@ body {
         text-align: center;
     p {
       font-weight: bold;
-      font-size: 1.25em;
+      font-size: 0.85em;
     }
        
       }
@@ -225,7 +225,7 @@ body {
    border-top: 1px solid #dadada;
    &:before {
      content: "\21b3";
-     font-size: 1.5em;
+     font-size: 1.0em;
       margin-right: 1em;
      color: #6f6f6f;
      font-family: helvetica, arial, sans-serif;
@@ -365,7 +365,7 @@ float: right;
   padding: 2% 0;
 }
 .projTitle{
-  font-size: 1.5em;
+  font-size: 1.0em;
   padding: 10% 5%;
 }
 .heading {
