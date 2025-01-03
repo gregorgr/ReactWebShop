@@ -16,13 +16,32 @@ const Cart = ({ language }) => {
   const { items, totalQuantity, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+   // Možnosti poštnine
+   const shippingOptions = [
+    { id: 'standard', label: t("cart.standardShipping"), cost: 5.0 },
+    { id: 'express', label: t("cart.expressShipping"), cost: 15.0 },
+  ];
+
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('sl-SI', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+    }).format(value).replace('€', '');
+  };
+  const itemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
   // Stalna vrednost za DDV in poštnino
   const VAT_RATE = 0.22; // 22%
   const SHIPPING_COST = 5.0; // Poštnina
 
+  const subTotal = items.reduce((sum, item) => sum + item.quantity*item.price, 0);
   // Izračuni
-  const totalVAT = (totalAmount * VAT_RATE).toFixed(2); // Izračun DDV
-  const grandTotal = (parseFloat(totalAmount) + parseFloat(totalVAT) + SHIPPING_COST).toFixed(2); // Skupaj z DDV in poštnino
+  const totalVAT = items.reduce((sum, item) => sum + item.quantity*item.price*item.vat_rate/100, 0);
+  //(totalAmount * VAT_RATE).toFixed(2); // Izračun DDV
+  const grandTotal =subTotal+ totalVAT + SHIPPING_COST;
+  
+  //(parseFloat(totalAmount) + parseFloat(totalVAT) + SHIPPING_COST).toFixed(2);
+   // Skupaj z DDV in poštnino
 
   return (
     <div className="wrap cf">
@@ -48,7 +67,7 @@ const Cart = ({ language }) => {
                       value={item.quantity}
                       readOnly
                     />{' '}
-                    x {item.price.toFixed(2)}€
+                    x {formatCurrency(item.price)}€
                   </p>
                   <p className={`stockStatus ${item.inStock ? '' : 'out'}`}>
                     {item.inStock ? t("cart.onstock") : t("cart.outofstock")}
@@ -70,12 +89,6 @@ const Cart = ({ language }) => {
             </li>
           ))}
         </ul>
-
-        <p>{t("cart.totalItems")}: {totalQuantity}</p>
-        <p>{t("cart.subtotal")}: {totalAmount.toFixed(2)} €</p>
-        <p>{t("cart.vat")}: {totalVAT} €</p> {/* Prikaz DDV */}
-        <p>{t("cart.totalInclVat")}: {grandTotal} €</p> {/* Skupen znesek z DDV in poštnino */}
-
         <button
           className="cart-button"
           onClick={() => dispatch(clearCart())}
@@ -93,20 +106,21 @@ const Cart = ({ language }) => {
       <div className="subtotal cf">
         <ul>
           <li className="totalRow">
+            {t("cart.totalItems")}: {itemsCount}
             <span className="label">{t("cart.subtotal")}</span>
-            <span className="value">{totalAmount.toFixed(2)} €</span>
+            <span className="value">{formatCurrency(subTotal)} €</span>
           </li>
           <li className="totalRow">
             <span className="label">{t("cart.shipping")}</span>
-            <span className="value">{SHIPPING_COST.toFixed(2)} €</span>
+            <span className="value">{formatCurrency(SHIPPING_COST)} €</span>
           </li>
           <li className="totalRow">
             <span className="label">{t("cart.vat")}</span>
-            <span className="value">{totalVAT} €</span>
+            <span className="value">{formatCurrency(totalVAT)} €</span>
           </li>
           <li className="totalRow final">
             <span className="label">{t("cart.total")}</span>
-            <span className="value">{grandTotal} €</span>
+            <span className="value">{formatCurrency(grandTotal)} €</span>
           </li>
           <li className="totalRow">
             <a href="/checkout" className="btn continue">{t("cart.checkout")}</a>

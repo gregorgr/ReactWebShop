@@ -53,8 +53,8 @@ const CartPreview = () =>{
         // Tukaj lahko dodate navigacijo na stran s košarico, če želite.
         navigate('/cart'); // Preusmeri na stran /cart
       };
-    
   
+      const itemsCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
 
     return(
         <div className="cart-icon-container">
@@ -69,7 +69,7 @@ const CartPreview = () =>{
           {
             // <i className="fas fa-shopping-cart"></i>
           } 
-          {cart.items.length > 0 && <span className="cart-count">{cart.items.length}</span>}
+          {cart.items.length > 0 && <span className="cart-count">{itemsCount}</span>}
         </div>
   
         <div className="cart-dropdown">
@@ -84,7 +84,7 @@ const CartPreview = () =>{
                   <div>
                     <h4>{truncateText(item.name)}</h4>
                     <p>
-                      {item.quantity} x {item.price} €
+                      {item.quantity} x {formatCurrency(item.price)} €
                     </p>
                   </div>
                   <button

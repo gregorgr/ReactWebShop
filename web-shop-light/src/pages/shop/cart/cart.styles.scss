@@ -338,6 +338,7 @@ float: right;
   .totalRow {
     padding: .5em;
    text-align: right;
+   list-style: none;
   
     &.final {
       font-size: 1.25em;
@@ -367,7 +368,7 @@ float: right;
 
 .wrap {
   width: 98%;
-  padding: 2% 0;
+  padding: 4% 0;
 }
 .projTitle{
   font-size: 1.0em;

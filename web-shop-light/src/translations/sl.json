@@ -82,7 +82,9 @@
       "totalInclVat": "Skupaj (z DDBT)",
       "selectShipping": "Izberi način pošiljanja",
       "standardShipping": "Klasično",
-      "expressShipping": "Hitra pošta"
+      "expressShipping": "Hitra pošta",
+      "totalItems": "Izdelkov v košarici",
+      "vat": "DDV"
     }
   }
   

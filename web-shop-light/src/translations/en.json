@@ -84,8 +84,9 @@
       "clearcart": "Clear cart",
       "selectShipping": "Select Shipping",
       "standardShipping": "Standard Shipping",
-      "expressShipping": "Express Shipping"
-
+      "expressShipping": "Express Shipping",
+      "totalItems": "Items in cart",
+      "vat": "VAT"
     }
   }
   
