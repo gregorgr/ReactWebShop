@@ -7,4 +7,8 @@ export default defineConfig({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'], // Prepričajte se, da je .jsx vključeno
   },
+  server: {
+    host: '0.0.0.0', // Posluša na vseh naslovih
+    port: 5173,      // Prilagodite po potrebi
+  },
 })
