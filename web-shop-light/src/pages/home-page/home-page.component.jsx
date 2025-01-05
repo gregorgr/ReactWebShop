@@ -27,12 +27,12 @@ const Home = ({ language = 'en' }) => {
       const toggleSortOrder = () => {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
       };
-
-
+// //container-fluid text-center 
+// container py-5 
     return (<>
   
-      <section className="container py-5">
-        <div className="row text-center pt-3">
+      <section className="container-fluid main-content shop-content">
+        <div className="row text-center pt-2">
           <div className="col-lg-6 m-auto">
             <h1 className="h1">{texts[language]?.title || 'Title'}</h1>
             <p>

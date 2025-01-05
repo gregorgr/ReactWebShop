@@ -123,6 +123,9 @@ BrenkaloWebStore/web-shop-light/
 │   │   ├── js
 │   │   └── webfonts
 │   ├── components
+│   │   ├── cart-item
+│   │   ├── cart-preview
+│   │   ├── elements
 │   │   ├── header
 │   │   ├── product-list
 │   │   ├── protected-route
@@ -130,7 +133,10 @@ BrenkaloWebStore/web-shop-light/
 │   ├── context
 │   │   ├── auth-context
 │   │   ├── cart-context
-│   │   └── language-context
+│   │   ├── language-context
+│   │   └── products
+│   ├── features
+│   │   └── cart
 │   ├── i18n.js
 │   ├── img
 │   │   ├── products
@@ -152,8 +158,9 @@ BrenkaloWebStore/web-shop-light/
 │   ├── services
 │   │   ├── authentication
 │   │   ├── categories
-│   │   ├── products
+│   │   ├── product
 │   │   └── stores
+│   ├── store.js
 │   ├── themes
 │   │   ├── blue-yellow.styles.scss
 │   │   ├── dark.styles.scss

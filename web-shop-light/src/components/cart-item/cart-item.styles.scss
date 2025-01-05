@@ -1,0 +1,127 @@
+/*.cart-item-box{
+  display: inline-block;
+  display: block; float: left;
+  margin: 0 5px;
+  text-align: left;
+}*/
+.cart{
+  .items{
+      .cartSection{
+      .cart-item-content  p,
+      .cart-item-content  h3  {
+        display: block; /* Zagotovi, da je vsak <p> element prikazan kot blokovni element */
+        text-align: left; /* Poravna besedilo znotraj <p> elementa na levo */
+        margin: 0; /* Odstrani privzete zunanje odmike, če je potrebno */
+        padding: 0; /* Odstrani privzete notranje odmike, če je potrebno */
+      } 
+    }
+  }
+}
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+
+ 
+  // Postavitev za večje zaslone (default)
+  .cart-item-box:nth-child(1) {
+    grid-column: 1 / 2; // Prvi na levem robu
+  }
+  .cart-item-box:nth-child(2) {
+    grid-column: 2 / 3; // Drugi zavzema večji del širine
+  }
+  .cart-item-box:nth-child(3) {
+    grid-column: 3 / 4; // Tretji ob desnem robu
+  }
+  .cart-item-box:nth-child(4) {
+    padding-top: 5px;
+    grid-column: 4 / 5; // Četrti pod tretjim
+    span{
+      font-weight:bold;
+    }
+
+  }
+  .cart-item-box:nth-child(5) {
+    grid-column: 5 / 6; // Peti na desnem robu, pod tretjim
+  }
+
+  // Prilagoditev za mobilne naprave
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // Dva elementa na vrstico
+
+    .cart-item-box:nth-child(1),
+    .cart-item-box:nth-child(2) {
+      grid-column: span 1; // Prva vrstica
+    }
+    .cart-item-box:nth-child(3),
+    .cart-item-box:nth-child(4),
+    .cart-item-box:nth-child(5) {
+      grid-column: span 1; // Druga vrstica
+    }
+  }
+}
+
+.btn-circ{
+    display: inline-block;
+    cursor: pointer;
+ 
+    border-radius: 100%;
+    background-color: #eee;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+   /* transition: 0.2s;*/
+    user-select: none;
+  
+  }
+  .btn-circ:hover{
+    background-color: #bcbcbc;
+  }
+
+ .quantity-controls {
+    display: flex; /* Postavi elemente v vrstico */
+    align-items: center; /* Poravnava po sredini */
+    gap: 10px; /* Razmik med vsemi elementi */
+    
+    .btn-circ {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #e0e0e0; /* Barva ozadja ob hover */
+      }
+    }
+  
+    .btn-circ:last-child {
+      margin-left: 20px; /* Dodaj razmik pred 'x' */
+    }
+  }
+.btn-remove{
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+  p {
+    
+      &.stock-status {
+        color: rgb(22, 164, 0) !important;
+        font-weight: bold;
+        padding: .5em 0 0 1em;
+        text-transform: uppercase;
+        &.out {
+          color: #F69679 !important;
+        }
+    }
+  }
+

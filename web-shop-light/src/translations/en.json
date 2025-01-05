@@ -86,7 +86,13 @@
       "standardShipping": "Standard Shipping",
       "expressShipping": "Express Shipping",
       "totalItems": "Items in cart",
-      "vat": "VAT"
+      "vat": "VAT",
+      "inStock": "In stock: {{stock}} items",
+      "outOfStock": "Out of stock",
+      "insufficientStock": "Not enough items in stock.",
+      "selectshipping":"Select shipping",
+      "remove": "Remove",
+      "productid":"Product ID"
     }
   }
   

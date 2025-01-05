@@ -39,7 +39,7 @@ import './App.scss';
 function App() {
   const [language, setLanguage] = useState('en'); // Dvojezična podpora
 
-
+ // container-fluid text-center main-content
   return (
     <>
     <LanguageProvider>
@@ -50,7 +50,7 @@ function App() {
             <CartProvider>
              
                 <Header language={language} setLanguage={setLanguage} />
-                <div className="container-fluid text-center main-content">    
+                <div className="">    
                   <div className="row content">
                     <Routes>
                       <Route path="/" element={<Home language={language} setLanguage={setLanguage} />} />

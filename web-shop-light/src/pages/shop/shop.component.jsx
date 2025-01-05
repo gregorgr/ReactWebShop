@@ -145,7 +145,7 @@ const handlePageChange = (newPage) => {
   return (
   <>
 
-
+<div className="container-fluid main-content shop-content">
     <div className="col-sm-2 sidenav">
       
       <h5>{t("shop.cat")}</h5>
@@ -276,7 +276,7 @@ const handlePageChange = (newPage) => {
     </div>
 
 
-
+    </div>
 </>
   );
 };

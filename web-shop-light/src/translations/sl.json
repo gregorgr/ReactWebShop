@@ -84,7 +84,13 @@
       "standardShipping": "Klasično",
       "expressShipping": "Hitra pošta",
       "totalItems": "Izdelkov v košarici",
-      "vat": "DDV"
+      "vat": "DDV",
+      "inStock": "Na zalogi: {{stock}} kosov",
+      "outOfStock": "Ni na zalogi",
+      "insufficientStock": "Na zalogi ni dovolj kosov.",
+      "selectshipping":"Izberi pošiljanje",
+      "remove": "Odstrani",
+      "productid":"ID produkta"
     }
   }
   

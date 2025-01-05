@@ -1,7 +1,7 @@
 import  { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { removeItem, clearCart } from '../../features/cart/cartSlice';
+import { removeItem } from '../../features/cart/cartSlice';
 // import { CartContext } from '../../context/cart-context/cart-context';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Uvozi useNavigate
@@ -87,12 +87,17 @@ const CartPreview = () =>{
                       {item.quantity} x {formatCurrency(item.price)} €
                     </p>
                   </div>
-                  <button
+                  {
+/*
+    <button
                     className="remove-item"
                     onClick={() => dispatch(removeItem(item.id))}
                   >
                     &times;
                   </button>
+*/
+                  }
+              
                 </li>
               ))}
             </ul>
