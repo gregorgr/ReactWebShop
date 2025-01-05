@@ -7,6 +7,7 @@ import i18n from './i18n'; // See setup below
 import { LanguageProvider } from './context/language-context/language-context.jsx';
 import { AuthProvider } from './context/auth-context/auth-context.utils.jsx';
 // import { UserProvider } from './context/user/user.context.jsx';
+import { useTranslation } from 'react-i18next';
 
 import Header from './components/header/header.component';
 
@@ -37,9 +38,10 @@ import './App.scss';
 
 
 function App() {
-  const [language, setLanguage] = useState('en'); // Dvojezična podpora
-
- // container-fluid text-center main-content
+  //const [language, setLanguage] = useState('en'); // Dvojezična podpora
+  const { i18n } = useTranslation(); // Pridobimo objekt i18n
+  const currentLanguage = i18n.language; // Trenutni jezik
+ // 
   return (
     <>
     <LanguageProvider>
@@ -49,21 +51,21 @@ function App() {
           <ProductsProvider>
             <CartProvider>
              
-                <Header language={language} setLanguage={setLanguage} />
+                <Header language={currentLanguage}  />
                 <div className="">    
                   <div className="row content">
                     <Routes>
-                      <Route path="/" element={<Home language={language} setLanguage={setLanguage} />} />
-                      <Route path="/shop" element={<Shop language={language}  />} />
-                      <Route path="/shop/:category" element={<Shop language={language}  />} />
-                      <Route path="/shop" element={<Shop language={language} />} />
-                      <Route path="/shop/page/:page" element={<Shop language={language}  />} />
-                      <Route path="/shop/:category" element={<Shop language={language}  />} />
-                      <Route path="/shop/:category/page/:page" element={<Shop language={language}  />} />
-                      <Route path="/shop/brand/:brand/:page" element={<Shop language={language}  />} />
-                      <Route path="/cart" element={<Cart language={language} />} />
-                      <Route path="/stores" element={<StoresPage language={language} />} />
-                      <Route path="/contact" element={<Contact language={language}/>} />
+                      <Route path="/" element={<Home language={currentLanguage}  />} />
+                      <Route path="/shop" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop/:category" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop" element={<Shop language={currentLanguage} />} />
+                      <Route path="/shop/page/:page" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop/:category" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop/:category/page/:page" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop/brand/:brand/:page" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/cart" element={<Cart language={currentLanguage} />} />
+                      <Route path="/stores" element={<StoresPage language={currentLanguage} />} />
+                      <Route path="/contact" element={<Contact language={currentLanguage}/>} />
                       {/* Strani za prijavo */}
                   
                     {
@@ -73,7 +75,7 @@ function App() {
                       // <Route path="/orders" element={<Orders language={language} />} />
                     } 
                       {/* Zaščitene strani uporabnika */}
-                      <Route path="/user/*" element={<UserPage language={language.language || language} />} />
+                      <Route path="/user/*" element={<UserPage language={currentLanguage.language || currentLanguage} />} />
 
 
                       

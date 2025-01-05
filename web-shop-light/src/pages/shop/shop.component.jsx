@@ -64,6 +64,15 @@ const Shop = ({ language}) => {
     return acc;
   }, {})
 
+  const brandsCount = filteredProducts.reduce((acc, product) => {
+    const producer = product.producer; // Pridobimo znamko izdelka
+    if (!acc[producer]) {
+      acc[producer] = 0; // Če znamka še ne obstaja v `acc`, jo inicializiramo
+    }
+    acc[producer]++; // Povečamo števec za znamko
+    return acc;
+  }, {});
+
     // Izračun indeksa izdelkov
     const startIndex = (currentPage - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
@@ -71,7 +80,16 @@ const Shop = ({ language}) => {
   
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   
-
+    const brandList = Object.entries(brandsCount).map(([producer, count]) => (
+      <li key={producer} className="list-group-item">
+        <a
+          href={`/shop/brand/${encodeURIComponent(producer.toLowerCase())}`}
+          className="text-decoration-none text-dark"
+        >
+          {producer} ({count})
+        </a>
+      </li>
+    ));
 
 
   // Helper function to parse European-formatted price strings like "2.300,00€" into numbers.
@@ -142,11 +160,14 @@ const handlePageChange = (newPage) => {
   }
 };
 
+// container-fluid main-content shop-content
+//  col-sm-2 
   return (
   <>
 
-<div className="container-fluid main-content shop-content">
-    <div className="col-sm-2 sidenav">
+<div className="container mt-3">
+  <div className="row">
+    <div className="col-3  p-3 sidenav">
       
       <h5>{t("shop.cat")}</h5>
       <ul className="list-group">
@@ -188,9 +209,11 @@ const handlePageChange = (newPage) => {
 
       </ul>
       <div className="brands-section">
-  <h5>{t("shop.brands")}</h5>
-  <ul className="list-group">
-   
+        <h5>{t("shop.brands")}</h5>
+        <ul className="list-group">{brandList}
+    {
+ 
+    }
     { /* /
     products
       .reduce((acc, product) => {
@@ -218,35 +241,40 @@ const handlePageChange = (newPage) => {
 </div>
   </div>
 
-  <div className="col-sm-8 text-left product-list"> 
+{
+  // col-sm-8 text-left product-list
+}
+  <div className="col-7 p-3"> 
 
       <h2>{t("shop.title")}</h2>
       <p>{t("shop.message")}</p>
 
       <div className="ccontainer-fluid p-0">
       <div className="title-row">
-      <div className="row mb-3 gx-0">
-      <div className="col-10 d-flex justify-content-end">
-        </div>
-        <div className="col-11 d-flex justify-content-end">
-          <select className="form-select w-auto" value={sortOption} onChange={handleSortChange}>
-          {sortLabels.map(({ value, label, icon }) => (
-                <option key={value} value={value}>
-                  {label[language]}
-                </option>
-              ))}
-          </select>
-        </div>
-      </div>
-      </div>
-      <div className="row gx-0 gy-3">
-
-      {currentProducts.map((product) => (
-          <div className="col-md-3 " key={product.id}>
-            <ListedProduct product={product} language={language} />
+        <div className="row mb-3 gx-0">
+          <div className="col-11 d-flex justify-content-end">
+            
           </div>
-        ))}
-
+          <div className="col-11 d-flex justify-content-end">
+            <select className="form-select w-auto" value={sortOption} onChange={handleSortChange}>
+            {sortLabels.map(({ value, label, icon }) => (
+                  <option key={value} value={value}>
+                    {label[language]}
+                  </option>
+                ))}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className="">
+      <div className="row g-0">
+       
+        {currentProducts.map((product) => (
+            <div className="col-md-3" key={product.id}>
+              <ListedProduct product={product} language={language} />
+            </div>
+          ))}
+      </div>    
       </div>
      {/* Pager */}
      <div className="row gx-0 gy-3">
@@ -275,7 +303,7 @@ const handlePageChange = (newPage) => {
 
     </div>
 
-
+    </div>
     </div>
 </>
   );

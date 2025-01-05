@@ -9,7 +9,7 @@ import logo from '../../assets/logo.png';
 
 import './header.styles.scss';
 
-const Header = ({ language, setLanguage }) => {
+const Header = ({ language }) => {
 
     const labels = {
       en: ['Home', 'User', 'Orders', 'Search'],
@@ -49,7 +49,7 @@ const Header = ({ language, setLanguage }) => {
              // flex-fill  d-lg-flex justify-content-lg-between
             }
             <div className="nav navbar-nav navbar-right menu-container" id="templatemo_main_nav">
-                  <MainNavigation language={language} setLanguage={setLanguage} />
+                  <MainNavigation language={language}  />
                   <UserNavigation language={language}  />
             </div>
 
@@ -63,7 +63,7 @@ const Header = ({ language, setLanguage }) => {
 // Dodaj validacijo za props z uporabo PropTypes
 Header.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
-  setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
+ // setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
 export default Header;

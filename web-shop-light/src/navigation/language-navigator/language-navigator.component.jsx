@@ -2,27 +2,34 @@ import React, {  useEffect } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import './language-navigator.styles.scss';
 
 // import sloIcon from '../../assets/flagSlo.png';
 // import enIcon from '../../assets/flagUsa.png';
 
-const LanguageNavigator = ({ language, setLanguage }) => {
-
+const LanguageNavigator = () => {
+  const { i18n } = useTranslation(); // Pridobite i18n iz useTranslation
    // const [currentLanguage, setCurrentLanguage] = useState({});
     //const [newlanguage, setLanguage] = useState('en'); // Privzeti jezik
+    const currentLanguage = i18n.language; // Trenutni jezik
     const currentTranslation = {
         en: ['Slovensko', 'Go to your shopping cart'],
         sl: ['English', 'Pojdi v svojo košarico'],
         de: ['German', 'Pojdi v svojo košarico'],
       };
-
-      const toggleLanguage = (selectedLanguage) => {
+/*
+      const toggleLanguage1 = (selectedLanguage) => {
         if (language !== selectedLanguage) {
           setLanguage(selectedLanguage);
         }
-      };
+      };*/
+       // Funkcija za spremembo jezika
+  const toggleLanguage = (selectedLanguage) => {
+    if (i18n.language !== selectedLanguage) {
+      i18n.changeLanguage(selectedLanguage); // Spremenite jezik z i18n.changeLanguage
+    }
+  };
 
         // 3. Uporaba useEffect (npr. za lokalno shranjevanje ali logiko ob spremembi jezika)
    //   useEffect(() => {
@@ -47,7 +54,7 @@ const LanguageNavigator = ({ language, setLanguage }) => {
             <div className="sl-nav">
 
                 <ul>
-                <li><b>{currentTranslation[language][0]}</b> 
+                <li><b>{currentTranslation[currentLanguage][0]}</b> 
                 <i className="fa fa-angle-down" aria-hidden="true"></i>
                     <div className="triangle"></div>
                     <ul>
@@ -60,10 +67,7 @@ const LanguageNavigator = ({ language, setLanguage }) => {
                             <i className="sl-flag flag-usa"><div id="en"></div></i> 
                             <span>English</span>
                         </li>
-                        <li onClick={() => toggleLanguage('de')}>
-                            <i className="sl-flag flag-de"><div id="de"></div></i> 
-                            <span className="active">German</span>
-                        </li>
+             
                     </ul>
                 </li>
         </ul>
@@ -75,11 +79,15 @@ const LanguageNavigator = ({ language, setLanguage }) => {
       </>
     );
   };
-
+/*
+           <li onClick={() => toggleLanguage('de')}>
+                            <i className="sl-flag flag-de"><div id="de"></div></i> 
+                            <span className="active">German</span>
+                        </li>
   LanguageNavigator.propTypes = {
     language: PropTypes.string.isRequired, // language mora biti string
     setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
-  };
+  };*/
   
   export default LanguageNavigator;
 

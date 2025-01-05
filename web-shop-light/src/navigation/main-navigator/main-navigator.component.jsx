@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import LanguageNavigator from '../language-navigator/language-navigator.component';
 
 
-const MainNavigation = ({ language, setLanguage }) => {
+const MainNavigation = ({ language }) => {
   const labels = {
     en: ['Home', 'Shop', 'Stores', 'Contact', 'Language'],
     sl: ['Domov', 'Trgovina', 'Trgovine', 'Kontakt', 'Jezik'],
@@ -26,7 +26,7 @@ const MainNavigation = ({ language, setLanguage }) => {
             <li><Link to="/shop">{labels[language][1]}</Link></li>
             <li><Link to="/stores">{labels[language][2]}</Link></li>
             <li><Link to="/contact">{labels[language][3]}</Link></li>
-            <li><LanguageNavigator language={language} setLanguage={setLanguage}/></li>
+            <li><LanguageNavigator language={language} /></li>
           </ul>
         </div>
     </div>
@@ -38,7 +38,7 @@ const MainNavigation = ({ language, setLanguage }) => {
 
 MainNavigation.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
-  setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
+ // setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
 export default MainNavigation;

@@ -130,7 +130,7 @@ ListedProduct.propTypes = {
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        price: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
         producer: PropTypes.string,
         original_product_url: PropTypes.string,
         vat_rate: PropTypes.number.isRequired,
