@@ -34,13 +34,58 @@ body, ul, li, p, a, label, input, div {
 .page-content{
   margin: 0 10%;
 }
+.content-wrapper {
+  min-height: calc(100vh - 200px); /* 100% višine okna minus višina footerja */
+  margin-bottom: 20px; /* Dodatni odmik nad footerjem */
+}
 
+/* Footer styling */
+.footer {
+  background-color: #343a40; /* Temnejša barva ozadja */
+  color: #ffffff;
+  padding: 20px 0;
+  clear: both; /* Prepreči prekrivanje z drugimi elementi */
+}
+
+.footer a {
+  color: #ffc107;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: #e0a800;
+}
 /*  .container-fluid n*/
 .container
 {
   margin: 0 10%;
 }
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+html,
+body {
+  height: 100%;
+}
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Celotna višina okna */
+}
+
+.content-wrapper {
+  flex: 1; /* Zavzame preostalo višino nad footerjem */
+}
+
+.footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+}
     /* Remove the navbar's default margin-bottom and rounded borders */ 
  .navbar {
       margin-bottom: 0;
@@ -83,6 +128,12 @@ body, ul, li, p, a, label, input, div {
       text-align: left;
     }
 
+    .stockOK{
+      color: green;
+    }
+.stockZero{
+  color: orange;
+}
 /*
 
     @import './themes/high-contrast.styles';

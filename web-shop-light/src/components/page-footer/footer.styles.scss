@@ -1,0 +1,19 @@
+.footer {
+    background-color: #343a40; /* Temnejša barva ozadja */
+    color: #ffffff; /* Svetel tekst */
+  }
+  
+  .footer a {
+    color: #ffc107; /* Svetlejša rumena za povezave */
+    transition: color 0.2s;
+  }
+  
+  .footer a:hover {
+    color: #e0a800; /* Temnejši odtenek na hover */
+  }
+  
+  .footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  

@@ -9,7 +9,7 @@ import logo from '../../assets/logo.png';
 
 import './header.styles.scss';
 
-const Header = ({ language }) => {
+const PageHeader = ({ language }) => {
 
     const labels = {
       en: ['Home', 'User', 'Orders', 'Search'],
@@ -62,12 +62,12 @@ const Header = ({ language }) => {
 };
 
 // Dodaj validacijo za props z uporabo PropTypes
-Header.propTypes = {
+PageHeader.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
  // setLanguage: PropTypes.func.isRequired, // setLanguage mora biti funkcija
 };
 
-export default Header;
+export default PageHeader;
 
 
 /*

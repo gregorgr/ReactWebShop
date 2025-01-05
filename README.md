@@ -124,11 +124,16 @@ BrenkaloWebStore/web-shop-light/
 │   │   └── webfonts
 │   ├── components
 │   │   ├── cart-item
+│   │   ├── cart-navigation
 │   │   ├── cart-preview
 │   │   ├── elements
-│   │   ├── header
+│   │   ├── page-footer
+│   │   ├── page-header
 │   │   ├── product-list
 │   │   ├── protected-route
+│   │   ├── responsive-image
+│   │   ├── shop-product
+│   │   ├── star-rating
 │   │   └── user
 │   ├── context
 │   │   ├── auth-context

@@ -93,6 +93,21 @@
       "selectshipping":"Select shipping",
       "remove": "Remove",
       "productid":"Product ID"
+    },
+    "product":{
+       "reviews": "Reviews",
+       "showall": "Show All",
+       "instock":"in Stock",
+       "outofstock":"Out of Stock",
+       "addtochart": "Add to cart",
+       "stock": "Stock",
+       "productID": "Product ID",
+       "manufacturer": "Manufacturer",
+       "details": "Details",
+       "techdetails": "Technical Details",
+       "views": "Views",
+       "reviews1": "Reviews"
+
     }
   }
   

@@ -1,0 +1,94 @@
+
+.product-content{
+
+    margin: 0;
+    padding: 0 10% !important;
+  }
+
+  // Header styling
+.product-header {
+    background-color: #f8f9fa; // svetlo sivo ozadje
+    width: 100%;
+  }
+  
+  // Responsive styling for product section
+  .container {
+    .row {
+      margin: 0 auto;
+  
+      .col-md-6 {
+        &:nth-child(1) {
+          // Image column styling
+          .ratio {
+            max-width: 100%;
+            margin-bottom: 1rem;
+  
+            img {
+              border-radius: 5px;
+            }
+          }
+        }
+  
+        &:nth-child(2) {
+          // Text column styling
+          h2 {
+            font-size: 1.75rem;
+          }
+  
+          .h3 {
+            color: #6c757d; // Text-muted color
+          }
+  
+          .table-borderless {
+            tr {
+              td {
+                padding: 0.5rem 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  .image-container {
+    position: relative;
+    width: 100%; /* Parent element zavzame celotno širino */
+    /*max-width: 500px; *//* Nastavite največjo širino po potrebi */
+    aspect-ratio: 1 / 1; /* Razmerje stranic 1:1 (kvadratno) */
+    overflow: hidden; /* Presežek vsebine se odreže */
+    background-color: #f8f9fa; /* Dodatno: svetlo ozadje za preverjanje */
+  }
+  
+
+  .responsive-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%; /* Prilagodi širino slike */
+    height: 100%; /* Prilagodi višino slike */
+    object-fit: cover; /* Ohranite razmerje stranic, odreže presežek */
+    transform: translate(-50%, -50%); /* Centriranje slike */
+  }
+  // Tabs section
+  .bg-light {
+    .nav-tabs {
+      border-bottom: 1px solid #dee2e6;
+  
+      .nav-link {
+        color: #6c757d;
+        &.active {
+          color: #495057;
+          border-color: #dee2e6 #dee2e6 #fff;
+        }
+      }
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  }
+  

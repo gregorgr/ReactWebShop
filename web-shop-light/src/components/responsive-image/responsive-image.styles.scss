@@ -1,0 +1,29 @@
+.image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /*background-color: #f8f9fa; */
+  }
+  
+  .responsive-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  /* Ležeče slike (široko razmerje) */
+  .image-wide {
+    aspect-ratio: 16 / 9;
+  }
+  
+  /* Pokončne slike (ozko razmerje) */
+  .image-tall {
+    aspect-ratio: 9 / 16;
+  }
+  
+  /* Kvadratne slike */
+  .image-square {
+    aspect-ratio: 1 / 1;
+  }
+  

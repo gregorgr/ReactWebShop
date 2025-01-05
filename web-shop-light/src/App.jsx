@@ -9,7 +9,8 @@ import { AuthProvider } from './context/auth-context/auth-context.utils.jsx';
 // import { UserProvider } from './context/user/user.context.jsx';
 import { useTranslation } from 'react-i18next';
 
-import Header from './components/header/header.component';
+import PageHeader from './components/page-header/header.component.jsx';
+import PageFooter from './components/page-footer/footer.component.jsx';
 
 // pages
 import Home from './pages/home-page/home-page.component';
@@ -31,6 +32,7 @@ import Orders from './pages/shop/orders/orders.component';
 /*import { themes } from './themes'; // Uvozimo zbirko tem
 */
 
+
 import { CartProvider } from './context/cart-context/cart-context.provider';
 import { ProductsProvider } from './context/products/products.context.jsx';
 //import Cart from './context/cart-context/cart-context.component';
@@ -51,10 +53,10 @@ function App() {
         <AuthProvider>
           <ProductsProvider>
             <CartProvider>
-             
-                <Header language={currentLanguage}  />
+            
+                <PageHeader language={currentLanguage}  />
                 <div className="">    
-                  <div className="row content">
+                  <div className="row content-wrapper clearfix">
                     <Routes>
                       <Route path="/" element={<Home language={currentLanguage}  />} />
                       <Route path="/shop" element={<Shop language={currentLanguage}  />} />
@@ -83,7 +85,11 @@ function App() {
                       
                     </Routes>
                   </div>
+
+               
+
                 </div>
+                <PageFooter />
             </CartProvider>
             </ProductsProvider>
         </AuthProvider>

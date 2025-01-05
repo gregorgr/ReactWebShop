@@ -4,7 +4,7 @@ import  { useContext }  from 'react';
 import { Link } from 'react-router-dom';
 //import { CartContext } from '../../../context/cart-context/cart-context.provider';
 
-
+import StarRating from '../../../components/star-rating/star-rating.component';
 
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../features/cart/cartSlice';
@@ -66,7 +66,7 @@ function ListedProduct({ product, language }) {
           price: product.price, 
           quantity: 1,
           vat_rate: product.vat_rate,
-          item_stock: product.item_stock,
+          item_stock: product.itemStorage,
           image: product.image }));
  };
 
@@ -108,19 +108,16 @@ function ListedProduct({ product, language }) {
       <h2><Link to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`} className="h3 text-decoration-none">
          {translatedProductTitle}
         </Link></h2>
+        {product.itemStorage > 0 ? (
+          <span className='stockOK'>{product.itemStorage} in stock</span>
+          ) : (
+          <span className='stockZero'>Out of stock</span>)}
         <br />
         <Link to={`/shop/${product.category}`} className="h3 text-decoration-none">
           {translatedCategory}
         </Link>
-        <ul className="list-unstyled d-flex justify-content-center mb-1">
-          <li>
-            <i className="text-warning fa fa-star"></i>
-            <i className="text-warning fa fa-star"></i>
-            <i className="text-warning fa fa-star"></i>
-            <i className="text-muted fa fa-star"></i>
-            <i className="text-muted fa fa-star"></i>
-          </li>
-        </ul>
+        
+        <StarRating averageRating={product.averageRating} />
         <p className="text-center mb-0">{formatCurrency(product.price)} €</p>
       </div>
     </div>
@@ -140,7 +137,7 @@ ListedProduct.propTypes = {
         producer: PropTypes.string,
         original_product_url: PropTypes.string,
         vat_rate: PropTypes.number.isRequired,
-        item_stock: PropTypes.number.isRequired,
+        itemStorage: PropTypes.number.isRequired,
         translations: PropTypes.objectOf(
           PropTypes.shape({
             category: PropTypes.string,
