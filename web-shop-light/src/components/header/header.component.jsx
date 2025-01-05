@@ -47,6 +47,7 @@ const Header = ({ language }) => {
 
               // nav navbar-nav navbar-rightalign-self-center
              // flex-fill  d-lg-flex justify-content-lg-between
+             //  
             }
             <div className="nav navbar-nav navbar-right menu-container" id="templatemo_main_nav">
                   <MainNavigation language={language}  />

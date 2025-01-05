@@ -111,8 +111,6 @@ useEffect(() => {
 //  <CartNavigation />
   return (
     <div className="wrap cf">
-     
-      <h1 className="projTitle">Responsive Table<span>-Less</span> Shopping Cart</h1>
       
       <div className="heading cf">
         <h1>{t("cart.title")}</h1>

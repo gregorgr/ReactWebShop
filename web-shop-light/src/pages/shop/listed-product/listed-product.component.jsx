@@ -23,7 +23,13 @@ function ListedProduct({ product, language }) {
 
   const VAT_RATE = 0.22; // DDV (20%)
 
-
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('sl-SI', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+    }).format(value).replace('€', ''); // Odstranimo simbol €, če je potreben samo znesek
+  };
   /*
   const handleAddToCart = (e) => {
     e.preventDefault(); // Prepreči preusmeritev strani
@@ -75,12 +81,12 @@ function ListedProduct({ product, language }) {
         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
           <ul className="list-unstyled">
             <li>
-              <Link className="btn btn-success text-white" to={`/shop/${product.category}/${product.id}`}>
+              <Link className="btn btn-success text-white" to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`}>
                 <i className="far fa-heart"></i>
               </Link>
             </li>
             <li>
-              <Link className="btn btn-success text-white mt-2" to={`/shop/${product.category}/${product.id}`}>
+              <Link className="btn btn-success text-white mt-2" to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`}>
                 <i className="far fa-eye"></i>
               </Link>
             </li>
@@ -99,8 +105,8 @@ function ListedProduct({ product, language }) {
         </div>
       </div>
       <div className="card-body">
-      <h2><Link to={`/shop/${product.category}/${product.id}`} className="h3 text-decoration-none">
-          {translatedProductTitle}
+      <h2><Link to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`} className="h3 text-decoration-none">
+         {translatedProductTitle}
         </Link></h2>
         <br />
         <Link to={`/shop/${product.category}`} className="h3 text-decoration-none">
@@ -115,7 +121,7 @@ function ListedProduct({ product, language }) {
             <i className="text-muted fa fa-star"></i>
           </li>
         </ul>
-        <p className="text-center mb-0">{product.price}</p>
+        <p className="text-center mb-0">{formatCurrency(product.price)} €</p>
       </div>
     </div>
   );

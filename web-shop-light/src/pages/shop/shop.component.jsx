@@ -100,6 +100,7 @@ const Shop = ({ language}) => {
     const normalizedStr = numberStr.replace('.', '').replace(',', '.');
     return parseFloat(normalizedStr);
   };
+  
 
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
@@ -127,19 +128,20 @@ const Shop = ({ language}) => {
       break;
 
     case 'price-asc':
-      sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      sorted.sort((a, b) => a.price - b.price);
       break;
 
     case 'price-desc':
-      sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      // sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      sorted.sort((a, b) => b.price - a.price);
       break;
-
+//      "averageRating": 5,"numberOfReviews": 3, 
     case 'rating-asc':
-      sorted.sort((a, b) => (a.rating || 0) - (b.rating || 0));
+      sorted.sort((a, b) => (a.averageRating || 0) - (b.averageRating || 0));
       break;
 
     case 'rating-desc':
-      sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      sorted.sort((a, b) => (b.averageRating || 0) - (a.averageRating || 0));
       break;
 
     default:

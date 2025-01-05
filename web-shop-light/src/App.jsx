@@ -14,6 +14,7 @@ import Header from './components/header/header.component';
 // pages
 import Home from './pages/home-page/home-page.component';
 import Shop from './pages/shop/shop.component';
+import ShopProduct from './components/shop-product/shop-product.component.jsx';
 //import Product from './pages/shop/product/product.component';
 import Cart from './pages/shop/cart/cart.component';
 import StoresPage from './pages/stores-page/stores-page.component';
@@ -62,6 +63,7 @@ function App() {
                       <Route path="/shop/page/:page" element={<Shop language={currentLanguage}  />} />
                       <Route path="/shop/:category" element={<Shop language={currentLanguage}  />} />
                       <Route path="/shop/:category/page/:page" element={<Shop language={currentLanguage}  />} />
+                      <Route path="/shop/:category/product/:productId" element={<ShopProduct language={currentLanguage} />} />
                       <Route path="/shop/brand/:brand/:page" element={<Shop language={currentLanguage}  />} />
                       <Route path="/cart" element={<Cart language={currentLanguage} />} />
                       <Route path="/stores" element={<StoresPage language={currentLanguage} />} />

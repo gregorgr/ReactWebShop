@@ -1,7 +1,7 @@
 import React, {  useEffect } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './language-navigator.styles.scss';
 
@@ -25,12 +25,24 @@ const LanguageNavigator = () => {
         }
       };*/
        // Funkcija za spremembo jezika
+       const toggleLanguage = (selectedLanguage, event) => {
+        event.preventDefault(); // Prepreči privzeto vedenje (če je potrebno)
+        event.stopPropagation(); // Prepreči bubbling
+        console.log(`Switching language to: ${selectedLanguage}`);
+        if (i18n.language !== selectedLanguage) {
+          i18n.changeLanguage(selectedLanguage)
+            .then(() => console.log('Language changed successfully!'))
+            .catch((err) => console.error('Error changing language:', err));
+        }
+      };
+       /*
   const toggleLanguage = (selectedLanguage) => {
+    console.log(`Switching language to: ${selectedLanguage}`);
     if (i18n.language !== selectedLanguage) {
       i18n.changeLanguage(selectedLanguage); // Spremenite jezik z i18n.changeLanguage
     }
   };
-
+*/
         // 3. Uporaba useEffect (npr. za lokalno shranjevanje ali logiko ob spremembi jezika)
    //   useEffect(() => {
    //     console.log(`Language changed to: ${language}`);
@@ -47,6 +59,11 @@ const LanguageNavigator = () => {
     useEffect(() => {
       setCurrentLanguage(currentTranslation[language][0]);
     }, [language]);
+
+
+    še ena varianta:
+    <li onClick={this.handleCheck.bind(this)} data-id="1">
+    https://forum.freecodecamp.org/t/react-onclick-get-li-clicked-solved/68112
 */
     return (
         <>
@@ -54,25 +71,33 @@ const LanguageNavigator = () => {
             <div className="sl-nav">
 
                 <ul>
-                <li><b>{currentTranslation[currentLanguage][0]}</b> 
-                <i className="fa fa-angle-down" aria-hidden="true"></i>
-                    <div className="triangle"></div>
-                    <ul>
+                  <li><b>{currentTranslation[currentLanguage][0]}</b> 
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                      <div className="triangle"></div>
+                      <ul>
+ 
+                      <li >
+                              <i className="sl-flag flag-sl" 
+                             >
+                                <div id="sl" style={{ pointerEvents: 'none' }}></div>
+                              </i> 
+                              <button onClick={(e) => toggleLanguage('sl',e)}><span  >Slovensko</span></button>
+                          </li>
+                          <li >                              
+                            <i className="sl-flag flag-usa">
+                                <div id="en" style={{ pointerEvents: 'none' }}></div>
+                              </i> 
                         
-                        <li onClick={() => toggleLanguage('sl')}>
-                            <i className="sl-flag flag-sl"><div id="sl"></div></i> 
-                            <span className="active">Slovensko</span>
-                        </li>
-                        <li onClick={() => toggleLanguage('en')}>
-                            <i className="sl-flag flag-usa"><div id="en"></div></i> 
-                            <span>English</span>
-                        </li>
-             
+                              <button onClick={(e) => toggleLanguage('en',e)}><span>English</span></button>
+                          </li>
+                          
+
+
                     </ul>
-                </li>
-        </ul>
-    </div>
-</div>
+                  </li>
+                </ul>
+            </div>
+        </div>
 
        
 
@@ -80,6 +105,35 @@ const LanguageNavigator = () => {
     );
   };
 /*
+
+
+
+   <div className="nav-wrapper">
+            <div className="sl-nav">
+
+                <ul>
+                  <li><b>{currentTranslation[currentLanguage][0]}</b> 
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                      <div className="triangle"></div>
+                      <ul>
+                          <li onClick={() => toggleLanguage('sl')}>
+                              <i className="sl-flag flag-sl" 
+                              onClick={() => toggleLanguage('sl')}>
+                                <div id="sl"></div>
+                              </i> 
+                              <span className="active" onClick={() => toggleLanguage('sl')}>Slovensko</span>
+                          </li>
+                          <li onClick={() => toggleLanguage('en')}>
+                              <i className="sl-flag flag-usa" onClick={() => toggleLanguage('en')}><div id="en"></div></i> 
+                              <span onClick={() => toggleLanguage('en')}>English</span>
+                          </li>
+             
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
            <li onClick={() => toggleLanguage('de')}>
                             <i className="sl-flag flag-de"><div id="de"></div></i> 
                             <span className="active">German</span>

@@ -2,7 +2,7 @@
   margin-top: 30px;
 }
 .product-wap {
-    border: 1px solid #ddd;
+   /* border: 1px solid #ddd;*/
     transition: box-shadow 0.3s ease-in-out;
   }
   
@@ -76,6 +76,17 @@
 
     width: 30%;
   }
-  
+.selected-category {
+    /*font-weight: bold;*/
+  }
+  li:has(span.selected-category) {
+    background-color: #f1f1f1; /* Želeno ozadje */
+  }
+  .list-group-item{
+    border: none;
+  }
+  .list-group-item:hover{
+    background-color: rgb(255, 239, 216); /* Želeno ozadje */
+  }
   // Po potrebi dodatno prilagodite razmike med elementi
   

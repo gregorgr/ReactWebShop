@@ -9,6 +9,8 @@ body {
   text-align: center;
   width: auto; /* ali konkretna širina */
   white-space: nowrap; /* Prepreči prelome vrstice */
+  position: relative;
+  z-index: 1100;
 }
 
 .nav-wrapper b{
@@ -21,7 +23,13 @@ body {
 
 .sl-nav {
   display: inline;
+  position: relative;
+  z-index: 1100;
 }
+.sl-flag div {
+  pointer-events: none;
+}
+
 .sl-nav ul {
   margin:0;
   padding:0;
@@ -89,12 +97,14 @@ body {
   background: transparent;
   padding: 15px 15px;
   padding-bottom:0;
-  z-index: 2;
+  z-index: 1200;
   font-size: 15px;
   color: #3c3c3c;
 }
 
-
+.sl-nav li ul li:first-child{
+  padding-bottom: 15px;
+}
 
 .sl-nav li ul li:last-of-type {
   padding-bottom: 15px;
@@ -139,7 +149,16 @@ background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC6
     background-size: cover;
  
 }
-
+.nav-wrapper button{
+  width: 100%;
+  text-align: left;
+  color: #181818;
+  font-weight: normal;
+  background-color: #fff0;
+  font-size: 12px;
+ /* margin: 0;
+  padding: inherit;*/
+}
 
 /*
 li {

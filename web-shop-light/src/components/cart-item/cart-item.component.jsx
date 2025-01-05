@@ -1,4 +1,5 @@
 import  { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { removeItem, updateQuantity} from '../../features/cart/cartSlice';
@@ -45,7 +46,10 @@ const CartItem = ({ item }) => {
                     <img src={item.image} alt={item.name} className="itemImg" />
                 </div>
                 <div className='cart-item-box cart-item-content'>
-                    <h3>{item.name}</h3>
+                    <h3>
+                      <Link to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`}>{item.name}</Link>
+                      </h3>
+
                     <p className="itemNumber">{t("cart.productid")}: {item.id}</p>
                     <p className={`stock-status ${product?.item_stock > 0 ? '' : 'out'}`}>{product?.item_stock > 0 
                                 ? t('cart.inStock', { stock: product.item_stock }) 

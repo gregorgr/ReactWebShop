@@ -13,6 +13,7 @@ import './user-navigation.stayles.scss';
 
 //import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartPreview from "../../components/cart-preview/cart-preview.component"; 
+// import LanguageNavigator from '../language-navigator/language-navigator.component';
 // '../components/cart-preview/cart-preview.component';
 
 const UserNavigation = ({ language }) => {
@@ -257,7 +258,8 @@ const UserNavigation = ({ language }) => {
               
               >Pastelna shema z visoko berljivostjo</Link>
               </div>
-            </li>       
+            </li>    
+  
       </ul>
       
     </div>

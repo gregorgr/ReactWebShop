@@ -35,24 +35,6 @@ $fontSerif : 'Droid Serif', serif;
   
 }
 
-.projTitle {
-   font-family: $fontSans;
-    font-weight: bold;
-  text-align: center;
-  font-size: 1em;
-  padding: 1em 0;
-  border-bottom: 1px solid #dadada;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  span {
-    font-family: $fontSerif;
-    font-weight: normal;
-    font-style: italic;
-     text-transform: lowercase;
-    color: #777;
-    
-  }
-}
 // CART HEADER
 .heading {
   padding: 1em 0;
@@ -373,10 +355,7 @@ float: right;
   width: 98%;
   padding: 4% 0;
 }
-.projTitle{
-  font-size: 1.0em;
-  padding: 10% 5%;
-}
+
 .heading {
   padding: 1em;
   font-size: 90%;
