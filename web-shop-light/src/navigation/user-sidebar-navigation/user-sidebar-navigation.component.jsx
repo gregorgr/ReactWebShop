@@ -51,6 +51,7 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
       <>
  
         <h5>{language === 'sl' ? 'Uporabniške strani' : 'User pager'}</h5>
+    
         <ul className="list-group">
           <li className="list-group-item">
           <Link to="{user/edit" 
@@ -91,6 +92,11 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
     );
   };
   
+  /*
+  UserPages.propTypes = {
+    language: PropTypes.string.isRequired, // language mora biti string
+    currentUser:PropTypes.string.isRequired, 
+  };*/
   export default UserSidebarNavigation;
 
 

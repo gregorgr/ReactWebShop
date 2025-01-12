@@ -40,9 +40,7 @@ const UserPage = () => {
 
     return(
     <>
-        <div><h1>User pages</h1></div>
-        <p>Uporabnik: {user}!</p>
-        <p>Je logiran? {userLoggedIn ? "true" : "false"}!</p>
+   
         {
         !userLoggedIn ?  
             (        

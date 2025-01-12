@@ -92,20 +92,23 @@
       "remove": "Odstrani",
       "productid":"ID produkta"
     },
-    "product": {
-   "reviews": "Mnenja",
-   "showall": "Prikaži vsa",
-   "instock": "na zalogi",
-   "outofstock": "Ni na zalogi",
-   "addtochart": "Dodaj v košarico",
-   "stock": "Zaloga",
-   "productID": "ID izdelka",
-   "manufacturer": "Proizvajalec",
-   "details": "Podrobnosti",
-   "techdetails": "Tehnične podrobnosti",
-   "views": "Ogledi",
-   "reviews1": "Mnenja"
-}
+      "product": {
+      "reviews": "Mnenja",
+      "showall": "Prikaži vsa",
+      "instock": "na zalogi",
+      "outofstock": "Ni na zalogi",
+      "addtochart": "Dodaj v košarico",
+      "stock": "Zaloga",
+      "productID": "ID izdelka",
+      "manufacturer": "Proizvajalec",
+      "details": "Podrobnosti",
+      "techdetails": "Tehnične podrobnosti",
+      "views": "Ogledi",
+      "reviews1": "Mnenja"
+    },
+    "page":{
+      "skiptocontent": "Preskoči na vsebino"
+    }
   }
   
   

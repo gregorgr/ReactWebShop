@@ -108,6 +108,9 @@
        "views": "Views",
        "reviews1": "Reviews"
 
+    },
+    "page":{
+      "skiptocontent": "Skip to content"
     }
   }
   

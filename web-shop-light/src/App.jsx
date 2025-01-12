@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 //import { createContext, useState, useContext } from 'react';
 // import { Route, Routes } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Routes, Route } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n'; // See setup below
 import { LanguageProvider } from './context/language-context/language-context.jsx';
 import { AuthProvider } from './context/auth-context/auth-context.utils.jsx';
 // import { UserProvider } from './context/user/user.context.jsx';
-import { useTranslation } from 'react-i18next';
 
 import PageHeader from './components/page-header/header.component.jsx';
 import PageFooter from './components/page-footer/footer.component.jsx';
@@ -41,6 +41,7 @@ import './App.scss';
 
 
 function App() {
+  const { t } = useTranslation();
   //const [language, setLanguage] = useState('en'); // Dvojezična podpora
   const { i18n } = useTranslation(); // Pridobimo objekt i18n
   const currentLanguage = i18n.language; // Trenutni jezik
@@ -53,8 +54,12 @@ function App() {
         <AuthProvider>
           <ProductsProvider>
             <CartProvider>
-            
+                      {/* Gumb za preskok na vsebino */}
+              <a href="#main-content" className="skip-to-content">
+                {t("page.skiptocontent")}
+              </a>
                 <PageHeader language={currentLanguage}  />
+                <main id="main-content">
                 <div className="">    
                   <div className="row content-wrapper clearfix">
                     <Routes>
@@ -79,16 +84,11 @@ function App() {
                       // <Route path="/orders" element={<Orders language={language} />} />
                     } 
                       {/* Zaščitene strani uporabnika */}
-                      <Route path="/user/*" element={<UserPage language={currentLanguage.language || currentLanguage} />} />
-
-
-                      
+                      <Route path="/user/*" element={<UserPage language={currentLanguage.language || currentLanguage} />} /> 
                     </Routes>
                   </div>
-
-               
-
                 </div>
+                </main>
                 <PageFooter />
             </CartProvider>
             </ProductsProvider>

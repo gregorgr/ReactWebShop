@@ -26,7 +26,7 @@ const UserPages = () => {
 
     <div className="col-sm-2 sidenav">
             {/* Stranska vrstica */}
-            <UserSidebarNavigation language={language} />
+            <UserSidebarNavigation language={language}  />
 
     </div>
 
@@ -48,6 +48,7 @@ const UserPages = () => {
 // import PropTypes from 'prop-types';
 UserPages.propTypes = {
   language: PropTypes.string.isRequired, // language mora biti string
+ // currentUser:PropTypes.string.isRequired, 
 };
 
 export default UserPages;
