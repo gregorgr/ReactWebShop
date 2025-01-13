@@ -102,45 +102,71 @@ const UserChangePassword = () => {
 
 
   return (
-    <div>
-      <h2>{t("ChangePassword.title")}</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>{t("ChangePassword.oldPassword")}</label>
-        <input type="password" 
+    <div className="user-form">
+    <h1>{t("ChangePassword.title")}</h1>
+    {error && <p style={{ color: 'red' }}>{error}</p>}
+    {success && <p style={{ color: 'green' }}>{success}</p>}
+  
+    <form onSubmit={handleSubmit}>
+      <div className="form-row">
+        <label className="form-label">{t("ChangePassword.oldPassword")}</label>
+        <input
+          type="password"
           name="oldPassword"
           value={formData.oldPassword}
           onChange={handleChange}
           required
-          placeholder={t("ChangePassword.oldPassword")} />
-
-        <label>{t("ChangePassword.newPassword")}</label>
-        <input type="password" 
+          placeholder={t("ChangePassword.oldPassword")}
+        />
+      </div>
+  
+      <div className="form-row">
+        <label className="form-label">{t("ChangePassword.newPassword")}</label>
+        <input
+          type="password"
           name="newPassword"
           value={formData.newPassword}
           onChange={handleChange}
           required
-        placeholder={t("ChangePassword.newPassword")} />
-
-        <label>{t("ChangePassword.confirmPassword")}</label>
-        {passwordStrength && (
-          <p style={{ color: passwordStrength === 'Very Weak' ? 'red' : 'green' }}>
-            Password Strength: {passwordStrength}
-          </p>
-        )}
-
-        <input type="password" 
+          placeholder={t("ChangePassword.newPassword")}
+        />
+      </div>
+  
+      <div className="form-row">
+        <label className="form-label">{t("ChangePassword.confirmPassword")}</label>
+        <input
+          type="password"
           name="confirmNewPassword"
           value={formData.confirmNewPassword}
           onChange={handleChange}
           required
-          placeholder={t("ChangePassword.confirmPassword")} />
-          {passwordMatchError && <p style={{ color: 'red' }}>Passwords do not match</p>}
-
-        <button type="submit">{t("ChangePassword.submit")}</button>
-      </form>
-    </div>
+          placeholder={t("ChangePassword.confirmPassword")}
+        />
+      </div>
+  
+      {passwordStrength && (
+        <div className="form-row">
+          <p
+            style={{
+              color: passwordStrength === 'Very Weak' ? 'red' : 'green',
+            }}
+          >
+            {t("ChangePassword.passwordStrength")}: {passwordStrength}
+          </p>
+        </div>
+      )}
+  
+      {passwordMatchError && (
+        <div className="form-row">
+          <p style={{ color: 'red' }}>{t("ChangePassword.passwordsDoNotMatch")}</p>
+        </div>
+      )}
+  
+      <button type="submit" className="form-button save-button">
+        {t("ChangePassword.submit")}
+      </button>
+    </form>
+  </div>
   );
 };
 

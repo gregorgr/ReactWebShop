@@ -127,8 +127,7 @@ const UserEdit = ({ }) => {
           />
         </div>
         {
-          /*
-
+        /*
         <div className="form-row">
           <label>Role:</label>
           <input
@@ -138,7 +137,6 @@ const UserEdit = ({ }) => {
             onChange={handleInputChange}
           />
         </div>
-
           */
         }
         <div className="form-row">
@@ -161,19 +159,7 @@ const UserEdit = ({ }) => {
             placeholder={t("EditUser.lastName")}
           />
         </div>
-        {
-        /*
-          <div className="form-row">
-            <label>Password:</label>
-            <input
-              type="password"
-              name="pwd"
-              value={userData.pwd}
-              onChange={handleInputChange}      
-          />
-          </div>
-        */
-        }
+
         <div className="form-row">
 
           <label  className="form-label">{t("EditUser.email")}:</label>

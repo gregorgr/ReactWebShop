@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LanguageContext } from '../../../context/language-context/language-context';
 import './user-addresses.styles.scss';
 
+import UserAddressListItem from '../user-address-list-item/user-address-list-item.component';
 // import apiClient from '../../../services/client/apiClient';
 import { useAuth } from '../../../context/auth-context/auth-context.utils';
 import { getUserAddresses, addUserAddress, updateUserAddress } from './../../../services/apiService'; 
@@ -127,7 +128,7 @@ const handleAddAddress = async () => {
       isDefault: 0,
     });
   } catch (error) {
-    console.error('Error adding address:', error);
+    console.error(t("EditUser."), error);
   }
 };
 
@@ -139,12 +140,12 @@ const handleInputChange = (e) => {
 
 return (
   <div className="user-address-list">
-    <h2>Manage User Addresses</h2>
-    <h2>Existing Addresses</h2>
+    <h2>{t("EditUser.titleManageAddresses")}</h2>
+    <h2>{t("EditUser.1")}Existing Addresses</h2>
 
 
     {addresses.length === 0 || addresses.every(isAddressEmpty)? (
-        <p>No addresses available.</p>
+        <p>{t("EditUser.1")}No addresses available.</p>
       ) : (
         addresses.map((address, index) => (
           <div key={index} className="form-row form-address-row ">
@@ -175,9 +176,9 @@ return (
 
       {showAddForm && (
         <div className="add-address-form">
-          <h2>Add New Address</h2>
+          <h2>{t("EditUser.addNewAddress")}</h2>
           <div className="form-row">
-            <label className='form-label'>Address Line 1:</label>
+            <label className='form-label'>{t("EditUser.AddressLine1")}:</label>
             <input
               type="text"
               name="addressLine1"
@@ -187,7 +188,7 @@ return (
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Address Line 2:</label>
+            <label className='form-label'>{t("EditUser.AddressLine2")}:</label>
             <input
               type="text"
               name="addressLine2"
@@ -197,7 +198,7 @@ return (
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>City:</label>
+            <label className='form-label'>{t("EditUser.City")}:</label>
             <input
               type="text"
               name="city"
@@ -207,38 +208,38 @@ return (
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>State:</label>
+            <label className='form-label'>{t("EditUser.State")}:</label>
             <input
               type="text"
               name="state"
               value={newAddress.state}
               onChange={handleInputChange}
-              placeholder="State"
+              placeholder={t("EditUser.State")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Postal Code:</label>
+            <label className='form-label'>{t("EditUser.PostalCode")}:</label>
             <input
               type="text"
               name="postalCode"
               value={newAddress.postalCode}
               onChange={handleInputChange}
-              placeholder="Postal Code"
+              placeholder={t("EditUser.PostalCode")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Country:</label>
+            <label className='form-label'>{t("EditUser.Country")}:</label>
             <input
               type="text"
               name="country"
               value={newAddress.country}
               onChange={handleInputChange}
-              placeholder="Country"
+              placeholder={t("EditUser.Country")}
             />
           </div>
 
-          <button type="button"  className='form-button save-button' onClick={handleAddAddress}>Save Address</button>
-          <button type="button"  className='form-button cancel-button' onClick={() => setShowAddForm(false)}>Cancel</button>
+          <button type="button"  className='form-button save-button' onClick={handleAddAddress}>{t("EditUser.1")}Save Address</button>
+          <button type="button"  className='form-button cancel-button' onClick={() => setShowAddForm(false)}>{t("EditUser.1")}Cancel</button>
         </div>
       )}
 

@@ -35,13 +35,23 @@
         "submit": "Ponastavi geslo"     
     },
     "EditUser":{
+      "1":"",
       "title": "Uporabniški podatki",
       "username": "Uporabniško ime",
       "firstName": "Ime",
       "lastName": "Priimek",
       "email": "E-poštni naslov",
       "phone": "Telefonska številka",
-      "savechanges": "Shrani podatke"
+      "savechanges": "Shrani podatke",
+      "titleManageAddresses" :"Manage User Addresses",
+      "addAdressError":"Error adding address",
+      "addNewAddress":"aAdd New Address",
+      "AddressLine1": "AddressLine1",
+      "AddressLine2": "AddressLine2",
+      "State":"State",
+      "City":"City",
+      "PostalCode":"Postal Code",
+      "Country": "Country"
 
     },
     "user" : {
@@ -50,7 +60,7 @@
       "address": "Naslovi za dostavo",
       "orders": "Naročila",
       "change_pass": "Spremeni geslo",
-       "helouser": "Pozdravljeni "
+      "helouser": "Pozdravljeni "
     },
     "ChangePassword": {
       "title": "Spremeni geslo",
@@ -58,6 +68,7 @@
       "newPassword": "Novo geslo",
       "confirmPassword": "Potrdite novo geslo",
       "submit": "Spremeni geslo"
+
     },
     "orders":{
       "title":"Naročila",
@@ -101,19 +112,26 @@
       "remove": "Odstrani",
       "productid":"ID produkta"
     },
-    "product": {
-      "reviews": "Mnenja",
-      "showall": "Prikaži vsa",
-      "instock": "na zalogi",
-      "outofstock": "Ni na zalogi",
-      "addtochart": "Dodaj v košarico",
-      "stock": "Zaloga",
-      "productID": "ID izdelka",
-      "manufacturer": "Proizvajalec",
-      "details": "Podrobnosti",
-      "techdetails": "Tehnične podrobnosti",
-      "views": "Ogledi",
-      "reviews1": "Mnenja"
+"product": {
+    "reviews": "Mnenja",
+    "showall": "Prikaži vse",
+    "instock": "Na zalogi",
+    "outofstock": "Ni na zalogi",
+    "addtochart": "Dodaj v košarico",
+    "stock": "Zaloga",
+    "productID": "Šifra izdelka",
+    "manufacturer": "Proizvajalec",
+    "details": "Podrobnosti",
+    "techdetails": "Tehnične podrobnosti",
+    "productUrl": "Na izvirno stran izdelka",
+    "views": "Ogledi",
+    "reviews1": "Mnenja",
+    "storage0": "Trenutno ni zaloge, dobavni časi so lahko daljši",
+    "storage1": "Na zalogi samo še",
+    "storageX": "izdelkov na zalogi",
+    "quantitty1": "izdelek",
+    "quantitty2": "izdelka",
+    "quantitty3": "izdelkov"
     },
     "page":{
       "skiptocontent": "Preskoči na vsebino"

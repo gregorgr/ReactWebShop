@@ -43,7 +43,7 @@ const CartItem = ({ item }) => {
             <div className="cart-item">
                 <div className='cart-item-box'>
 
-                    <img src={item.image} alt={item.name} className="itemImg" />
+                    <img src={item.image} title={item.name} alt={item.name} className="itemImg" />
                 </div>
                 <div className='cart-item-box cart-item-content'>
                     <h3>

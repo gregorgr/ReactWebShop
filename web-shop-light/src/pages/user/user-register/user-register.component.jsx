@@ -1,6 +1,7 @@
 //import React from 'react';
 import { useState, useContext} from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 // import PropTypes from 'prop-types';
 //const { t } = useTranslation();
@@ -108,68 +109,142 @@ const RegisterUser = () => {
 
   return (
     <div className="container">
-    <div className="row justify-content-center">
-      <div className="col-md-6">
-      <h2 className="text-center my-4">{t('register.title')}</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleRegister}>
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <h2 className="text-center my-4">{t('register.title')}</h2>
+          {error && <p className="text-danger text-center">{error}</p>}
+          <form onSubmit={handleRegister}>
+          <div className="form-group mb-3">
+      <label htmlFor="username" className="form-label">
+        {t('register.username')}
+      </label>
+      <input
+        type="text"
+        className="form-control"
+        name="username"
+        id="username"
+        value={userData.username}
+        onChange={handleChange}
+        required
+        placeholder={t('register.username')}
+      />
+    </div>
 
-        <label>{t('register.username')}</label>
-        <input type="text" 
-         name="username"
-         value={userData.username}
-         onChange={handleChange}
-         required
-         placeholder={t('register.username')} />
-        <label>{t('register.firstname')}</label>
-        <input type="text" 
-         name="firstname"
-         value={userData.firstname}
-         onChange={handleChange}
-         required
-         placeholder={t('register.firstname')} />
-        <label>{t('register.lastname')}</label>
-        <input type="text" 
-          name="lastname"
-          value={userData.lastname}
-          onChange={handleChange}
-          required
-         placeholder={t('register.lastname')} />
+    <div className="form-group mb-3">
+      <label htmlFor="firstname" className="form-label">
+        {t('register.firstname')}
+      </label>
+      <input
+        type="text"
+        className="form-control"
+        name="firstname"
+        id="firstname"
+        value={userData.firstname}
+        onChange={handleChange}
+        required
+        placeholder={t('register.firstname')}
+      />
+    </div>
 
-        <label>{t('register.email')}</label>
-        <input type="email" 
+    <div className="form-group mb-3">
+      <label htmlFor="lastname" className="form-label">
+        {t('register.lastname')}
+      </label>
+      <input
+        type="text"
+        className="form-control"
+        name="lastname"
+        id="lastname"
+        value={userData.lastname}
+        onChange={handleChange}
+        required
+        placeholder={t('register.lastname')}
+      />
+    </div>
+
+    <div className="form-group mb-3">
+      <label htmlFor="email" className="form-label">
+        {t('register.email')}
+      </label>
+      <input
+        type="email"
+        className="form-control"
         name="email"
+        id="email"
         value={userData.email}
         onChange={handleChange}
         required
-        placeholder={t('register.email')} />
+        placeholder={t('register.email')}
+      />
+    </div>
 
-        <label>{t('register.password')}</label>
-        {passwordStrength && (
-          <p style={{ color: passwordStrength === 0 ? 'red' : 'green' }}>
-            {t('register.pwdstrength')}: {getPasswordStrengthDesc(passwordStrength)}
-          </p>
-        )}
-        <input type="password" 
-          name="pwd"
-          value={userData.pwd}
-          onChange={handleChange}
-          required  
-         placeholder={t('register.password')} />
+    <div className="form-group mb-3">
+      <label htmlFor="pwd" className="form-label">
+        {t('register.password')}
+      </label>
+      {passwordStrength && (
+        <p
+          className={`text-${passwordStrength === 0 ? 'danger' : 'success'}`}
+        >
+          {t('register.pwdstrength')}: {getPasswordStrengthDesc(passwordStrength)}
+        </p>
+      )}
+      <input
+        type="password"
+        className="form-control"
+        name="pwd"
+        id="pwd"
+        value={userData.pwd}
+        onChange={handleChange}
+        required
+        placeholder={t('register.password')}
+      />
+    </div>
+
+    <div className="form-group mb-3">
+      <label htmlFor="pwdrpt" className="form-label">
+        {t('register.confirmPassword')}
+      </label>
+      <input
+        type="password"
+        className="form-control"
+        name="pwdrpt"
+        id="pwdrpt"
+        value={userData.pwdrpt}
+        onChange={handleChange}
+        required
+        placeholder={t('register.confirmPassword')}
+      />
+      {passwordMatchError && (
+        <p className="text-danger">{t('register.passwordmismatch')}</p>
+      )}
+    </div>
+    <div className='text-center'>
+    <button type="submit"  className='form-button save-button '>{t('register.submit')}</button>
+    </div>
+           
+          </form>
+          <div className='user-log-navigation text-center'>
+
+          <div className="text-center mt-3">
+          <Link to="/user/login" className="text-secondary">
+      {t('login.login')}
+    </Link>
+  </div>
+  <div className="text-center mt-2">
+    <Link to="/user/forgot-password" className="text-secondary">
+      {t('login.forgotPassword')}
+    </Link>
+  </div>
+        </div> 
+        </div>
+        <div>
+
+          
+        </div>
         
-
-        <label>{t('register.confirmPassword')}</label>
-        <input type="password" 
-         name="pwdrpt"
-         value={userData.pwdrpt}
-         onChange={handleChange}
-         required
-         placeholder={t('register.confirmPassword')} />
-        {passwordMatchError && <p style={{ color: 'red' }}>{t('register.passwordmismatch')}</p>}
-
-        <button type="submit" className="btn btn-primary w-100">{t('register.submit')}</button>
-      </form>
-    </div> </div> </div>
+      </div> 
+    </div>
   );
 };
 /*

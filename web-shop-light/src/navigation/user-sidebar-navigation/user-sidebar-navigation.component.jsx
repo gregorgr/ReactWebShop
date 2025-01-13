@@ -69,7 +69,7 @@ const UserSidebarNavigation = ({}) => {
           <a
                 href="/logout"
                 onClick={handleLogout}
-                style={{ marginLeft: '10px', cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+       
               >
                 {t("login.logout")}
               </a>

@@ -1,5 +1,6 @@
 //import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 const ForgotPassword = () => {
@@ -29,6 +30,17 @@ const ForgotPassword = () => {
 
         <button type="submit" className="btn btn-primary w-100">{t('forgotPassword.submit')}</button>
       </form>
+
+      <div className='user-log-navigation text-center mt-3'>
+    <Link to="/user/register" className="text-primary">
+      {t('login.register')}
+    </Link>
+  </div>
+  <div className="text-center mt-2">
+    <Link to="/user/login" className="text-secondary">
+      {t('login.login')}
+    </Link>
+  </div>
     </div> </div> </div>
   );
 };

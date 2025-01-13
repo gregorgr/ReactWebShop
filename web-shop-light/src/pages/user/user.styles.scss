@@ -1,3 +1,16 @@
 .dix{
     background-color: #fff;
 }
+
+.user-log-navigation a.text-primary,  
+.user-log-navigation a.text-secondary{
+    font-size: 1.2em !important;
+    color: #2e2e2e !important;
+    text-decoration: none !important;
+
+}
+
+.user-log-navigation a.text-primary:hover,
+.user-log-navigation a.text-secondary:hover{
+    color: #019e76 !important;
+}

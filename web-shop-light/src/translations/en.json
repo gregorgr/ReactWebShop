@@ -37,13 +37,23 @@
             "submit": "Reset Password"     
     },
     "EditUser":{
+      "1":"",
       "title": "User data",
       "username": "User name",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",
       "phone": "Phone Number",
-      "savechanges": "Save Information"
+      "savechanges": "Save Information",
+      "titleManageAddresses" :"Manage User Addresses",
+      "addAdressError":"Error adding address",
+      "addNewAddress":"Add New Address",
+      "AddressLine1": "AddressLine1",
+      "AddressLine2": "AddressLine2",
+      "State":"State",
+      "City":"City",
+      "PostalCode":"Postal Code",
+      "Country": "Country"
     },
     "user" : {
       "sidebarTitle":"User pages",
@@ -102,19 +112,28 @@
       "remove": "Remove",
       "productid":"Product ID"
     },
-    "product":{
-       "reviews": "Reviews",
-       "showall": "Show All",
-       "instock":"in Stock",
-       "outofstock":"Out of Stock",
-       "addtochart": "Add to cart",
-       "stock": "Stock",
-       "productID": "Product ID",
-       "manufacturer": "Manufacturer",
-       "details": "Details",
-       "techdetails": "Technical Details",
-       "views": "Views",
-       "reviews1": "Reviews"
+    "product": {
+        "reviews": "Reviews",
+        "showall": "Show All",
+        "instock": "In Stock",
+        "outofstock": "Out of Stock",
+        "addtochart": "Add to Cart",
+        "stock": "Stock",
+        "productID": "Product ID",
+        "manufacturer": "Manufacturer",
+        "details": "Details",
+        "techdetails": "Technical Details",
+        "productUrl": "To product original page",
+        "views": "Views",
+        "reviews1": "Reviews",
+        "storage0": "Currently out of stock, delivery times may be longer",
+        "storage1": "Only",
+        "storageX": "products in stock",
+        "quantitty1": "product",
+        "quantitty2": "products",
+        "quantitty3": "products"
+
+
 
     },
     "page":{

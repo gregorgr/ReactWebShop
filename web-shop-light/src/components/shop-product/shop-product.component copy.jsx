@@ -94,7 +94,9 @@ const ShopProductSS = () => {
         {translatedDescription}
       </p>
       <div className="my-3">
-        <button className="btn btn-primary mt-3">Add to cart</button>
+        <button className="btn btn-primary mt-3 tooltip"
+         data-tooltip="Add this product to your cart"
+        >Add to cart</button>
       </div>
       <table className="table table-borderless mt-4">
         <tbody>

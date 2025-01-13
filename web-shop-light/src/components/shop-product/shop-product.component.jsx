@@ -4,7 +4,11 @@ import { useContext } from "react";
 import { useTranslation } from 'react-i18next';
 import { ProductContext } from "../../context/products/products.context.jsx";
 import { useDispatch } from 'react-redux';
+
 import './shop-product.styles.scss';
+import "./shop-tooltip.styless.scss";
+
+
 import StarRating from "../star-rating/star-rating.component.jsx";
 import { addItem } from '../../features/cart/cartSlice.js';
 
@@ -67,7 +71,32 @@ const ShopProduct = () => {
             image: product.image }));
    };
 
+   {product?.item_stock > 0 
+    ? t('cart.inStock', { stock: product.item_stock }) 
+: t('cart.outOfStock')}
+console.log("itemStorage: "+ itemStorage)
+const addToCartTooltip = (itemStorage) => {
+  if (itemStorage === 0) {
+    return t("product.storage0");
+  } else if (itemStorage === 1 ) {
+    return `${t("product.storage1")} ${itemStorage} ${t("product.quantitty1")}`;
+  } else if ( itemStorage === 2) {
+    return `${t("product.storage1")} ${itemStorage} ${t("product.quantitty2")}`;
+  } else {
+    return `${t("product.storageX")} ${itemStorage} `;
+  }
+};
 
+/*
+       "":"Trenutno ni zaloge, dobavni časi so lahko daljši",
+       "product.storage1":"Na zalogi samo",
+       "product.storageX":"Na zalogi ",
+       {t("product.quantitty1")}: "izdelek",
+        "product.quantitty2": "izdeleka",
+        "product.quantitty3": "izdelekov"
+
+
+*/
 
   // Prevajanje
   const translatedTitle = translations?.[currentLanguage]?.title || title;
@@ -95,6 +124,7 @@ const ShopProduct = () => {
       <div className="col-md-5 mb-4">       
         <ResponsiveImage 
             src={image}
+            alt={translatedTitle}
             title={translatedTitle}
            // className={`responsive-img lazyload ${className}`}
             className="responsive-img lazyload"
@@ -115,7 +145,17 @@ const ShopProduct = () => {
         </div>
         <p>{translatedDescription}</p>
         <div className="my-3">
-          <button className="btn btn-primary mt-3" onClick={handleAddToCart}>{t("product.addtochart")}</button>
+  
+        <div className="con-tooltip top">
+          <button 
+              className="btn btn-primary mt-3 tooltip-btn"
+              data-tooltip="Add this product to your cart"
+              onClick={handleAddToCart}>{t("product.addtochart")}</button>
+          <div className="tooltip ">
+            <p>{addToCartTooltip(itemStorage)}...</p>
+          </div>
+        </div>
+    
         </div>
         <table className="table table-borderless mt-4">
           <tbody>
@@ -129,7 +169,7 @@ const ShopProduct = () => {
                 <NewWindowLink
                   url={original_product_url}
                   linkText={producer}
-                  title="to original product page"
+                  title={t("product.productUrl")}
                   className="custom-class"
                 />
               </td>

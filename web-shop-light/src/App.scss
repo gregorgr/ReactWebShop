@@ -18,8 +18,8 @@ body, ul, li, p, a, label, input, div {
   font-size: 10px !important;
   font-weight: 300 !important;
 }
-.main-content{
-  margin: 30px 3% 0 3%;
+#main-content{
+  margin: 0 4%  ;
 }
 
 #root {
@@ -58,7 +58,7 @@ body, ul, li, p, a, label, input, div {
 /*  .container-fluid n*/
 .container
 {
-  margin: 0 10%;
+ /* margin: 0 10%;*/
 }
 .clearfix::after {
   content: "";
@@ -135,7 +135,9 @@ body {
   color: orange;
 }
 
-
+.main-content{
+  margin: 0 3%;
+}
 /* Skrij gumb privzeto */
 .skip-to-content {
   position: absolute;
