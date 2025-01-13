@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 // import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ProductContext } from "../../context/products/products.context.jsx";
 import { useDispatch } from 'react-redux';
@@ -134,9 +135,17 @@ const addToCartTooltip = (itemStorage) => {
       {/* Right Column */}
       <div className="col-md-6">
         <h2 className="mb-3">{title}</h2>
-        <p className="h3 text-muted">{formatCurrency(price)}€</p>
+        <p className="text-muted produckt-price text-center">{formatCurrency(price)}€</p>
         <hr />
-        <div className="my-3">
+
+
+
+        <div className="container">
+        <div className="d-flex flex-wrap">
+        <div className="box flex-fill p-3 text-center">
+        <div className="my-1 inline-li-content">
+        
+          
           <StarRating averageRating={averageRating} />
           &nbsp; &nbsp;
           <strong>{numberOfReviews} {t("product.reviews")}</strong>
@@ -145,19 +154,36 @@ const addToCartTooltip = (itemStorage) => {
         </div>
         <p>{translatedDescription}</p>
         <div className="my-3">
-  
+
         <div className="con-tooltip top">
-          <button 
-              className="btn btn-primary mt-3 tooltip-btn"
-              data-tooltip="Add this product to your cart"
-              onClick={handleAddToCart}>{t("product.addtochart")}</button>
-          <div className="tooltip ">
+        <div className="rounded-0 product-overlay d-flex align-items-left justify-content-left">
+         
+
+                {
+                // add to cart BUTTON
+              }
+         <Link className="btn btn-success text-white mt-2" 
+                    to="#"
+                    onClick={handleAddToCart}
+                >
+                <i className="fas fa-cart-plus"></i>
+              </Link>
+              <div className="tooltip ">
             <p>{addToCartTooltip(itemStorage)}...</p>
           </div>
         </div>
+</div>
+</div>
+
+
+  
+
     
         </div>
-        <table className="table table-borderless mt-4">
+
+
+        <div className="box flex-fill p-3 text-center">
+        <table className="table table-borderless">
           <tbody>
             <tr>
               <td className="text-end fw-bold">{t("product.productID")}:</td>
@@ -189,6 +215,10 @@ const addToCartTooltip = (itemStorage) => {
             </tr>
           </tbody>
         </table>
+        </div>
+        </div> 
+        </div>
+
       </div>
     </div>
   </div>

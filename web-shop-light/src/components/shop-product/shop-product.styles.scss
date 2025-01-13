@@ -10,7 +10,13 @@
     background-color: #f8f9fa; // svetlo sivo ozadje
     width: 100%;
   }
-  
+  .inline-li-content{
+    display: inline-flex;
+  }
+  .produckt-price {
+    font-size: 2.1em !important;
+    font-weight: bold !important;
+  }
   // Responsive styling for product section
   .container {
     .row {

@@ -134,7 +134,12 @@ body {
 .stockZero{
   color: orange;
 }
-
+.btn-success{
+  border: none;
+}
+.product-overlay a.btn-success:hover {
+  background-color: rgb(40, 167, 69);
+}
 .main-content{
   margin: 0 3%;
 }
