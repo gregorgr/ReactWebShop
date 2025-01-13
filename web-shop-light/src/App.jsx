@@ -17,7 +17,7 @@ import Home from './pages/home-page/home-page.component';
 import Shop from './pages/shop/shop.component';
 import ShopProduct from './components/shop-product/shop-product.component.jsx';
 //import Product from './pages/shop/product/product.component';
-import Cart from './pages/shop/cart/cart.component';
+import Cart from './pages/cart/cart.component.jsx';
 import StoresPage from './pages/stores-page/stores-page.component';
 import Contact from './pages/contact/contact.component';
 

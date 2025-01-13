@@ -1,7 +1,7 @@
 import  { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { removeItem } from '../../features/cart/cartSlice';
+import { removeItem } from '../../../features/cart/cartSlice';
 // import { CartContext } from '../../context/cart-context/cart-context';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Uvozi useNavigate

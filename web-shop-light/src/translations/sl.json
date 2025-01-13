@@ -42,18 +42,23 @@
       "lastName": "Priimek",
       "email": "E-poštni naslov",
       "phone": "Telefonska številka",
-      "savechanges": "Shrani podatke",
-      "titleManageAddresses" :"Manage User Addresses",
-      "addAdressError":"Error adding address",
-      "addNewAddress":"aAdd New Address",
-      "AddressLine1": "AddressLine1",
-      "AddressLine2": "AddressLine2",
-      "State":"State",
-      "City":"City",
-      "PostalCode":"Postal Code",
-      "Country": "Country"
+      "savechanges": "Shrani podatke"
+     
 
     },
+
+  "address":{
+    "setAsDefault":"Nastavi privzeto",
+    "titleManageAddresses" :"Manage User Addresses",
+    "addAdressError":"Error adding address",
+    "addNewAddress":"aAdd New Address",
+    "AddressLine1": "AddressLine1",
+    "AddressLine2": "AddressLine2",
+    "State":"State",
+    "City":"City",
+    "PostalCode":"Postal Code",
+    "Country": "Country"
+},
     "user" : {
       "sidebarTitle":"Uporabniške strani",
       "edit": "Uredi podatke",

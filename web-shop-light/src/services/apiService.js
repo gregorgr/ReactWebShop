@@ -67,8 +67,9 @@ export const addUserAddress = async (token, username, newAddress) => {
   userData.pwd = userData.pwd || 'a123';
     // Filter out empty addresses
   userData.userAddresses = userData.userAddresses.filter((address) => !isAddressEmpty(address));
-
-  userData.userAddresses.push(newAddress);
+  // ne deluje več naslovov.
+  // userData.userAddresses.push(newAddress);
+  userData.userAddresses = [newAddress]; // Zamenja vse prejšnje naslove
   console.log(userData)
    // Update user data
   return updateUserData(token, username, userData);

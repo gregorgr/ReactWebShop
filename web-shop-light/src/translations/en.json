@@ -44,17 +44,25 @@
       "lastName": "Last Name",
       "email": "Email Address",
       "phone": "Phone Number",
-      "savechanges": "Save Information",
-      "titleManageAddresses" :"Manage User Addresses",
-      "addAdressError":"Error adding address",
-      "addNewAddress":"Add New Address",
-      "AddressLine1": "AddressLine1",
-      "AddressLine2": "AddressLine2",
-      "State":"State",
-      "City":"City",
-      "PostalCode":"Postal Code",
-      "Country": "Country"
+      "savechanges": "Save Information"
+
+      
+    
     },
+    "address":{
+        "setAsDefault":"Set as Default",
+        "existingAddresses":"Existing Addresses",
+        "titleManageAddresses" :"Manage User Addresses",
+        "addAdressError":"Error adding address",
+        "addNewAddress":"Add New Address",
+        "AddressLine1": "AddressLine1",
+        "AddressLine2": "AddressLine2",
+        "State":"State",
+        "City":"City",
+        "PostalCode":"Postal Code",
+        "Country": "Country"
+    },
+ 
     "user" : {
       "sidebarTitle":"User pages",
       "edit": "Edit user",

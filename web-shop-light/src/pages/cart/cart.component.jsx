@@ -1,12 +1,12 @@
-import React, {useState, useContext, useEffect} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, clearCart, updateQuantity } from '../../../features/cart/cartSlice';
+import { removeItem, clearCart, updateQuantity } from '../../features/cart/cartSlice';
 
-import CartItem from '../../../components/cart-item/cart-item.component';
-import CartNavigation from "../../../components/cart-navigation/cart-navigation.component";
+import CartItem from '../../components/cart/cart-item/cart-item.component';
+import CartNavigation from "../../navigation/cart-navigation/cart-navigation.component";
 import './cart.styles.scss';
 
    // Možnosti poštnine
