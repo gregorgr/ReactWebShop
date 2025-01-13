@@ -41,7 +41,16 @@
       "lastName": "Priimek",
       "email": "E-poštni naslov",
       "phone": "Telefonska številka",
-      "submit": "Shrani podatke"
+      "savechanges": "Shrani podatke"
+
+    },
+    "user" : {
+      "sidebarTitle":"Uporabniške strani",
+      "edit": "Uredi podatke",
+      "address": "Naslovi za dostavo",
+      "orders": "Naročila",
+      "change_pass": "Spremeni geslo",
+       "helouser": "Pozdravljeni "
     },
     "ChangePassword": {
       "title": "Spremeni geslo",
@@ -92,7 +101,7 @@
       "remove": "Odstrani",
       "productid":"ID produkta"
     },
-      "product": {
+    "product": {
       "reviews": "Mnenja",
       "showall": "Prikaži vsa",
       "instock": "na zalogi",

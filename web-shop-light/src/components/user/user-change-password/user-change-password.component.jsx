@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 //import { LanguageContext } from '../../../context/language-context/language-context';
 
-const ChangePassword = () => {
+const UserChangePassword = () => {
   //const { language } = useContext(LanguageContext);
   const { changePassword, user } = useContext(AuthContext);
   const { t } = useTranslation();
@@ -144,4 +144,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default UserChangePassword;

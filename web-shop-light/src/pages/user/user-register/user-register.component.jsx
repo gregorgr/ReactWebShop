@@ -110,7 +110,7 @@ const RegisterUser = () => {
     <div className="container">
     <div className="row justify-content-center">
       <div className="col-md-6">
-      <h2 lassName="text-center my-4">{t('register.title')}</h2>
+      <h2 className="text-center my-4">{t('register.title')}</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleRegister}>
 

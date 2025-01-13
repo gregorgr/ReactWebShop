@@ -1,25 +1,31 @@
 // import React from 'react';
-import  {useContext} from 'react';
+import  {useContext, useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import UserSidebarNavigation from '../../../navigation/user-sidebar-navigation/user-sidebar-navigation.component'; 
 //  '../../navigation/user-sidebar-navigation/user-sidebar-navigation.component.jsx'; // './user-sidebar.component.jsx';
 import { LanguageContext } from '../../../context/language-context/language-context'; 
-
+import { useAuth } from '../../../context/auth-context/auth-context.utils';
+import { useTranslation } from 'react-i18next';
 
 //'../../context/language-context';
 
 import Orders from '../../../components/user/orders/orders.component';
 
-import EditUser from '../../../components/user/edit-user/edit-user.component';
-import ChangePassword from '../../../components/user/user-change-password/user-change-password.component';
+import UserEdit from '../../../components/user/user-edit/user-edit.component';
+import UserChangePassword from '../../../components/user/user-change-password/user-change-password.component';
 import UserAddresses  from '../../../components/user/user-addresses/user-addresses.component';
 
 import ProtectedRoute from '../../../components/protected-route/protected-route.component';
-
+import "./user-pages.styles.scss";
 
 const UserPages = () => {
   const { language } = useContext(LanguageContext);
+  const { user, logout } = useAuth();
+  const { t } = useTranslation();
+
+  console.log(`Userpage: user ${user}!`)
+
   //console.log("UserPages:Language prop:", language);
   return (
     <>
@@ -32,13 +38,13 @@ const UserPages = () => {
 
     
     <div className="col-sm-8 text-left product-list"> 
-        <h1>UserPage</h1>
-        <h2>{language === 'sl' ? 'Stran uporabnika' : 'User Page'}</h2>
+  
+      
         <Routes>
-            <Route path="edit" element={<ProtectedRoute><EditUser language={language} /></ProtectedRoute>} />
-            <Route path="addresses" element={<ProtectedRoute><UserAddresses language={language} /></ProtectedRoute>} />
-            <Route path="change-password" element={<ProtectedRoute><ChangePassword language={language} /></ProtectedRoute>} />
-            <Route path="orders" element={<ProtectedRoute><Orders language={language} /></ProtectedRoute>} />
+            <Route path="edit" element={<ProtectedRoute><UserEdit language={language} /></ProtectedRoute>} />
+            <Route path="addresses" element={<ProtectedRoute><UserAddresses language={language} username={user}/></ProtectedRoute>} />
+            <Route path="change-password" element={<ProtectedRoute><UserChangePassword language={language} username={user}/></ProtectedRoute>} />
+            <Route path="orders" element={<ProtectedRoute><Orders language={language} username={user}/></ProtectedRoute>} />
           </Routes>
         </div>
     </>

@@ -1,6 +1,8 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+
+//console.log(process.env.API_BASE_URL); 
 // AuthContext
 export const AuthContext = createContext();
 
@@ -9,9 +11,31 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Shrani podatke o uporabniku
   const [token, setToken] = useState(null); // Shrani uporabniški token
   const [refreshToken, setRefreshToken] = useState(null); //
+
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  //console.log("API_BASE_URL:", API_BASE_URL);
+
+    // Ob inicializaciji preveri lokalno shrambo
+    useEffect(() => {
+      const savedUser = localStorage.getItem('user');
+      const savedToken = localStorage.getItem('token');
+      const savedRefreshToken = localStorage.getItem('refreshToken');
+  
+      if (savedUser && savedToken) {
+        setUser(savedUser);
+        setToken(savedToken);
+        setRefreshToken(savedRefreshToken);
+      }
+    }, []);
+
   // Prijava
   const login = async (username, pwd) => {
-    const response = await fetch('http://localhost:5020/api/Auth/login', {
+
+    
+    //console.log("DEBUG login:")
+    //console.log(API_BASE_URL)
+    //console.log(`${API_BASE_URL}/Auth/login`)
+    const response = await fetch(`${API_BASE_URL}/Auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, pwd }),
@@ -29,6 +53,11 @@ export const AuthProvider = ({ children }) => {
       setRefreshToken(data.refreshToken);
       setUser(username); // Shranimo uporabniške podatke, če so priloženi
 
+      // Shrani v lokalno shrambo
+      localStorage.setItem('user', username);
+      localStorage.setItem('token', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+
     } else {
       throw new Error('Invalid login credentials');
     }
@@ -36,8 +65,13 @@ export const AuthProvider = ({ children }) => {
 
   // Registracija
   const register = async (userData) => {
-    const payload = { ...userData, userRole: 'navaden_uporabnik' };
-    const response = await fetch('http://localhost:5020/api/Auth/register', {
+    
+    // Odstrani polje `pwdrpt` iz userData
+    const { pwdrpt, ...rest } = userData;
+      // Ustvari payload brez `pwdrpt` in z dodanim `userRole`
+    const payload = { ...rest, userRole: 'uporabnik' };
+    console.log(payload)
+    const response = await fetch(`${API_BASE_URL}/Auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -57,7 +91,7 @@ export const AuthProvider = ({ children }) => {
         newPassword,
       };
 
-      const response = await fetch('http://localhost:5020/api/Auth/change-password', {
+      const response = await fetch(`${API_BASE_URL}/Auth/change-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -87,3 +121,6 @@ export const AuthProvider = ({ children }) => {
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
+
+
+export const useAuth = () => useContext(AuthContext);

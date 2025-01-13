@@ -33,6 +33,7 @@ import Orders from './pages/shop/orders/orders.component';
 */
 
 
+
 import { CartProvider } from './context/cart-context/cart-context.provider';
 import { ProductsProvider } from './context/products/products.context.jsx';
 //import Cart from './context/cart-context/cart-context.component';
@@ -45,7 +46,9 @@ function App() {
   //const [language, setLanguage] = useState('en'); // Dvojezična podpora
   const { i18n } = useTranslation(); // Pridobimo objekt i18n
   const currentLanguage = i18n.language; // Trenutni jezik
- // 
+
+
+
   return (
     <>
     <LanguageProvider>

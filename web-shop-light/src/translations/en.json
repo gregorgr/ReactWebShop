@@ -37,13 +37,21 @@
             "submit": "Reset Password"     
     },
     "EditUser":{
-      "title": "User Information",
+      "title": "User data",
       "username": "User name",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",
       "phone": "Phone Number",
-      "submit": "Save Information"
+      "savechanges": "Save Information"
+    },
+    "user" : {
+      "sidebarTitle":"User pages",
+      "edit": "Edit user",
+      "address": "Addresses",
+      "orders": "Orders",
+      "change_pass": "Change password",
+      "helouser": "Hello "
     },
     "ChangePassword": {
       "title": "Change Password",

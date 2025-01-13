@@ -4,23 +4,11 @@ import { Link } from 'react-router-dom';
 import './user-sidebar-navigation.styles.scss';
 
 import { AuthContext } from '../../context/auth-context/auth-context.utils';
+//import { LanguageContext } from '../../../context/language-context/language-context'; 
+// const { language } = useContext(LanguageContext);
+import { useTranslation } from 'react-i18next';
 
-const texts = {
-    sl: {
-      edit: 'Uredi podatke',
-      address: 'Naslov za dostavo',
-      orders: 'Naročila',
-      change_pass: 'Spremeni geslo',
-    },
-    en: {
-      edit: 'Edit user',
-      address: 'Addresses',
-      orders: 'Orders',
-      change_pass: 'Change password',
 
-    },
- 
-  };
 
 /*
 <Link to="/search"
@@ -37,9 +25,10 @@ const texts = {
        >
 
 */
-const UserSidebarNavigation = ({ language = 'sl' }) => {
-
+const UserSidebarNavigation = ({}) => {
+  
   const { user, logout } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const handleLogout = (e) => {
     e.preventDefault(); // Preprečimo privzeto obnašanje povezave
@@ -50,29 +39,29 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
     return (
       <>
  
-        <h5>{language === 'sl' ? 'Uporabniške strani' : 'User pager'}</h5>
+        <h5>{t("user.sidebarTitle")}</h5>
     
         <ul className="list-group">
           <li className="list-group-item">
-          <Link to="{user/edit" 
+          <Link to="/user/edit" 
             className="text-decoration-none text-dark">
-              {texts[language].edit}
+             {t("user.edit")}
             </Link>
           </li>
           <li className="list-group-item">
           <Link to="/user/addresses" className="text-decoration-none text-dark">
-              {texts[language].address}
+             {t("user.address")}
             </Link>
           </li>
           <li className="list-group-item">
           <Link to="/user/change-password" className="text-decoration-none text-dark">
-              {texts[language].change_pass}
+              {t("user.change_pass")}
             </Link>
           </li>
           <li className="list-group-item libreak"><span></span></li>
           <li className="list-group-item">
           <Link to="/user/orders" className="text-decoration-none text-dark">
-              {texts[language].orders}
+              {t("user.orders")}
             </Link>
           </li>
           <li className="list-group-item libreak"><span></span></li>
@@ -82,7 +71,7 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
                 onClick={handleLogout}
                 style={{ marginLeft: '10px', cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
               >
-                Logout
+                {t("login.logout")}
               </a>
           </li>
       
@@ -93,10 +82,11 @@ const UserSidebarNavigation = ({ language = 'sl' }) => {
   };
   
   /*
-  UserPages.propTypes = {
-    language: PropTypes.string.isRequired, // language mora biti string
-    currentUser:PropTypes.string.isRequired, 
-  };*/
+  
+  UserSidebarNavigation.propTypes = {
+   // language: PropTypes.string.isRequired, // language mora biti string
+    //currentUser:PropTypes.string.isRequired, 
+  }*/
   export default UserSidebarNavigation;
 
 
