@@ -27,7 +27,8 @@
     "react-js-vector-icons": "^0.0.4",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
-    "sass": "^1.83.0"
+    "sass": "^1.83.0",
+    "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

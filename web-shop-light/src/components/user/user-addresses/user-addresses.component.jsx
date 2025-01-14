@@ -125,12 +125,19 @@ return (
 <button type="button" className='save-button' onClick={() => setShowAddForm(true)}>Add New Address</button>
     
       {showAddForm && (
-        <UserAddressAddForm 
-        address={newAddress}
-        handleInputChange={handleInputChange}
-        handleAddAddress={handleAddAddress}
-        setShowAddForm={setShowAddForm}
-        />
+        <>
+          <div className="add-address-form">
+            <h2>Add New Address</h2>
+            <UserAddressAddForm 
+              address={newAddress}
+              handleInputChange={handleInputChange}
+              //handleAddAddress={handleAddAddress}
+              //setShowAddForm={setShowAddForm}
+              />
+             <button type="button" className='form-button save-button' onClick={() => handleAddAddress(address)}>Save Address</button>
+             <button type="button" className='form-button cancel-button' onClick={() => setShowAddForm(false)}>Cancel</button>
+          </div>
+        </>
         
       )}
       </div>

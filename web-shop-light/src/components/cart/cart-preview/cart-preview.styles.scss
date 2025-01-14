@@ -47,8 +47,9 @@
   
     .cart-dropdown {
       position: absolute;
+      top: 30px;
      /* top: 120px;*/
-      right: 100px; /* 200px;*/
+      right: -30px; /* 200px;*/
       width: 300px;
     /*  background-color: #fff;*/
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -57,7 +58,7 @@
       transform: translateY(-20px);
       opacity: 0;
       transition: all 0.3s ease-in-out;
-      z-index: 999;
+      z-index: 500;
       height: 0;
       h3 {
         margin-bottom: 10px;

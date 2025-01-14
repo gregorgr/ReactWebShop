@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 
 import "./user-address-list-item.styles.scss";
 
-const UserAddressListItem = ({index, address, handleDelete, handleDefaultChange}) => {
+const UserAddressListItem = ({index, address, handleDelete, handleDefaultChange, enableButtons=true}) => {
      const { t } = useTranslation();
-  console.log("DEBUG: UserAddressListItem ", address)
+   console.log("DEBUG: UserAddressListItem ", address)
 
     return(
       <>
@@ -19,18 +19,23 @@ const UserAddressListItem = ({index, address, handleDelete, handleDefaultChange}
             <p>{address.city}, {address.state}, {address.postalCode}</p>
             <p>{address.country}</p>
           </div>
-          <div className="address-actions">
-            <label>
-              <input
+          { enableButtons && (
+          <>
+            <div className="address-actions">
+              <label>
+                <input
                   type="radio"
                   name="isDefault"
                   checked={address.isDefault === 1}
                   onChange={() => handleDefaultChange(index)}
-              />
-                  {t("address.setAsDefault")}
-                </label>
-                <button type="button" className='form-button delete-button' onClick={() => handleDelete(index)}>Delete</button>
-              </div>
+                  />
+                {t("address.setAsDefault")}
+              </label>
+              <button type="button" className='form-button delete-button' onClick={() => handleDelete(index)}>Delete</button>
+            </div>
+          </>
+          )}
+
         </div>
       </>
     );
@@ -50,6 +55,7 @@ UserAddressListItem.propTypes = {
   }).isRequired,
   handleDelete: PropTypes.func.isRequired, // mora biti funkcija
   handleDefaultChange: PropTypes.func.isRequired, // mora biti funkcija
+  enableButtons: true
 };
 
 

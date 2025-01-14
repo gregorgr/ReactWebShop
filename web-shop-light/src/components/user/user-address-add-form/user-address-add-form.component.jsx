@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 
 import "./user-address-add-form.styles.scss";
 
-const UserAddressAddForm = ({ address, handleInputChange, handleAddAddress, setShowAddForm }) => {
-     
+const UserAddressAddForm = ({ address, handleInputChange }) => {
+     // handleAddAddress, setShowAddForm 
   /*const [newAddress, setNewAddress] = useState({
         addressLine1: '',
         addressLine2: '',
@@ -23,8 +23,8 @@ const UserAddressAddForm = ({ address, handleInputChange, handleAddAddress, setS
 */
     return(
         <>
-        <div className="add-address-form">
-          <h2>Add New Address</h2>
+        
+          
           <div className="form-row">
             <label className='form-label'>Address Line 1:</label>
             <input
@@ -85,9 +85,6 @@ const UserAddressAddForm = ({ address, handleInputChange, handleAddAddress, setS
               placeholder="Country"
             />
           </div>
-          <button type="button" className='form-button save-button' onClick={() => handleAddAddress(address)}>Save Address</button>
-          <button type="button" className='form-button cancel-button' onClick={() => setShowAddForm(false)}>Cancel</button>
-        </div>
       </>
     );
 };
@@ -105,8 +102,8 @@ UserAddressAddForm.propTypes = {
     })
   ).isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  handleAddAddres: PropTypes.func.isRequired,
-  setShowAddForm: PropTypes.func.isRequired,
+  //handleAddAddres: PropTypes.func.isRequired,
+ // setShowAddForm: PropTypes.func.isRequired,
 };
 
 export default UserAddressAddForm;

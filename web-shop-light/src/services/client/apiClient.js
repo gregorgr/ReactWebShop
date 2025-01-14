@@ -10,6 +10,7 @@ apiClient.interceptors.request.use(
   (config) => {
     // Dodaj Bearer token iz sessionStorage (ali AuthContext)
     const token = sessionStorage.getItem('token'); // Ali pridobite token iz AuthContext
+    console.log("apiClient.interceptors.request:token: ", token)
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

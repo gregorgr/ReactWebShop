@@ -32,20 +32,25 @@ export const getUserData = async (token, username) => {
 
 export const updateUserData = async (token, username, userData) => {
   console.log("apiService: updateUserData:")
-  console.log(userData)
+  console.log(userData);
+  console.log("updateUserData:token: ", token)
+  const { pwdRpt, ...rest } = userData;
   if (!userData.pwd) {
       console.log("pwd je prazen:");
       const originalData = await axios.get(`${API_BASE_URL}/User/${username}`, createHeaders(token));
-      userData.pwd = originalData.data.pwd;
+      userData.pwd = originalData.pwd || 'a123';
+      
       console.log("pwd: "+ userData.pwd );
   }
-  
+  console.log(userData);
+  userData["PwdRpt"]= userData.pwd || 'a123';
   // userData.pwd = request.data.pwd || request.data.pwd ;
   const response = await axios.put(`${API_BASE_URL}/User/${username}`, userData, createHeaders(token));
   return response.data;
 };
 
 export const getUserAddresses = async (token, username) => {
+  console.log("getUserAddresses:token: ", token)
   const response = await axios.get(`${API_BASE_URL}/User/${username}`, createHeaders(token));
   return response.data.userAddresses;
 };

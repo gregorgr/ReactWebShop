@@ -11,7 +11,7 @@ import { useAuth } from '../../../context/auth-context/auth-context.utils';
 import { getUserAddresses, updateUserAddress } from './../../../services/apiService'; 
 
 // handleDefaultChange, handleDelete
-const UserAddressList = () => {
+const UserAddressList = ({enableButtons}) => {
     const { user, token } = useAuth();
     const [addresses, setAddresses] = useState([]);
 
@@ -81,7 +81,8 @@ const UserAddressList = () => {
                 index={index} 
                 address={address} 
                 handleDefaultChange={handleDefaultChange} 
-                handleDelete={handleDelete} />);
+                handleDelete={handleDelete} 
+                enableButtons={enableButtons}/>);
     
           })
         )}

@@ -49,14 +49,16 @@ export const AuthProvider = ({ children }) => {
       //console.log(`User: ${username}`);
       //console.log({data});
 
-      setToken(data.refreshToken);   //  Shranimo token
+      setToken(data.accessToken);   //  Shranimo token
       setRefreshToken(data.refreshToken);
       setUser(username); // Shranimo uporabniške podatke, če so priloženi
 
+      console.log('token: ', data.accessToken);
       // Shrani v lokalno shrambo
       localStorage.setItem('user', username);
       localStorage.setItem('token', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
+
 
     } else {
       throw new Error('Invalid login credentials');
@@ -106,6 +108,9 @@ export const AuthProvider = ({ children }) => {
 
   // Logout
   const logout = () => {
+    localStorage.setItem('user', "");
+    localStorage.setItem('token', "");
+    localStorage.setItem('refreshToken', "");
     setUser(null);
     setToken(null);
     setRefreshToken(null);
