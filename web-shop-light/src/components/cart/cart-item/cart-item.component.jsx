@@ -9,7 +9,7 @@ import { ProductContext } from '../../../context/products/products.context.jsx';
 import "./cart-item.styles.scss";
 
 const CartItem = ({ item }) => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { products } = useContext(ProductContext);
 

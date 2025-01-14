@@ -51,7 +51,7 @@ const CartPreview = () =>{
       const handleGoToCart = () => {
         setIsOpen(false); // Skrij predogled košarice
         // Tukaj lahko dodate navigacijo na stran s košarico, če želite.
-        navigate('/cart'); // Preusmeri na stran /cart
+        navigate('/checkout'); // Preusmeri na stran /cart
       };
   
       const itemsCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
@@ -73,7 +73,7 @@ const CartPreview = () =>{
         </div>
   
         <div className="cart-dropdown">
-          <h3>Cart Preview</h3>
+          <h3>Cart Preview1</h3>
           {cart.items.length === 0 ? (
             <p>Your cart is empty.</p>
           ) : (
@@ -107,7 +107,7 @@ const CartPreview = () =>{
               <div className="cart-total">
                 <strong>Total:</strong> {formatCurrency(total)} €
               </div>
-              <button to="/cart" className="go-cart-button" onClick={handleGoToCart}>
+              <button to="/checkout" className="go-cart-button" onClick={handleGoToCart}>
                {t("cart.gotocheckout")}
               </button>
             </>

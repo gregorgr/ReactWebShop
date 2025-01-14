@@ -1,0 +1,447 @@
+// Extra small screen / phone
+$screen-xs-min: 480px;
+
+// Small screen / tablet
+$screen-sm-min: 768px;
+
+// Medium screen / desktop
+$screen-md-min: 992px;
+
+// Large screen / wide desktop
+$screen-lg-min: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+@mixin respondTo($media) {
+  @if $media == "xs" {
+    @media only screen and (max-width: $screen-xs-max) {
+      @content;
+    }
+  }
+
+  @else if $media == "sm" {
+    @media only screen and (max-width: $screen-sm-max) and (min-width: $screen-sm-min) {
+      @content;
+    }
+  }
+
+  @else if $media == "md" {
+    @media only screen and (max-width: $screen-md-max) and (min-width: $screen-md-min) {
+      @content;
+    }
+  }
+
+  @else if $media == "lg" {
+    @media only screen and (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+}
+@mixin respondToAbove($media) {
+  @if $media == "xs" {
+    @media only screen and (min-width: $screen-xs-max) {
+      @content;
+    }
+  }
+
+  @else if $media == "sm" {
+    @media only screen and (min-width: $screen-sm-min) {
+      @content;
+    }
+  }
+
+  @else if $media == "md" {
+    @media only screen and (min-width: $screen-md-min) {
+      @content;
+    }
+  }
+
+  @else if $media == "lg" {
+    @media only screen and (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+}
+@mixin respondToBelow($media) {
+  @if $media == "xs" {
+    @media only screen and (max-width: $screen-xs-max) {
+      @content;
+    }
+  }
+
+  @else if $media == "sm" {
+    @media only screen and (max-width: $screen-sm-max) {
+      @content;
+    }
+  }
+
+  @else if $media == "md" {
+    @media only screen and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+
+  @else if $media == "lg" {
+    @media only screen {
+      @content;
+    }
+  }
+}
+@mixin respondToTablet {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
+    @content;
+  }
+}
+@mixin respondToSmall-n-Medium {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max){
+    @content;
+  }
+}
+@mixin respondToMobile() {
+  @include respondTo(xs){
+    @content
+      }
+}
+@mixin respondToDesktop() {
+  @include respondToAbove(md){
+    @content
+      }
+}
+
+@mixin close-icon{
+  font-size: 0 !important;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  right: 20px;
+  top: 20px;   
+  font-size: 0px;
+  cursor: pointer;
+  z-index: 9;
+  border: 0;
+  background: transparent;
+  &:before,&:after{
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    height: 2px;
+    background: #fff;
+    width: 50%;
+    transition: all .25s;
+    opacity: 1; /* popravljeno */
+  }
+  &:before{
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+  &:after{
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+$shadow : 0 6px 10px -2px rgba(0, 0, 0, .25);
+$black: #303030;
+$solid: #fff;
+$solid_2: #f9a825;
+$dbc: #f9f9f9;
+.checkout-container {
+  width: 100%;
+  @include respondToAbove(sm){
+ /*   padding: 10px;*/
+    padding: 10px 10%;
+    /*margin: 0 5%;*/
+  }
+  @include respondTo(xs){
+    padding: 1px;
+  }
+  background: $dbc;
+  min-height: 110vh;
+
+  letter-spacing: 2px;
+  &, & *{
+    transition: all .25s;
+  }
+  
+  #steps .count{
+    max-width: 500px;
+  }
+  #steps{
+    
+    margin: auto;
+    .count{
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      background: transparent;
+      border: none;
+      justify-content: space-between;
+      position: relative;
+      width: 90%;
+      margin: 20px auto;
+      li{
+        pointer-events: none;
+        background: transparent;
+        border: none;
+        text-align: center;
+        flex: 1;
+        position: relative;
+        &:before{
+          content: '1';
+          display: block;
+          width: 40px;
+          line-height: 40px;
+          height: 40px;
+          color: #fff;
+          border-radius: 50%;
+          background: $solid_2;
+          margin: 0 auto 20px;
+         /* box-shadow: 0 6px 10px -2px rgba(0, 0, 0, .3);*/
+          transition: all .25s;
+          position: relative;
+          z-index: 1;
+        }
+        &:after{
+          content: '';
+          height: 2px;
+          background: $solid_2;
+          width: 100%;
+          position: absolute;
+          top: 19px;
+          right: 50%;
+          z-index: 0;
+        }
+        &:nth-child(1){
+          &:after{
+            content: none;
+          }
+          &:before{
+            content: '1';
+          }
+        }
+        &:nth-child(2){
+          &:before{
+            content: '2';
+          }
+        }
+        &:nth-child(3){
+          &:before{
+            content: '3';
+          }
+        }
+        &:nth-child(4){
+          &:before{
+            content: '4';
+          }
+        }
+        &.selected ~ li{
+          &:after, &:before{
+            background: $black;
+          }
+        }
+      }
+    }
+    #tabs{
+      position: relative;
+      width: 100%;
+      >div{
+       /* padding: 0 30px;*/
+       width: 100%;
+        background: #fff;
+      /*  box-shadow: $shadow;*/
+       /* max-height: 0;*/
+        overflow: hidden;
+        transition: all .25s;
+       /* border-radius: 10px;*/
+        position: relative;
+        z-index: 1;
+        h1{
+          text-align: center;
+          margin: 0 0 30px;
+          text-transform: uppercase;
+            font-size: 25px;
+        }
+        .input{
+          label{
+            display: block;
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+
+          }
+          input:not([type=radio]){
+            border: solid 1px #999;
+            margin-bottom: 15px;
+            height: 40px;
+            padding: 5px 15px;
+            width: 100%;
+            &:focus{
+              outline: none;
+              border-color: transparent transparent $solid_2;
+            }
+          }
+        }
+        >*{
+          opacity: 1; /* popravljeno */
+        }
+        &.active{
+          max-height: 500px;
+          padding: 30px;
+          >*{
+            opacity: 1;
+          }
+        }
+        .finish{
+          height: 150px;
+          width: 150px;
+          display: block;
+          background: #ccc;
+          margin: 20px auto;
+          border-radius: 50%;
+          position: relative;
+          &:before{
+            content: '\f00c';
+            font-family: fontawesome;
+            line-height: 150px;
+            color: #aaa;
+            font-size: 70px;         
+          }
+        }
+        &#login{
+          button{
+            float: right;
+          }
+          p{
+            clear: both;
+            text-align: center;
+          }
+        }
+        .halfit{
+          width: 50%;
+          float: left; 
+          input{
+            width: 90% !important;
+          }
+        }
+        .small{
+          input{
+            width: 60px !important;
+            padding: 5px !important;
+          }
+        }
+        &#payment{
+          .back{
+            clear: both;
+          }
+          .flexit{
+            display: flex;
+            margin: 15px 0;
+            input[type=radio]{
+              display: none;
+              & + label{
+                flex: 1;
+                padding: 10px;
+                position: relative;
+                line-height: 20px;
+                text-align: center;
+                background: $black;
+                cursor: pointer;
+                color: #fff;
+                font-weight: normal;
+              }
+              &:checked + label{
+                flex: 1.5;
+                background: $solid_2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  button{
+    background: $solid_2;
+    border: 0;
+    color: #fff;
+    padding: 10px 30px;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      box-shadow: $shadow;
+    }
+  }
+}
+
+
+.checkout-layout-container{
+  display: flex;
+  flex-direction: column;
+ /* height: 100vh; *//* Višina zaslona */
+ min-height: calc(50vh - 200px);
+  width: 100%;
+}
+.checkout-main-content{
+  flex: 1; /* Zavzema preostalo višino */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+
+    /* nav-button left right   */
+  .checkout-navigation {
+    display: flex;
+    justify-content: space-between; /* Razdeli elemente na levo in desno */
+    padding: 1rem;
+    background-color: #eaeaea; /* Svetlejša siva za navigacijo */
+    border-top: 1px solid #ccc; /* Tanek rob zgoraj */
+  }
+
+  .nav-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Modra barva gumba */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+
+  
+  .nav-button:hover {
+    background-color: #0056b3; /* Temnejša modra ob preletu */
+  }
+}
+
+.checkout-navigation{
+
+  .nav-button.step-back {
+    text-align: left;
+    float: left;
+    a{
+      &:before{
+        content: "❮";
+        padding: 0.5em;
+        transition: all 0.15s linear;letter-spacing: -0.015em;
+    }
+      &:after{
+        content: "";
+      }
+    }
+
+  }
+  
+  .nav-button.right {
+    text-align: right;
+  }
+}

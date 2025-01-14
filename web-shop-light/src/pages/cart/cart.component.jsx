@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, clearCart, updateQuantity } from '../../features/cart/cartSlice';
 
 import CartItem from '../../components/cart/cart-item/cart-item.component';
-import CartNavigation from "../../navigation/cart-navigation/cart-navigation.component";
+// import CartNavigation from "../../navigation/cart-navigation/cart-navigation.component";
 import './cart.styles.scss';
 
    // Možnosti poštnine

@@ -18,6 +18,7 @@ import Shop from './pages/shop/shop.component';
 import ShopProduct from './components/shop-product/shop-product.component.jsx';
 //import Product from './pages/shop/product/product.component';
 import Cart from './pages/cart/cart.component.jsx';
+import CheckoutPage from './pages/checkout/checkout-page.component.jsx';
 import StoresPage from './pages/stores-page/stores-page.component';
 import Contact from './pages/contact/contact.component';
 
@@ -62,6 +63,7 @@ function App() {
                 {t("page.skiptocontent")}
               </a>
                 <PageHeader language={currentLanguage}  />
+   
                 <main id="main-content">
                 <div className="">    
                   <div className="row content-wrapper clearfix">
@@ -76,6 +78,8 @@ function App() {
                       <Route path="/shop/:category/product/:productId" element={<ShopProduct language={currentLanguage} />} />
                       <Route path="/shop/brand/:brand/:page" element={<Shop language={currentLanguage}  />} />
                       <Route path="/cart" element={<Cart language={currentLanguage} />} />
+                      <Route path="/checkout/" element={<CheckoutPage />} />
+                      <Route path="/checkout/:step" element={<CheckoutPage />} />
                       <Route path="/stores" element={<StoresPage language={currentLanguage} />} />
                       <Route path="/contact" element={<Contact language={currentLanguage}/>} />
                       {/* Strani za prijavo */}
