@@ -1,17 +1,40 @@
 // import statements...
+import {useState, useContext, useEffect, lazy, Suspense} from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import "./checkout-shipping.styles.scss";
 
+import { useAuth } from '../../../context/auth-context/auth-context.utils';
+
+
 const CheckoutShipping = ({cartStep, handleAction}) => {
+    const { t } = useTranslation();
+    const { user, logout } = useAuth();
+
+
+
+
     return (
         <>
         
         <div className="checkout-main-content">
                 {/* Prva vrstica */}
-                components: CheckoutShipping
+            
+
+                <div className="wrapx">
+                <div className="heading cf">
+                    <h1>{t("checkout.shipping")}</h1>
+                </div>
+
                 { <p>Glavna vsebina</p>}
+                { user ? (
+                        <p>logiran</p>
+                    ):(
+                        <p>ni logiran</p>
+                    )
+                }
 
-
+                </div>
 
 
 
@@ -34,8 +57,8 @@ const CheckoutShipping = ({cartStep, handleAction}) => {
                             handleAction( "payment");
                         }}>Na plačilo</a>
             </div>
- 
-            </>
+
+        </>
     );
 };
 CheckoutShipping.propTypes = {

@@ -150,14 +150,6 @@ useEffect(() => {
           <li className="totalRow selectboxli">
           
 
-{
-
-  /*
-onClick={() => handleShippingChange(option.cost, option.id)}
-
-  */
-}
-
   
 <span className="label">{t("cart.selectshipping")}  </span>
             

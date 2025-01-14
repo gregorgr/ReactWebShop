@@ -146,9 +146,11 @@ $screen-md-max: ($screen-lg-min - 1);
     opacity: 1;
   }
 }
-
+.wrapx{
+  width: 100% !important;
+}
 $shadow : 0 6px 10px -2px rgba(0, 0, 0, .25);
-$black: #303030;
+$black: #cecece;
 $solid: #fff;
 $solid_2: #f9a825;
 $dbc: #f9f9f9;
@@ -156,13 +158,13 @@ $dbc: #f9f9f9;
   width: 100%;
   @include respondToAbove(sm){
  /*   padding: 10px;*/
-    padding: 10px 10%;
+    padding-top: 10px;
     /*margin: 0 5%;*/
   }
   @include respondTo(xs){
     padding: 1px;
   }
-  background: $dbc;
+ /* background: $dbc;*/
   min-height: 110vh;
 
   letter-spacing: 2px;
@@ -176,9 +178,10 @@ $dbc: #f9f9f9;
   #steps{
     
     margin: auto;
+    
     .count{
       list-style-type: none;
-      padding: 0;
+      padding: 0px;
       display: flex;
       background: transparent;
       border: none;
@@ -251,9 +254,11 @@ $dbc: #f9f9f9;
     #tabs{
       position: relative;
       width: 100%;
+      
       >div{
        /* padding: 0 30px;*/
        width: 100%;
+       padding: 20px;
         background: #fff;
       /*  box-shadow: $shadow;*/
        /* max-height: 0;*/

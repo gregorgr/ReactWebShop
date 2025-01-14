@@ -1,17 +1,35 @@
-// import statements...
+import {useState, useContext, useEffect, lazy, Suspense} from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import "./checkout-payment.styles.scss";
 
+import { useAuth } from '../../../context/auth-context/auth-context.utils';
+
 const CheckoutPayment = ({cartStep, handleAction}) => {
+    const { t } = useTranslation();
+    const { user, logout } = useAuth();
+
     return (
         <>
-
-<div className="checkout-main-content">
+                <div className="checkout-main-content">
                 {/* Prva vrstica */}
+            
+
+                <div className="wrapx">
+                <div className="heading cf">
+                    <h1>{t("checkout.payment")}</h1>
+                 
+                </div>
                 components: CheckoutPayment
                 { <p>Glavna vsebina</p>}
+                { user ? (
+                        <p>logiran</p>
+                    ):(
+                        <p>ni logiran</p>
+                    )
+                }
 
-
+                </div>
 
 
 

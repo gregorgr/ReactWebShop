@@ -38,7 +38,6 @@ $fontSerif : 'Droid Serif', serif;
 // CART HEADER
 .heading {
   padding: 1em 0;
-  border-bottom: 1px solid #D0D0D0;
  
   h1 {
    font-family: $fontSerif;
@@ -52,8 +51,7 @@ $fontSerif : 'Droid Serif', serif;
       letter-spacing: -.015em;
       font-size: .75em;
       padding: 1em;
-      color: #fff;
-      background: rgb(60, 207, 212);
+
       font-weight: bold;
       border-radius: 50px;
     float: right;
@@ -69,7 +67,7 @@ $fontSerif : 'Droid Serif', serif;
       
     }
     &:hover , &:focus, &:active {
-      background: #f69679;
+
       
       &:after {
         right: -10px;
@@ -80,8 +78,6 @@ $fontSerif : 'Droid Serif', serif;
 .cart-button{
   padding:  0.2rem 0.75rem;
   margin-left: 1em;
-  color:  #fff;
-  background-color:  rgb(60, 207, 212);;
 }
 // TABLE HEADING 
 
@@ -205,32 +201,32 @@ $fontSerif : 'Droid Serif', serif;
    padding: 1em 1em 0;
     display: block; 
    margin-top:.5em;
-   border-top: 1px solid #dadada;
    &:before {
      content: "\21b3";
      font-size: 1.0em;
       margin-right: 1em;
-     color: #6f6f6f;
      font-family: helvetica, arial, sans-serif;
    }}
  
  }
-
+.btn-remove{
+  
+}
 a.remove {
   text-decoration: none;
   font-family: $fontSans;
-  color: #ffffff;
+
   font-weight: bold;
-  background:  rgb(60, 207, 212);;
+
   padding: .5em;
   font-size: .75em;
   display: inline-block;
-  border-radius: 100%;
+  border-radius: 25px;
   line-height: .85;
    @include transition(all, .25s, linear);
-  &:hover {
-    background: #f30;
-  }
+/*  &:hover {
+
+  }*/
 }
 
 .promoCode {
@@ -253,7 +249,6 @@ a.remove {
     font-size: 1em;
     padding: .5em;
     float: left;
-    border: 1px solid #dadada;
     &:active, &:focus {
       outline: 0;
      
@@ -265,20 +260,17 @@ a.remove {
     padding: .75em 0;
     border-radius: 0 1em 1em 0;
     text-align: center;
-    border: 1px solid #82ca9c;
-    &:hover {
-       border: 1px solid #f69679;
-       background: #f69679;
-    }
+  
   }
 }
 
 .clear-cart-button{
-  background-color: #cecece;
  /* float: left;*/
-  padding: 3px 10px;
+  padding: 1px 7px;
   border-radius: 15px;
   display: block;
+  border-radius: 25px;
+  font-weight: normal;
 }
 .btn {
      &:link , &:visited {
@@ -287,8 +279,7 @@ a.remove {
       letter-spacing: -.015em;
       font-size: 1em;
       padding: 1em 3em;
-      color: #fff;
-      background: rgb(60, 207, 212);
+
       font-weight: bold;
       border-radius: 50px;
     float: right;
@@ -304,7 +295,7 @@ a.remove {
       
     }
     &:hover , &:focus, &:active {
-      background: #f69679;
+
         &:after {
         right: -10px;
       }

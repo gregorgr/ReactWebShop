@@ -54,7 +54,7 @@ const CheckoutPage = () => {
                 <li className={cartStep === "payment" ? "selected" : ""}>Payment</li>
                 <li className={cartStep === "finish" ? "selected" : ""}>Finish</li>
               </ul>
-              <div id="tabs"><p>step: {cartStep}</p>
+              <div id="tabs">
                 <div className="checkout-layout-container">
                   <Suspense fallback={<Loading />}>
                   {renderStep()}

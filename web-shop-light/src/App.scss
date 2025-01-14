@@ -19,7 +19,7 @@ body, ul, li, p, a, label, input, div {
   font-weight: 300 !important;
 }
 #main-content{
-  margin: 0 4%  ;
+  margin: 0 10%  ;
 }
 
 #root {
@@ -218,3 +218,140 @@ body {
   }
 }
 
+// CART HEADER
+.heading {
+  padding: 1em 0;
+  border-bottom: 1px solid #D0D0D0;
+ 
+
+  a.continue {
+    &:link , &:visited {
+
+      color: #fff;
+      background: rgb(60, 207, 212);
+
+    }
+    &:after {
+      content: "\276f";
+    }
+    &:hover , &:focus, &:active {
+      background: #82ca9c;
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+}
+.special {
+
+ .specialContent {
+
+  border-top: 1px solid #dadada;
+  &:before {
+    content: "\21b3";
+
+    color: #6f6f6f;
+  }}
+
+}
+a.remove {
+
+  color: #ffffff;
+  background:  rgb(60, 207, 212);;
+  &:hover {
+    background: #f30;
+  }
+}
+.cart-button{
+  color:  #fff;
+  background-color:  rgb(60, 207, 212);;
+}
+.promoCode {
+  border:2px solid #efefef;
+  input {
+    border: 1px solid #dadada;
+    &:active, &:focus {
+      outline: 0;
+     
+    }
+  }
+  a.btn {
+    text-align: center;
+    border: 1px solid #82ca9c;
+    &:hover {
+       border: 1px solid #f69679;
+       background: #ff6435;
+    }
+  }
+}
+.clear-cart-button{
+  
+  background-color: #cecece;
+  &:hover{
+    background-color: #e0a800;
+  }
+}
+.btn {
+  &:link , &:visited {
+
+   color: #fff;
+   background: rgb(60, 207, 212);
+   font-weight: bold;
+   border-radius: 50px;
+   text-align: right;
+
+ }
+   &:after {
+   content: "\276f";
+   padding: .5em;
+   position: relative;
+   right:0;
+   
+ }
+ &:hover , &:focus, &:active {
+   background: #82ca9c;
+     &:after {
+     right: -10px;
+   }
+ }
+
+.promoCode & {
+ font-size: .85em;
+ padding: .5em 2em;
+}
+}
+
+
+
+.cart-preview {
+
+  .cart-dropdown {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+
+    .cart-items {
+       .cart-item {
+        p {
+
+          color: #555;
+        }
+      }
+    }
+
+    .go-cart-button {
+      background-color: rgb(60, 207, 212);
+      color: #fff;
+      &:hover {
+        background-color: #82ca9c;
+      }
+    }
+  }
+
+
+}
+
+.cart-preview .cart-icon .cart-count{
+  color:#fff;
+  background-color: rgb(60, 207, 212);
+}
