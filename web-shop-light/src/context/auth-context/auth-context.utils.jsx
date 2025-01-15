@@ -1,5 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+//const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 
 //console.log(process.env.API_BASE_URL); 
@@ -70,13 +73,16 @@ export const AuthProvider = ({ children }) => {
     
     // Odstrani polje `pwdrpt` iz userData
     const { pwdrpt, ...rest } = userData;
-      // Ustvari payload brez `pwdrpt` in z dodanim `userRole`
-    const payload = { ...rest, userRole: 'uporabnik' };
-    console.log(payload)
+    console.log("rest: ", rest);
+    console.log("pwdrpt: ", pwdrpt);
+    // Ustvari payload brez `pwdrpt` in z dodanim `userRole`
+    //const payload = { ...rest, userRole: 'uporabnik' };
+    console.log("userData: ",userData);
+
     const response = await fetch(`${API_BASE_URL}/Auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(userData),
     });
 
     if (!response.ok) {
@@ -85,17 +91,40 @@ export const AuthProvider = ({ children }) => {
     return response.json();
   };
 
+  /*
+
+export const getUserData = async (token, username) => {
+  const response = 
+  await axios.get(`${API_BASE_URL}/User/${username}`,
+   createHeaders(token));
+
+  console.log("apiService: getUserDataaddUserAddress:")
+  console.log(response.data)
+  return response.data;
+};
+  */
   // Sprememba gesla
   const changePassword = async (username, oldPassword, newPassword) => {
       const payload = {
-        username,
-        oldPassword,
-        newPassword,
+        "username": username,
+        "oldPassword": oldPassword,
+        "newPassword": newPassword,
       };
+      /*
+  "username": "string",
+  "oldPassword": "string",
+  "newPassword": "string"
+      */
+      console.log("AuthProvider: changePassword: , ",payload);
+      payload["Username"]=username;
+      console.log("Change password token", token);
 
       const response = await fetch(`${API_BASE_URL}/Auth/change-password`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` 
+         },
         body: JSON.stringify(payload),
       });
 
@@ -103,7 +132,26 @@ export const AuthProvider = ({ children }) => {
         throw new Error('Failed to change password');
       }
 
-      return response.json();
+      return response;
+  };
+
+
+  // Dodaj forgotPassword funkcijo
+  const forgotPassword = async (email) => {
+    const payload = { email };
+    console.log("Forgot Password payload:", payload);
+
+    const response = await fetch(`${API_BASE_URL}/Auth/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send password reset email');
+    }
+
+    return response; // Vrne podatke iz API-ja, če je uspešno
   };
 
   // Logout
@@ -117,7 +165,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, refreshToken, login, register, changePassword, logout }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      token, 
+      refreshToken, 
+      login, 
+      register, 
+      changePassword, 
+      logout,
+      forgotPassword  }}>
       {children}
     </AuthContext.Provider>
   );

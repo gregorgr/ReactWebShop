@@ -30,6 +30,14 @@
         "pwdstrength3": "Good",
         "pwdstrength4": "Very Good"
     },
+    "ChangePassword": {
+      "title": "Change Password",
+      "oldPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "submit": "Change Password",
+      "passwordStrength":"Password Strength is"
+    },
     "forgotPassword":{    
             "title": "Forgot Password",
             "username": "User name",
@@ -46,8 +54,6 @@
       "phone": "Phone Number",
       "savechanges": "Save Information"
 
-      
-    
     },
     "address":{
         "setAsDefault":"Set as Default",
@@ -63,21 +69,13 @@
         "country": "Country",
         "nameto": "Name to Ship"
     },
- 
     "user" : {
       "sidebarTitle":"User pages",
       "edit": "Edit user",
       "address": "Addresses",
       "orders": "Orders",
       "change_pass": "Change password",
-      "helouser": "Hello "
-    },
-    "ChangePassword": {
-      "title": "Change Password",
-      "oldPassword": "Current Password",
-      "newPassword": "New Password",
-      "confirmPassword": "Confirm New Password",
-      "submit": "Change Password"
+      "helouser": "Hello "  
     },
     "orders":{
       "title":"Your Orders",

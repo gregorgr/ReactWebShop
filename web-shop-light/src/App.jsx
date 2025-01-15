@@ -15,7 +15,7 @@ import PageFooter from './components/page-footer/footer.component.jsx';
 // pages
 import Home from './pages/home-page/home-page.component';
 import Shop from './pages/shop/shop.component';
-import ShopProduct from './components/shop-product/shop-product.component.jsx';
+import ShopProduct from './pages/shop-product/shop-product.component.jsx';
 //import Product from './pages/shop/product/product.component';
 // import Cart from './pages/cart/cart.component.jsx';
 import CheckoutPage from './pages/checkout/checkout-page.component.jsx';
@@ -26,7 +26,10 @@ import Contact from './pages/contact/contact.component';
 //
 import UserPage from './pages/user/user.component';
 //import UserPages from './pages/user-pages/user-pages.components';
-import Orders from './pages/shop/orders/orders.component';
+
+// import Orders from './pages/shop/orders/orders.component';
+
+
 //import RegisterUser from './pages/user-register/user-register.component';
 //import ChangePassword from './components/user/user-change-password/user-change-password.component';
 //import ForgotPassword from './components/user/user-forgot-pass/user-forgot-pass.component';

@@ -2,7 +2,7 @@ import  { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { removeItem, updateQuantity} from '../../../features/cart/cartSlice.js';
+import { removeItem, updateQuantity} from '../../../features/cart-slice/cartSlice.js';
 
 import { ProductContext } from '../../../context/products/products.context.jsx';
 

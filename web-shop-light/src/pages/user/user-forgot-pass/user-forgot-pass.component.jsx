@@ -1,11 +1,19 @@
 //import React from 'react';
+import { useState , useContext, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
+import { useAuth } from '../../../context/auth-context/auth-context.utils';
+
 const ForgotPassword = () => {
   const { t } = useTranslation();
- 
+  const [formClass, setFormClass] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [formError, setFormError] = useState('');
+  const {forgotPassword } = useAuth();
+  const [disabledForm, setDisabledForm]= useState('');
  /* const texts = {
     en: {
       title: 'Forgot Password',
@@ -19,18 +27,43 @@ const ForgotPassword = () => {
     },
   };
   */
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setMessage(""); // clear error
+      setFormError("");
+      setDisabledForm("");
+      await forgotPassword(email);
+      setFormClass("post-form-hidden");
+      setDisabledForm("disabled");
+      setMessage('Password reset email sent successfully');
+    } catch (error) {
+      setFormError('Failed to send password reset email');
+      console.error(error);
+    }
+  };
+
+
   return (
     <div className="container">
     <div className="row justify-content-center">
       <div className="col-md-6">
         <h2 className="text-center my-4">{t('forgotPassword.title')}</h2>
-      <form>
-        <label>{t('forgotPassword.email')}</label>
-        <input type="email" placeholder={t('forgotPassword.email')} />
+        <div className={`form-container ${formClass}`}>
+          <form onSubmit={handleSubmit}>
+            <label>{t('forgotPassword.email')}</label>
+            <input 
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              placeholder={t('forgotPassword.email')} />
 
-        <button type="submit" className="btn btn-primary w-100">{t('forgotPassword.submit')}</button>
-      </form>
-
+            <button disabled={disabledForm} type="submit" className="btn btn-primary w-100">{t('forgotPassword.submit')}</button>
+            {formError && <p style="color: red;">{formError}</p>}
+            {message && <p>{message}</p>}
+        </form>
+      </div>
       <div className='user-log-navigation text-center mt-3'>
     <Link to="/user/register" className="text-primary">
       {t('login.register')}

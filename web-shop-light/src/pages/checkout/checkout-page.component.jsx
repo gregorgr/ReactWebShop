@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 
 
-import CheckoutFlow from '../../navigation/checkout-flow/checkout-flow.component.jsx';
+//import CheckoutFlow from '../../navigation/checkout-flow/checkout-flow.component.jsx';
 
 import Loading from '../../components/loading/loading.component.jsx';
 import "./checkout-page.styles.scss";

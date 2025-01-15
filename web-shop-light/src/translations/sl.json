@@ -28,6 +28,14 @@
         "pwdstrength3":"Dobro",
         "pwdstrength4":"Zelo dobro"
     },
+    "ChangePassword": {
+      "title": "Spremeni geslo",
+      "oldPassword": "Staro geslo",
+      "newPassword": "Novo geslo",
+      "confirmPassword": "Potrdite novo geslo",
+      "submit": "Spremeni geslo",
+      "passwordStrength":"Moč gesla"
+    },
     "forgotPassword":{    
         "title": "Pozabljeno geslo",
         "username": "Uporabniško ime",
@@ -82,14 +90,7 @@
       "change_pass": "Spremeni geslo",
       "helouser": "Pozdravljeni "
     },
-    "ChangePassword": {
-      "title": "Spremeni geslo",
-      "oldPassword": "Staro geslo",
-      "newPassword": "Novo geslo",
-      "confirmPassword": "Potrdite novo geslo",
-      "submit": "Spremeni geslo"
 
-    },
     "orders":{
       "title":"Naročila",
       "empty": "Trenutno ni naročil za prikaz."

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import "./checkout-cart.styles.scss";
 
-import { removeItem, clearCart, updateQuantity } from '../../../features/cart/cartSlice';
+import { removeItem, clearCart, updateQuantity } from "../../../features/cart-slice/cartSlice";
 //import CartItem from "../../cart/cart-item";
 import CartItem from '../../cart/cart-item/cart-item.component'
 

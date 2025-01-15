@@ -99,9 +99,18 @@ const UserEdit = ({ }) => {
   };
 */
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Updated User Data:', userData);
+    
+    try {
+
+      console.log('Updated User Data:', userData);
+      const udateteUserResponse = await updateUserData(token, user, userData);
+      console.log('Updated User Data: udateteUserresponse:', udateteUserResponse);
+
+    } catch (error) {
+      console.error(t("EditUser.updateUserDataError"), error);
+    }
 
   };
 
@@ -159,7 +168,16 @@ const UserEdit = ({ }) => {
             placeholder={t("EditUser.lastName")}
           />
         </div>
-
+        <div className="form-row">
+          <label className='form-label'>{t("EditUser.phone")}:</label>
+          <input
+            type="text"
+            name="userRole"
+            value={userData.userRole}
+            onChange={handleInputChange}
+            placeholder={t("EditUser.phone")}
+          />
+        </div>
         <div className="form-row">
 
           <label  className="form-label">{t("EditUser.email")}:</label>
@@ -171,20 +189,9 @@ const UserEdit = ({ }) => {
             placeholder={t("EditUser.email")}
           />
         </div>
-        {
-          /*
-   <div className="form-row">
-          <label className='form-label'>{t("EditUser.phone")}:</label>
-          <input
-            type="text"
-            name="phone"
-            value={userData.phone}
-            onChange={handleInputChange}
-            placeholder={t("EditUser.phone")}
-          />
-        </div>
-          */
-        }
+     
+
+  
         <button type="submit" className='form-button save-button'>{t("EditUser.savechanges")}</button>
       </form>
     </div>

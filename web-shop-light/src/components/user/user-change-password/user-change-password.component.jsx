@@ -5,7 +5,7 @@ import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 
 const UserChangePassword = () => {
   //const { language } = useContext(LanguageContext);
-  const { changePassword, user } = useContext(AuthContext);
+  const { changePassword, user, token } = useContext(AuthContext);
   const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
@@ -54,6 +54,7 @@ const UserChangePassword = () => {
 
 
       const handleChange = (e) => {
+        e.preventDefault();
         const { name, value } = e.target;
         setFormData((prev) => ({
           ...prev,
@@ -76,6 +77,9 @@ const UserChangePassword = () => {
     setError('');
     setSuccess('');
 
+    //console.log("handleSubmit user:", user)
+    //const { name, value } = e.target;
+    //return false;
     if (formData.newPassword !== formData.confirmNewPassword) {
       setPasswordMatchError(true);
       return;
@@ -92,7 +96,7 @@ const UserChangePassword = () => {
 
 
     try {
-      await changePassword(user.username, formData.oldPassword, formData.newPassword);
+      await changePassword(user, formData.oldPassword, formData.newPassword);
       setSuccess('Password changed successfully');
     } catch (err) {
       setError(err.message || 'Failed to change password');
@@ -151,7 +155,7 @@ const UserChangePassword = () => {
               color: passwordStrength === 'Very Weak' ? 'red' : 'green',
             }}
           >
-            {t("ChangePassword.passwordStrength")}: {passwordStrength}
+            {t("register.passwordStrength")}: {passwordStrength}
           </p>
         </div>
       )}

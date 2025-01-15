@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import StarRating from '../../../components/star-rating/star-rating.component';
 
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../../features/cart/cartSlice';
+import { addItem } from '../../../features/cart-slice/cartSlice';
 // import React from 'react';
 import PropTypes from 'prop-types';
 import './listed-product.styles.scss';

@@ -7,6 +7,12 @@ import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 const Orders = () => {
   const { t } = useTranslation();
   const { user } = useContext(AuthContext);
+
+  const texts = {
+    en: { title: 'Your Orders', message: 'Track your recent orders.' },
+    sl: { title: 'Vaša naročila', message: 'Spremljajte vaša zadnja naročila.' },
+  };
+  
   if (!user) {
     return <Navigate to="/login" />;
   }

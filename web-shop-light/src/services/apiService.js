@@ -21,7 +21,8 @@ const isAddressEmpty = (address) => {
     )
   );
 };
-
+//import axios from 'axios';
+//const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // User API services
 export const getUserData = async (token, username) => {
   const response = await axios.get(`${API_BASE_URL}/User/${username}`, createHeaders(token));

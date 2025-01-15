@@ -8,7 +8,7 @@ import sortLabels  from './shop.translations.jsx';
 import './shop.styles.scss';
 
 
-import ListedProduct from './listed-product/listed-product.component.jsx';
+import ListedProduct from "../../components/shop/listed-product/listed-product.component.jsx";
 
 
 import {categories} from '../../services/categories/categories.component.jsx';

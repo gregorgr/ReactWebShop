@@ -10,10 +10,13 @@ import './shop-product.styles.scss';
 import "./shop-tooltip.styless.scss";
 
 
-import StarRating from "../star-rating/star-rating.component.jsx";
-import { addItem } from '../../features/cart/cartSlice.js';
+import StarRating from "../../components/star-rating/star-rating.component.jsx";
+import { addItem } from '../../features/cart-slice/cartSlice.js';
 
-import ResponsiveImage from "../responsive-image/responsive-image.component.jsx";
+import ResponsiveImage from "../../components/responsive-image/responsive-image.component.jsx";
+//"../../responsive-image/responsive-image.component.jsx";
+
+
 const ShopProduct = () => {
 
   const { t } = useTranslation();

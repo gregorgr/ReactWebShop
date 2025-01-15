@@ -76,7 +76,7 @@ const UserNavigation = ({ language }) => {
           <CartPreview />
         </li>
         <li className='dropdown'><Link to="/user"
-          className='"dropbtn'
+          className='dropbtn_'
           title={ user ? labels[language][2] +': '+user : labels[language][2]} // Tooltip za vizualne uporabnike
           aria-label={ user ? labels[language][2] +': '+user : labels[language][2]}// Dostopna oznaka za bralnike zaslona
           tabIndex="22" // Omogoča fokus s tipkovnico
@@ -87,74 +87,8 @@ const UserNavigation = ({ language }) => {
             textDecoration: 'none',
             color: 'inherit',
           }}
-        ><FontAwesomeIcon icon={faUser} size="lg" /></Link>
-          <div className="dropdown-content">
-            { user ? (
-              <>
-                  <Link to="/user"
-                                
-                  title={labels[language][3]} // Tooltip za vizualne uporabnike
-                  aria-label={labels[language][3]}// Dostopna oznaka za bralnike zaslona
-                  tabIndex="22" // Omogoča fokus s tipkovnico
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                  }}
-                  ><FontAwesomeIcon icon={faPenToSquare} size="lg" />{labels[language][3]} </Link>
-                              <Link to="/orders"
-                      title={labels[language][4]} // Tooltip za vizualne uporabnike
-                      aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
-                      tabIndex="23" // Omogoča fokus s tipkovnico
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                      }}
-            
-            
-            >{labels[language][4]}</Link>
-                  <Link to="/logout"
-                                
-                  title={t("login.logout")} // Tooltip za vizualne uporabnike
-                  aria-label={t("login.logout")}// Dostopna oznaka za bralnike zaslona
-                  tabIndex="22" // Omogoča fokus s tipkovnico
-                  href="/user/logout"
-                  onClick={handleLogout}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                  }}
-                  >{t("login.logout")}</Link>
-              </>
+        ><FontAwesomeIcon icon={faUser} size="lg" /></Link>         
 
-             ) : (
-
-  <Link to="/user/login"
-              
-              title={t("login.login")} // Tooltip za vizualne uporabnike
-              aria-label={t("login.login")}// Dostopna oznaka za bralnike zaslona
-              tabIndex="22" // Omogoča fokus s tipkovnico
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-              >{t("login.login")}</Link>
-              )}
-           
-
-
-              </div>
         {/* Dropdown meni */}
         {
           /*
@@ -277,4 +211,91 @@ export default UserNavigation;
 /*
   <FontAwesomeIcon icon={faGlobe} size="lg" />
 
+
+    /// Dropdown meni * IKONA
+    <li className='dropdown'><Link to="/user"
+          className='"dropbtn'
+          title={ user ? labels[language][2] +': '+user : labels[language][2]} // Tooltip za vizualne uporabnike
+          aria-label={ user ? labels[language][2] +': '+user : labels[language][2]}// Dostopna oznaka za bralnike zaslona
+          tabIndex="22" // Omogoča fokus s tipkovnico
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            textDecoration: 'none',
+            color: 'inherit',
+          }}
+        ><FontAwesomeIcon icon={faUser} size="lg" /></Link> 
+
+
+     /// Dropdown meni * 
+     
+            <div className="dropdown-content">
+            { user ? (
+              <>
+                  <Link to="/user"
+                                
+                  title={labels[language][3]} // Tooltip za vizualne uporabnike
+                  aria-label={labels[language][3]}// Dostopna oznaka za bralnike zaslona
+                  tabIndex="22" // Omogoča fokus s tipkovnico
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                  }}
+                  ><FontAwesomeIcon icon={faPenToSquare} size="lg" />{labels[language][3]} </Link>
+                              <Link to="/orders"
+                      title={labels[language][4]} // Tooltip za vizualne uporabnike
+                      aria-label={labels[language][4]}// Dostopna oznaka za bralnike zaslona
+                      tabIndex="23" // Omogoča fokus s tipkovnico
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                      }}
+            
+            
+            >{labels[language][4]}</Link>
+                  <Link to="/logout"
+                                
+                  title={t("login.logout")} // Tooltip za vizualne uporabnike
+                  aria-label={t("login.logout")}// Dostopna oznaka za bralnike zaslona
+                  tabIndex="22" // Omogoča fokus s tipkovnico
+                  href="/user/logout"
+                  onClick={handleLogout}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                  }}
+                  >{t("login.logout")}</Link>
+              </>
+
+             ) : (
+
+            <Link to="/user/login"
+              
+              title={t("login.login")} // Tooltip za vizualne uporabnike
+              aria-label={t("login.login")}// Dostopna oznaka za bralnike zaslona
+              tabIndex="22" // Omogoča fokus s tipkovnico
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              >{t("login.login")}</Link>
+              )}
+           
+
+
+         </div>
+    /// Dropdown meni END* 
 */
