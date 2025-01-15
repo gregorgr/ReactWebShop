@@ -55,12 +55,13 @@
         "titleManageAddresses" :"Manage User Addresses",
         "addAdressError":"Error adding address",
         "addNewAddress":"Add New Address",
-        "AddressLine1": "AddressLine1",
-        "AddressLine2": "AddressLine2",
-        "State":"State",
-        "City":"City",
-        "PostalCode":"Postal Code",
-        "Country": "Country"
+        "addressLine1": "Address Line 1",
+        "addressLine2": "Address Line 2",
+        "state":"State",
+        "city":"City",
+        "postalCode":"Postal Code",
+        "country": "Country",
+        "nameto": "Name to Ship"
     },
  
     "user" : {
@@ -91,8 +92,23 @@
       "icon": "Shopping Cart Icon",
       "gotocheckout": "Go to checkout"
     },
+    "checkout": {
+      "shipping": "Shipping Details",
+      "topayment": "Proceed to Payment",
+      "back": "Back",
+      "errorFetchingUserData": "Error fetching user data.",
+      "paymentDetails":"Payment Details",
+      "payment": "Payment",
+      "nameOnCard": "Name on Card",
+      "cardNumber": "Card Number",
+      "validThrough": "Valid Through",
+      "cvv": "CVV",
+      "placeOrder": "Place Order",
+      "finish": "Order Completed",
+      "thankYou": "Your order has been completed. Thank you for placing your order."
+    },
     "cart":{
-      "title": "Your Cart",
+      "title": "Your Shopping Cart",
       "message": "Review your cart details.",
       "continueShopping":"Continue Shopping",
       "subtotal" : "Subtotal",
@@ -119,6 +135,9 @@
       "selectshipping":"Select shipping",
       "remove": "Remove",
       "productid":"Product ID"
+
+    
+
     },
     "product": {
         "reviews": "Reviews",

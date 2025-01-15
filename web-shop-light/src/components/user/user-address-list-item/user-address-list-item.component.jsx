@@ -7,7 +7,12 @@ import PropTypes from 'prop-types';
 
 import "./user-address-list-item.styles.scss";
 
-const UserAddressListItem = ({index, address, handleDelete, handleDefaultChange, enableButtons=true}) => {
+const UserAddressListItem = ({
+  index=0, 
+  address, 
+  handleDelete, 
+  handleDefaultChange, 
+  enableButtons=true}) => {
      const { t } = useTranslation();
    console.log("DEBUG: UserAddressListItem ", address)
 
@@ -53,9 +58,14 @@ UserAddressListItem.propTypes = {
     country: PropTypes.string.isRequired,
     isDefault: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]).isRequired,
   }).isRequired,
-  handleDelete: PropTypes.func.isRequired, // mora biti funkcija
-  handleDefaultChange: PropTypes.func.isRequired, // mora biti funkcija
-  enableButtons: true
+  handleDelete: PropTypes.func, //.isRequired, // mora biti funkcija
+  handleDefaultChange: PropTypes.func, //.isRequired, // mora biti funkcija
+  enableButtons: false
+};
+
+UserAddressListItem.defaultProps = {
+  address: {},
+  enableButtons: false,
 };
 
 

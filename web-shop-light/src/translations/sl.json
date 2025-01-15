@@ -46,18 +46,33 @@
      
 
     },
-
+    "checkout": {
+      "shipping": "Podatki za dostavo",
+      "topayment": "Na plačilo",
+      "back": "Nazaj",
+      "errorFetchingUserData": "Napaka pri pridobivanju podatkov uporabnika.",
+      "paymentDetails":"Podatki na kartici",
+      "payment": "Plačilo",
+      "nameOnCard": "Ime na kartici",
+      "cardNumber": "Številka kartice",
+      "validThrough": "Veljavnost do",
+      "cvv": "CVV",
+      "placeOrder": "Oddaj naročilo",
+      "finish": "Vaše naročilo je uspešno oddano",
+      "thankYou": "Vaše naročilo je zaključeno. Hvala za oddano naročilo."
+    },
   "address":{
     "setAsDefault":"Nastavi privzeto",
-    "titleManageAddresses" :"Manage User Addresses",
-    "addAdressError":"Error adding address",
-    "addNewAddress":"aAdd New Address",
-    "AddressLine1": "AddressLine1",
-    "AddressLine2": "AddressLine2",
-    "State":"State",
-    "City":"City",
-    "PostalCode":"Postal Code",
-    "Country": "Country"
+    "titleManageAddresses" :"Upravljanje uporabniških naslovov",
+    "addAdressError":"Napaka pri dodajanju naslova",
+    "addNewAddress":"Dodaj nov naslov",
+    "AddressLine1": "Naslov",
+    "AddressLine2": "Naslov dodatno",
+    "state":"Pokrajina",
+    "city":"City",
+    "postalCode":"Poštna številk",
+    "country": "Država",
+    "nameto": "Ime za pošiljanje"
 },
     "user" : {
       "sidebarTitle":"Uporabniške strani",
@@ -89,7 +104,7 @@
       "gotocheckout": "Na blagajno"
     },
     "cart":{
-      "title": "Vaša košarica",
+      "title": "Vaša nakupovalna košarica",
       "message": "Preglejte podrobnosti vaše košarice.",
       "continueShopping":"Nadaljujte z nakupovanjem",
       "subtotal" : "Vmesni seštevek",

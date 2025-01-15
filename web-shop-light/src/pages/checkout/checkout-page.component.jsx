@@ -63,17 +63,6 @@ const CheckoutPage = () => {
               </div>
             </div>
           </div>
-          <ul className="count">
-                <li className={cartStep === "cart" ? "selected" : ""}>
-                    <button onClick={() => setCartStep("cart")}>Cart</button></li>
-                <li className={cartStep === "shipping" ? "selected" : ""}>
-                    <button  onClick={() => setCartStep("shipping")}>Shipping</button></li>
-                <li className={cartStep === "payment" ? "selected" : ""}>
-                    <button  onClick={() => setCartStep("payment")}>Payment</button></li>
-                <li className={cartStep === "finish" ? "selected" : ""}>
-                    <button  onClick={() => setCartStep("finish")}>Finish</button></li>
-            </ul>
-    
           </div>
         </>
     );

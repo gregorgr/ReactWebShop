@@ -99,9 +99,13 @@ const RegisterUser = () => {
       setPasswordMatchError(true); // Če se gesli ne ujemata
       return;
     }
+    userData["PwdRpt"]=userData.pwdrpt;
+    console.log("Register: ", userData)
     try {
       await register(userData);
       alert('Registration successful');
+      setError("");
+
     } catch (err) {
       setError(err.message);
     }

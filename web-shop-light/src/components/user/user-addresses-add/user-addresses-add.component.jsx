@@ -46,7 +46,7 @@ const UserAddressesAdd = ({handleAddAddress}) => {
     return(
         <>
            <div className="user-add-address">
-      <h3>Add New Address</h3>
+      <h3>Add New Address1</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <label>Address Line 1:</label>

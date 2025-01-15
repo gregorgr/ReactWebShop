@@ -17,8 +17,9 @@ const CheckoutFinish = () => {
                     <h1>{t("checkout.finish")}</h1>
 
                 </div>
-                components: CheckoutFinish
-                { <p>Glavna vsebina</p>}
+                <div className="thank-you-message">
+                <p>{t("checkout.thankYou")}</p>
+                </div>
 
 
                 </div>

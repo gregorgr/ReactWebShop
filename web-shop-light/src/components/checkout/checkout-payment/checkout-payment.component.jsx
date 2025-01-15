@@ -79,15 +79,15 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
                 
 
 
-                <div className="gridContainer">
+                <div className="checkout-payment gridContainer">
      
      <div className="creditCard">
        <div className="visaLogo">
  
-            <img src={VisaIcon} alt="Visa Icon" className="visa-icon" />
+            <img src={VisaIcon} alt="Visa Icon" title="Visa Icon"  className="visa-icon" />
        </div>
        <div className="chipLogo">
-         <img src={VisaChip} alt="Card chip" className="" />
+         <img src={VisaChip} alt="Card chip" title="Visa čip"  className="" />
        </div>
        <ul className="ccList card-number">
          <li>{newCard.cardnoFormated}</li>
@@ -101,15 +101,16 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
      </div>
 
      <form action="#" id="paymentForm">
-       <h6>Payment Details</h6>
-       <div className="inputCon" id="name" data-top="Name on Card">
+       <h6>{t("checkout.paymentDetails")}</h6>
+       <div className="inputCon" id="name" data-top={t("checkout.nameOnCard")}>
          <input type="text" 
          name="name" 
          value={newCard.name}
          onChange={handleCardInputChange}
          placeholder=""/>
        </div>
-       <div className="inputCon" id="cardNum" data-top="Card Number" title = "type in the card number without spaces">
+       <div className="inputCon" id="cardNum" data-top="Card Number" 
+       title={t("checkout.cardNumberHint")}>
          <input type="text" 
          name="cardno" 
          maxLength={16}
@@ -117,7 +118,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
          onChange={handleCardInputChange}
          placeholder=""/>
        </div>
-       <div className="inputCon" id="validYear" data-top="Valid Through">
+       <div className="inputCon" id="validYear" data-top={t("checkout.validThrough")}>
          <input type="text" 
           name="valid" 
           maxLength={4}
@@ -125,7 +126,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
           onChange={handleCardInputChange}
           placeholder=""/>
        </div>
-       <div className="inputCon" id="cvv" data-top="CVV">
+       <div className="inputCon" id="cvv" data-top={t("checkout.cvv")}>
          <input type="text"
          name="cvv"  
          maxLength={4}
@@ -133,24 +134,9 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
           onChange={handleCardInputChange}
           placeholder=""/>
        </div>
-       
      </form>
    </div>
-
-
-
-                { <p>Glavna vsebina</p>}
-                { user ? (
-                        <p>logiran</p>
-                    ):(
-                        <p>ni logiran</p>
-                    )
-                }
-
-                </div>
-
-
-
+   </div>
             </div>
 
 
@@ -163,7 +149,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
                         // e.preventDefault();
                         handleAction( "shipping");
                     }}
-                        >Nazaj</a>
+                        > {t("checkout.back")}</a>
                 </div>
                     <a 
                         href="#" 
@@ -172,7 +158,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
                             // e.preventDefault();
                             handleAction( "finish");
                         }}
-                            >Oddaj naročilo</a>
+                            >{t("checkout.placeOrder")}</a>
             </div>
 
         

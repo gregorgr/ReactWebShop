@@ -108,11 +108,15 @@ const handleAddAddress = async (address) => {
 
 
 
-const handleInputChange = (e) => {
+const handleInputChange_old = (e) => {
   const { name, value } = e.target;
+  console.log("handleInputChange name, value",name, value)
   setNewAddress((prev) => ({ ...prev, [name]: value }));
 };
-
+const handleInputChange = (name, value) => {
+  console.log("handleInputChange name, value", name, value);
+  setNewAddress((prev) => ({ ...prev, [name]: value }));
+};
 
 return (
   <div className="user-address-list">
@@ -131,10 +135,10 @@ return (
             <UserAddressAddForm 
               address={newAddress}
               handleInputChange={handleInputChange}
-              //handleAddAddress={handleAddAddress}
+              handleAddAddress={handleAddAddress}
               //setShowAddForm={setShowAddForm}
               />
-             <button type="button" className='form-button save-button' onClick={() => handleAddAddress(address)}>Save Address</button>
+             <button type="button" className='form-button save-button' onClick={() => handleAddAddress(newAddress)}>Save Address</button>
              <button type="button" className='form-button cancel-button' onClick={() => setShowAddForm(false)}>Cancel</button>
           </div>
         </>

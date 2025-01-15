@@ -1,15 +1,17 @@
-import  { useContext, useState } from 'react';
+// import  { useContext, useState } from 'react';
 //import  { useContext, useState, useEffect } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { useNavigate, useParams } from 'react-router-dom'; 
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 // import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+
 import "./user-address-add-form.styles.scss";
 
-const UserAddressAddForm = ({ address, handleInputChange }) => {
-     // handleAddAddress, setShowAddForm 
+const UserAddressAddForm = ({ address,  handleInputChange }) => {
+  const { t } = useTranslation();
+     //handleAddAddress,  setShowAddForm 
   /*const [newAddress, setNewAddress] = useState({
         addressLine1: '',
         addressLine2: '',
@@ -26,63 +28,63 @@ const UserAddressAddForm = ({ address, handleInputChange }) => {
         
           
           <div className="form-row">
-            <label className='form-label'>Address Line 1:</label>
+            <label className='form-label'>{t("address.addressLine1")}:</label>
             <input
               type="text"
               name="addressLine1"
               value={address.addressLine1}
-              onChange={handleInputChange}
-              placeholder="Address Line 1"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.addressLine1")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Address Line 2:</label>
+            <label className='form-label'>{t("address.addressLine2")}:</label>
             <input
               type="text"
               name="addressLine2"
               value={address.addressLine2}
-              onChange={handleInputChange}
-              placeholder="Address Line 2"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.addressLine2")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>City:</label>
+            <label className='form-label'>{t("address.city")}:</label>
             <input
               type="text"
               name="city"
               value={address.city}
-              onChange={handleInputChange}
-              placeholder="City"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.city")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>State:</label>
+            <label className='form-label'>{t("address.state")}:</label>
             <input
               type="text"
               name="state"
               value={address.state}
-              onChange={handleInputChange}
-              placeholder="State"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.state")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Postal Code:</label>
+            <label className='form-label'>{t("address.postalCode")}:</label>
             <input
               type="text"
               name="postalCode"
               value={address.postalCode}
-              onChange={handleInputChange}
-              placeholder="Postal Code"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.postalCode")}
             />
           </div>
           <div className="form-row">
-            <label className='form-label'>Country:</label>
+            <label className='form-label'>{t("address.country")}:</label>
             <input
               type="text"
               name="country"
               value={address.country}
-              onChange={handleInputChange}
-              placeholder="Country"
+              onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+              placeholder={t("address.country")}
             />
           </div>
       </>
