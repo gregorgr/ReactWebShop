@@ -105,78 +105,90 @@ brenkalo/
 
 
 ```plaintext
-BrenkaloWebStore/web-shop-light/
-├── eslint.config.js
-├── .gitignore
-├── index.html
-├── package.json
-├── package-lock.json
+Direktorij: BrenkaloWebStore/web-shop-light
+
+```
 ├── public
-├── README.md
 ├── src
-│   ├── App.jsx
-│   ├── App.scss
-│   ├── assets
-│   │   ├── css
-│   │   ├── data
-│   │   ├── img
-│   │   ├── js
-│   │   └── webfonts
-│   ├── components
-│   │   ├── cart-item
-│   │   ├── cart-navigation
-│   │   ├── cart-preview
-│   │   ├── elements
-│   │   ├── page-footer
-│   │   ├── page-header
-│   │   ├── product-list
-│   │   ├── protected-route
-│   │   ├── responsive-image
-│   │   ├── shop-product
-│   │   ├── star-rating
-│   │   └── user
-│   ├── context
-│   │   ├── auth-context
-│   │   ├── cart-context
-│   │   ├── language-context
-│   │   └── products
-│   ├── features
-│   │   └── cart
-│   ├── i18n.js
-│   ├── img
-│   │   ├── products
-│   │   └── stores
-│   ├── index.css
-│   ├── main.jsx
-│   ├── navigation
-│   │   ├── language-navigator
-│   │   ├── main-navigator
-│   │   ├── user-navigation
-│   │   └── user-sidebar-navigation
-│   ├── pages
-│   │   ├── contact
-│   │   ├── home-page
-│   │   ├── shop
-│   │   ├── stores
-│   │   ├── stores-page
-│   │   └── user
-│   ├── services
-│   │   ├── authentication
-│   │   ├── categories
-│   │   ├── product
-│   │   └── stores
-│   ├── store.js
-│   ├── themes
-│   │   ├── blue-yellow.styles.scss
-│   │   ├── dark.styles.scss
-│   │   ├── high-contrast.styles.scss
-│   │   ├── light-dark.styles.scss
-│   │   └── pastel.styles.scss
-│   └── translations
-│       ├── en.json
-│       └── sl.json
-├── vite.config.js
-└── yarn.lock
+│   ├── img
+│   │   ├── products
+│   │   ├── stores
+│   ├── services
+│   │   ├── client
+│   │   ├── product
+│   │   ├── categories
+│   │   ├── stores
+│   │   ├── authentication
+│   ├── context
+│   │   ├── products
+│   │   ├── auth-context
+│   │   ├── language-context
+│   │   ├── cart-context
+│   ├── pages
+│   │   ├── shop
+│   │   │   ├── orders
+│   │   │   ├── listed-product
+│   │   │   ├── product
+│   │   ├── checkout
+│   │   ├── home-page
+│   │   ├── stores
+│   │   │   ├── store
+│   │   ├── user
+│   │   │   ├── user-register
+│   │   │   ├── user-forgot-pass
+│   │   │   ├── user-login
+│   │   │   ├── user-pages
+│   │   ├── contact
+│   │   ├── stores-page
+│   ├── themes
+│   ├── components
+│   │   ├── star-rating
+│   │   ├── loading
+│   │   ├── checkout
+│   │   │   ├── checkout-finish
+│   │   │   ├── checkout-shipping
+│   │   │   ├── checkout-cart
+│   │   │   ├── checkout-payment
+│   │   ├── page-footer
+│   │   ├── shop-product
+│   │   ├── protected-route
+│   │   ├── responsive-image
+│   │   ├── cart
+│   │   │   ├── cart-preview
+│   │   │   ├── cart-item
+│   │   ├── product-list
+│   │   ├── user
+│   │   │   ├── user-address-list-item
+│   │   │   ├── orders
+│   │   │   ├── user-change-password
+│   │   │   ├── user-address-add-form
+│   │   │   ├── user-address-list
+│   │   │   ├── user-edit
+│   │   │   ├── user-addresses-add
+│   │   │   ├── user-addresses
+│   │   ├── page-header
+│   │   ├── elements
+│   │   │   ├── custom-button
+│   ├── navigation
+│   │   ├── language-navigator
+│   │   ├── user-sidebar-navigation
+│   │   ├── checkout-flow
+│   │   ├── main-navigator
+│   │   ├── user-navigation
+│   │   ├── theme-navigation
+│   ├── assets
+│   │   ├── img
+│   │   ├── js
+│   │   ├── webfonts
+│   │   ├── css
+│   │   ├── data
+│   ├── translations
+│   ├── features
+│   │   ├── cart
+
+
+77 directories, 197 files
+
 ```
 
 ## Namestitev frontenda
