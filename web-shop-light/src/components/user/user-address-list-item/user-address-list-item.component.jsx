@@ -13,7 +13,10 @@ const UserAddressListItem = ({
   handleDelete, 
   handleDefaultChange, 
   enableButtons=true}) => {
-     const { t } = useTranslation();
+      // import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+  //language = currentLanguage;
    console.log("DEBUG: UserAddressListItem ", address)
 
     return(

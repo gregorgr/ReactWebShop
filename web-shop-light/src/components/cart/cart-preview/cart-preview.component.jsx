@@ -18,7 +18,10 @@ import './cart-preview.styles.scss';
 
 
 const CartPreview = () =>{
-    const { t } = useTranslation();
+     // import { useTranslation } from 'react-i18next';
+ const { t, i18n } = useTranslation();
+ const currentLanguage = i18n.language; // Trenutni jezik
+ 
     // const { cart } = useContext(CartContext);
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();

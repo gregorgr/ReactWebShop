@@ -1,5 +1,6 @@
 import {useState, useContext, useEffect, lazy, Suspense} from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import "./checkout-payment.styles.scss";
 
@@ -7,11 +8,20 @@ import VisaIcon  from '../../../assets/visa.svg';
 import VisaChip  from '../../../assets/visa-chip.svg';
 
 import { useAuth } from '../../../context/auth-context/auth-context.utils';
+import { useDispatch } from 'react-redux'; // Uvoz Redux dispatch
+import { setOrderDate } from '../../../features/cart-slice/cartSlice'; // Akcija za posodobitev naslova
+
 
 const CheckoutPayment = ({cartStep, handleAction}) => {
-    const { t } = useTranslation();
-    const { user, logout } = useAuth();
+     // import { useTranslation } from 'react-i18next';
+ const { t, i18n } = useTranslation();
+ const currentLanguage = i18n.language; // Trenutni jezik
+
+    const { user, token } = useAuth();
     // <img src={VisaIcon} alt="Visa Icon" className="visa-icon" />;
+    const cart = useSelector((state) => state.cart); 
+    const dispatch = useDispatch(); // Inicializacija Redux dispatch
+
     const [newCard, setNewCard] = useState({
         cardno: '',
         cardnoFormated: '',
@@ -20,6 +30,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
         validFormated: '',
         cvv: '',
       });
+      const [cartDetails, setCartDetails] = useState(null); 
       /*
       newCard.cardno
       newCard.name: '',
@@ -66,6 +77,54 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
             [name]: value,
           }));
       }
+
+    // Preberi podrobnosti košarice ob nalaganju komponente
+    useEffect(() => {
+      const calculateCartDetails = () => {
+          const subtotal = cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+          const totalVAT = cart.items.reduce((sum, item) => {
+              const vatAmount = item.quantity * (item.price - item.price / ((100 + item.vat_rate) / 100));
+              return sum + vatAmount;
+          }, 0);
+          const total = subtotal + totalVAT + cart.shippingCost;
+
+          return {
+              items: cart.items,
+              subtotal,
+              totalVAT,
+              total,
+              shippingCost: cart.shippingCost,
+              shippingName: cart.shippingMethod,
+              address: cart.shippingAddress,
+          };
+      };
+
+      const details = calculateCartDetails();
+      setCartDetails(details);
+      console.log("Cart Details:", details); // Izpis v konzolo
+    }, [cart]);
+
+    const handleFinishOrder = () => {
+      dispatch(setOrderDate(new Date().toISOString()));
+      /* if (!selectedAddress.nameto || !selectedAddress.addressLine1 || !selectedAddress.city) {
+           console.error('Address is incomplete.');
+           return;
+       }*/
+       //totalQuantity, totalAmount, selectedShipping, subtotal, total
+      // console.log("handleProceedNext: totalQuantity=",totalQuantity);
+      // console.log("handleProceedNext: totalAmount=",totalAmount);
+      // console.log("handleProceedNext: selectedShipping=",selectedShipping);
+      // console.log("handleProceedNext: subtotal=",subtotal);
+      // console.log("handleProceedNext: total=",total);
+
+      // dispatch(setShippingMethod({ text: 'Express Shipping', cost: 15.0 }));
+
+       //handleAction('payment', cartData); // Pokliči zbrane podatke in premik na plačilo
+       handleAction( "finish");
+     };
+
+
+    // 
 
     return (
         <>
@@ -154,10 +213,7 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
                     <a 
                         href="#" 
                         className="btn continue nav-button right" 
-                        onClick={() => {
-                            // e.preventDefault();
-                            handleAction( "finish");
-                        }}
+                        onClick={handleFinishOrder}
                             >{t("checkout.placeOrder")}</a>
             </div>
 
@@ -172,7 +228,6 @@ const CheckoutPayment = ({cartStep, handleAction}) => {
 CheckoutPayment.propTypes = {
     cartStep: PropTypes.string.isRequired,
     handleAction: PropTypes.func.isRequired, // mora biti funkcija
-
 }
 
 export default CheckoutPayment;

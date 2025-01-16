@@ -13,7 +13,10 @@ import "./checkout-page.styles.scss";
 
 const CheckoutPage = () => {
   const [cartStep, setCartStep] = useState("cart");
-    const { t } = useTranslation();
+      //  import { useTranslation } from 'react-i18next';
+        const { t, i18n } = useTranslation();
+        const currentLanguage = i18n.language; 
+
     const { step: step } = useParams();
     
     const CheckoutCart = lazy(() => import('../../components/checkout/checkout-cart/checkout-cart.component.jsx' ));
@@ -30,7 +33,7 @@ const CheckoutPage = () => {
         case "payment":
           return <CheckoutPayment cartStep={cartStep} handleAction={handleAction}/>;
         case "finish":
-          return <CheckoutFinish />;
+          return <CheckoutFinish cartStep={cartStep} handleAction={handleAction}/>;
         default:
           return <CheckoutCart cartStep={cartStep} handleAction={handleAction}/>;
       }

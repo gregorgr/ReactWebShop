@@ -9,13 +9,17 @@ import UserAddressList from '../user-address-list/user-address-list.component';
 import UserAddressAddForm from '../user-address-add-form/user-address-add-form.component';
 // import apiClient from '../../../services/client/apiClient';
 import { useAuth } from '../../../context/auth-context/auth-context.utils';
-import { getUserAddresses, addUserAddress, updateUserAddress } from './../../../services/apiService'; 
+import { getUserAddresses, addUserAddress, 
+  updateUserAddress } from './../../../services/apiService'; 
 
 //  username, addresses, handleAddressChange
 const UserAddresses = () => {
    console.log("UserAddresses");
-   const { language } = useContext(LanguageContext);
-   const { t } = useTranslation();
+  // const { language } = useContext(LanguageContext);
+    // import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+ // language = currentLanguage;
    const [showAddForm, setShowAddForm] = useState(false);
 
     const { user, token } = useAuth();
@@ -44,7 +48,7 @@ const UserAddresses = () => {
 
           setAddresses(userAddresses);
         } catch (error) {
-          console.error('Error fetching user addresses:', error);
+          console.error(t('address.errorFetchingAddresses'), error);
         }
       };
   
@@ -63,7 +67,7 @@ const UserAddresses = () => {
         await updateUserAddress(token, user, updatedAddresses[index]);
         setAddresses(updatedAddresses);
       } catch (error) {
-        console.error('Error updating default address:', error);
+        console.error(t('address.errorUpdatingDefaultAddress'), error);
       }
     };
 
@@ -102,7 +106,7 @@ const handleAddAddress = async (address) => {
     });
     setShowAddForm(false);
   } catch (error) {
-    console.error(t("EditUser.errorAddingAddress"), error);
+    console.error(t('address.errorAddingAddress'), error);
   }
 };
 
@@ -121,25 +125,25 @@ const handleInputChange = (name, value) => {
 return (
   <div className="user-address-list">
     <h2>{t("address.titleManageAddresses")}</h2>
-    <h2>{t("address.existingAddresses")}</h2>
+    <h3>{t("address.existingAddresses")}</h3>
   
     <UserAddressList  />
 
 <div className='form-add'>
-<button type="button" className='save-button' onClick={() => setShowAddForm(true)}>Add New Address</button>
+<button type="button" className='save-button' onClick={() => setShowAddForm(true)}>{t("address.addNewAddressButton")}</button>
     
       {showAddForm && (
         <>
           <div className="add-address-form">
-            <h2>Add New Address</h2>
+          <h2>{t('address.addNewAddress')}</h2>
             <UserAddressAddForm 
               address={newAddress}
               handleInputChange={handleInputChange}
               handleAddAddress={handleAddAddress}
               //setShowAddForm={setShowAddForm}
               />
-             <button type="button" className='form-button save-button' onClick={() => handleAddAddress(newAddress)}>Save Address</button>
-             <button type="button" className='form-button cancel-button' onClick={() => setShowAddForm(false)}>Cancel</button>
+             <button type="button" className='form-button save-button' onClick={() => handleAddAddress(newAddress)}> {t('address.saveAddressButton')}</button>
+             <button type="button" className='form-button cancel-button' onClick={() => setShowAddForm(false)}> {t('address.cancelButton')}</button>
           </div>
         </>
         

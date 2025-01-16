@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ProductContext } from "../../../context/products/products.context.jsx";
+import { ProductContext } from "../../context/products/products.context.jsx";
 
 import './shop-product.styles.scss';
-import StarRating from "../../star-rating/star-rating.component.jsx";
+import StarRating from "../../components/star-rating/star-rating.component.jsx";
 
 
 const ShopProductSS = () => {

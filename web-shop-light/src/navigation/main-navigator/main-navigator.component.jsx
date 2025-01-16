@@ -1,11 +1,15 @@
 //import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import LanguageNavigator from '../language-navigator/language-navigator.component';
 
 
 const MainNavigation = ({ language }) => {
+    //  import { useTranslation } from 'react-i18next';
+      const { t, i18n } = useTranslation();
+      const currentLanguage = i18n.language; 
+      language= currentLanguage;
   const labels = {
     en: ['Home', 'Shop', 'Stores', 'Contact', 'Language'],
     sl: ['Domov', 'Trgovina', 'Trgovine', 'Kontakt', 'Jezik'],

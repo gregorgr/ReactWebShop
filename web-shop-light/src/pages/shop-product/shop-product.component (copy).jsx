@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useMemo, useContext  } from "react-router-dom";
+import { useContext } from "react";
 // import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -10,85 +10,68 @@ import './shop-product.styles.scss';
 import "./shop-tooltip.styless.scss";
 
 
+
+import {mergeProductFromList} from '../../services/dataTransformer.js';
+
 import StarRating from "../../components/star-rating/star-rating.component.jsx";
 import { addItem } from '../../features/cart-slice/cartSlice.js';
 
 import ResponsiveImage from "../../components/responsive-image/responsive-image.component.jsx";
 //"../../responsive-image/responsive-image.component.jsx";
-import {mergeProductFromList} from '../../services/dataTransformer.js';
 import { fetchProducts } from '../../services/apiService.js';
 
 const ShopProduct = () => {
-// import { useTranslation } from 'react-i18next';
-  const { t, i18n } = useTranslation();
+
+  const { t } = useTranslation();
+  const { i18n } = useTranslation(); // Pridobimo objekt i18n
   const currentLanguage = i18n.language; // Trenutni jezik
- // Trenutni jezik
   const { productId } = useParams();
-  const { products: staticProducts } = useContext(ProductContext);
-  const [product, setProduct] = useState();
-  
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const { products } = useContext(ProductContext);
   const dispatch = useDispatch();
+   const [product, setProduct] = useState([]);
+  const [error, setError] = useState(null);
+     const [isLoading, setIsLoading] = useState(true);
+   
+  // Poiščite produkt glede na ID
+  const staticProduct = products.find((item) => item.id === parseInt(productId));
 
-  console.log("ShopProduct before1 ");
-  console.log("currentLanguage1 ", currentLanguage);
-  console.log("after1");
+  if (!staticProduct) {
+    return <p>Product not found</p>;
+  }
+  setProduct(staticProduct);
 
-  useEffect(() => {
-    const loadProduct = async () => {
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('sl-SI', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+    }).format(value).replace('€', ''); // Odstranimo simbol €, če je potreben samo znesek
+  };
+
+   useEffect(() => {
+    const loadProducts = async () => {
         try {
-            //console.log("before loadProducts ");
 
-            // Poiščite produkt glede na ID iz statičnih podatkov
-            const selProduct = staticProducts.find(
-              (item) => item.id === parseInt(productId)
-            );
-
-            if (!selProduct) {
-                setError('Product not found');
-                setIsLoading(false);
-                return;
-            }
-            // Začnite z osnovnim produktom
-            setProduct(selProduct);
-            console.log("selProduct ", selProduct);
-            // console.log("currentLanguage2 ", currentLanguage);
             const xtoken = null;
-            const productData = await fetchProducts(xtoken, currentLanguage);
-           // console.log("loadProducts: productData: ",productData);
+            const productData = await fetchProducts(xtoken);
+            //console.log("loadProducts: productData: ",productData);
            // console.log("-- product ",productData[0]);
-           console.log("productData", productData);
-
             const updatedProduct = mergeProductFromList(product, productData); // Združi podatke
-            
-            console.log("updatedProduct", updatedProduct);
+            console.log("mergeProducts: updatedProduct ", updatedProduct);
             setProduct(updatedProduct); // Posodobi stanje
             //setProductsList(productData);
             //setProducts(productData);
         } catch (err) {
-            setError('Failed to load product.');
-            console.error("Load ERROR: ", err);
+            setError('Failed to load products.');
+            console.error(err);
         } finally {
             setIsLoading(false);
         }
     };
 
-    loadProduct();
-  }, [productId, staticProducts]);
+    loadProducts();
 
-  if (isLoading) {
-    return <p>Loading product...</p>;
-  }
-
-  if (error) {
-      return <p>{error}</p>;
-  }
-
-  if (!product) {
-      return <p>Product not found</p>;
-  }
+   }, []);
 
   const {
     id,
@@ -105,17 +88,6 @@ const ShopProduct = () => {
     producer,
     original_product_url
   } = product;
-
-
-  
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('sl-SI', {
-      style: 'currency',
-      currency: 'EUR',
-      minimumFractionDigits: 2,
-    }).format(value).replace('€', ''); // Odstranimo simbol €, če je potreben samo znesek
-  };
-
 
   const NewWindowLink = ({url, linkText, ...props}) => {
     return (
@@ -166,10 +138,6 @@ const addToCartTooltip = (itemStorage) => {
   const translatedTitle = translations?.[currentLanguage]?.title || title;
   const translatedDescription = translations?.[currentLanguage]?.description || description;
   const translatedLongDescription = translations?.[currentLanguage]?.longDescription || longDescription;
-
-
-  
-  
 
   return (
     <div className="container-fluid product-content">

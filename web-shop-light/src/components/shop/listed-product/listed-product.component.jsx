@@ -3,8 +3,8 @@
 import  { useContext }  from 'react';
 import { Link } from 'react-router-dom';
 //import { CartContext } from '../../../context/cart-context/cart-context.provider';
-
-import StarRating from '../../../components/star-rating/star-rating.component';
+import { useTranslation } from 'react-i18next';
+import StarRating from '../../star-rating/star-rating.component';
 
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../features/cart-slice/cartSlice';
@@ -13,9 +13,12 @@ import PropTypes from 'prop-types';
 import './listed-product.styles.scss';
 
 function ListedProduct({ product, language }) {
-
+ // import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+  // language = currentLanguage;
   //const { addItemToCart } = useContext(CartContext);
-  const languageToUse = language || 'en'; 
+  const languageToUse = language || currentLanguage;//'en'; 
   const translatedCategory = product.translations?.[language]?.category || product.category;
   const translatedProductTitle = product.translations?.[language]?.title || product.title;
 

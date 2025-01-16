@@ -1,0 +1,42 @@
+.order-item h3
+ {
+    color: gray;
+    font-size: 1.8em;
+}
+.order-item h4,.order-item h5
+ {
+    color: gray;
+    font-size: 1.5em;
+}
+.order-item .order-details
+ {
+    background-color: rgb(241, 241, 241);
+    padding: 7px;
+
+}
+.order-item .row div:first-child{
+    padding-left: 0;   
+}
+.order-products{
+    margin-top: 10px;
+
+}
+.order-products.order-product {
+    margin-top: 5px;
+    background-color: rgb(241, 241, 241);
+}
+
+.product-table{
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: rgb(241, 241, 241);
+}
+.product-table-row{
+    margin-top: 5px;
+    padding: 5px 15px;
+    background-color: rgb(212, 212, 212);
+
+}
+.orders-list{
+    margin-top:20px;
+}

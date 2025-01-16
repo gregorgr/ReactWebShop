@@ -1,6 +1,7 @@
 //import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import MainNavigation from '../../navigation/main-navigator/main-navigator.component';
 import UserNavigation from  '../../navigation/user-navigation/user-navigation.component';//'../../navigation/user-navigation/user-navigation.component';
@@ -10,7 +11,10 @@ import logo from '../../assets/logo.png';
 import './header.styles.scss';
 
 const PageHeader = ({ language }) => {
-
+ // import { useTranslation } from 'react-i18next';
+ const { t, i18n } = useTranslation();
+ const currentLanguage = i18n.language; // Trenutni jezik
+ language = currentLanguage;
     const labels = {
       en: ['Home', 'User', 'Orders', 'Search'],
       sl: ['Na prvo stran', 'Uporabnik', 'Naročila', 'Iskanje'],

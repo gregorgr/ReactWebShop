@@ -66,12 +66,23 @@
       "validThrough": "Veljavnost do",
       "cvv": "CVV",
       "placeOrder": "Oddaj naročilo",
-      "finish": "Vaše naročilo je uspešno oddano",
-      "thankYou": "Vaše naročilo je zaključeno. Hvala za oddano naročilo."
+      "finishTitleOK": "Vaše naročilo je uspešno oddano",
+      "thankYou": "Vaše naročilo je zaključeno. Hvala za oddano naročilo.",
+      "finishTitleError": "Prišlo je do napake",
+      "loading": "Nalaganje košarice...",
+      "errorEmpty": "Vaša košarica je prazna.",
+      "errorNoAddress": "Naslov za dostavo manjka.",
+      "errorNoShippingMethod": "Način pošiljanja ni izbran.",
+      "errorOrderFailed": "Pošiljanje naročila ni uspelo. Poskusite znova.",
+      "totalItems": "Število izdelkov",
+      "totalAmount": "Skupni znesek",
+      "continue": "Nadaljuj"
     },
+
   "address":{
     "setAsDefault":"Nastavi privzeto",
-    "titleManageAddresses" :"Upravljanje uporabniških naslovov",
+    "titleManageAddresses": "Upravljajte svoje naslove",
+    "existingAddresses":"Obstoječi naslovi",
     "addAdressError":"Napaka pri dodajanju naslova",
     "addNewAddress":"Dodaj nov naslov",
     "AddressLine1": "Naslov",
@@ -80,7 +91,25 @@
     "city":"City",
     "postalCode":"Poštna številk",
     "country": "Država",
-    "nameto": "Ime za pošiljanje"
+    "nameto": "Ime za pošiljanje",
+    "addNewAddressTitle": "Dodaj nov naslov",
+    "addressLine1": "Naslovna vrstica 1",
+    "addressLine1Placeholder": "Vnesite naslovno vrstico 1",
+    "addressLine2": "Naslovna vrstica 2",
+    "addressLine2Placeholder": "Vnesite naslovno vrstico 2",
+    "cityPlaceholder": "Vnesite mesto", 
+    "statePlaceholder": "Vnesite državo",
+    "postalCodePlaceholder": "Vnesite poštno številko",
+    "countryPlaceholder": "Vnesite državo",
+    "default": "Privzeto",
+    "addAddressButton": "Dodaj naslov",
+    "addNewAddressButton": "Dodaj nov naslov",
+    "saveAddressButton": "Shrani naslov",
+    "cancelButton": "Prekliči",
+    "errorFetchingAddresses": "Napaka pri pridobivanju naslovov.",
+    "errorAddingAddress": "Napaka pri dodajanju naslova.",
+    "errorUpdatingDefaultAddress": "Napaka pri posodabljanju privzetega naslova."
+
 },
     "user" : {
       "sidebarTitle":"Uporabniške strani",
@@ -95,6 +124,43 @@
       "title":"Naročila",
       "empty": "Trenutno ni naročil za prikaz."
     },
+
+      "order": {
+        "title": "Naročilo #{id}",
+        "date": "Datum",
+        "status": "Status",
+        "status_PENDING": "V čakanju",
+        "status_PROCESSING": "V obdelavi",
+        "status_SHIPPED": "Odposlano",
+        "status_DELIVERED": "Dostavljeno",
+        "status_CANCELLED": "Preklicano",
+        "shippingBilling": "Dostava in račun",
+        "customerName": "Ime stranke",
+        "email": "E-pošta",
+        "phone": "Telefon",
+        "shippingAddress": "Naslov za dostavo",
+        "billingAddress": "Naslov za račun",
+        "shippingMethod": "Način dostave",
+        "payment": "Plačilo",
+        "paymentMethod": "Način",
+        "totalAmount": "Skupni znesek",
+        "vatAmount": "Znesek DDV",
+        "discountAmount": "Znesek popusta",
+        "customerNotes": "Opombe stranke",
+        "notes": "Opombe",
+        "products": "Izdelki",
+        "noProducts": "V tem naročilu ni izdelkov.",
+        "productTableHeaders": {
+          "index": "Št.",
+          "sku": "Šifra",
+          "productName": "Ime izdelka",
+          "quantity": "Količina",
+          "pricePerUnit": "Cena na enoto",
+          "totalPrice": "Skupna cena",
+          "vatRate": "Stopnja DDV"
+        }
+      },
+
     "shop" : {
       "title" : "Dobrodošli v trgovini",
       "message": "Prebrskajte naše izdelke!",

@@ -12,7 +12,7 @@ import { useAuth } from '../../../context/auth-context/auth-context.utils';
 import { getUserData, updateUserData } from './../../../services/apiService'; 
 // './apiService';
 
-const UserEdit = ({ }) => {
+const UserEdit = () => {
   const { language } = useContext(LanguageContext);
   const { t } = useTranslation();
   const { user, token } = useAuth();
@@ -24,6 +24,7 @@ const UserEdit = ({ }) => {
     userRole: 'admin',
     firstname: 'John',
     lastname: 'Doe',
+    tel: '123',
     pwd: 'password123',
     email: 'john.doe@example.com',
     userAddresses: [
@@ -48,7 +49,7 @@ const UserEdit = ({ }) => {
     ],
   };
 
-  console.log("UserEdit 1");
+  console.log("UserEdit 1  useEffect");
   console.log(user);
   
 
@@ -56,8 +57,8 @@ const UserEdit = ({ }) => {
 
   useEffect(() => {
     if (!token || !user) return;
-    console.log("UserEdit 2");
-    console.log(user);
+    console.log("UserEdit 2  useEffect user", user);
+
     /*
     // Simulate data fetching
     setTimeout(() => {
@@ -67,7 +68,7 @@ const UserEdit = ({ }) => {
     const fetchData = async () => {
       try {
         const data = await getUserData(token, user);
-        console.log(data);
+        console.log("UserEdit UserData: data= ",data);
         data.pwd = data.pwd || 'a123';
         setUserData(data);
       } catch (error) {
@@ -172,10 +173,20 @@ const UserEdit = ({ }) => {
           <label className='form-label'>{t("EditUser.phone")}:</label>
           <input
             type="text"
+            name="tel"
+            value={userData.tel}
+            onChange={handleInputChange}
+            placeholder={t("EditUser.phone")}
+          />
+        </div>
+        <div className="form-row">
+          <label className='form-label'>{t("EditUser.role")}:</label>
+          <input
+            type="text"
             name="userRole"
             value={userData.userRole}
             onChange={handleInputChange}
-            placeholder={t("EditUser.phone")}
+            //placeholder={t("EditUser.phone")}
           />
         </div>
         <div className="form-row">

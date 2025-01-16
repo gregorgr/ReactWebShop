@@ -20,9 +20,12 @@ import ProtectedRoute from '../../../components/protected-route/protected-route.
 import "./user-pages.styles.scss";
 
 const UserPages = () => {
+
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
   const { language } = useContext(LanguageContext);
   const { user, logout } = useAuth();
-  const { t } = useTranslation();
+  
 
   console.log(`Userpage: user ${user}!`)
 

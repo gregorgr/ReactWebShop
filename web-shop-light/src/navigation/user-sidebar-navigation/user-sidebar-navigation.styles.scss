@@ -5,8 +5,13 @@
 .list-group-item a{
     margin-left: 10px;
     cursor: pointer;
-    color: #212529;
+  /*  color: #212529;*/
     text-decoration: underline;
     text-decoration: none;
 }
 
+.user-data-header p{
+    font-size: 1.5em !important;
+    font-weight: bolder !important;
+  /*  color:#1f9954 !important;*/
+}

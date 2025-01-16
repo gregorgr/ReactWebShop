@@ -1,4 +1,4 @@
-import  { useState, useMemo, useContext } from 'react';
+import  { useEffect, useState, useMemo, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 // import React from 'react';
@@ -10,21 +10,30 @@ import './shop.styles.scss';
 
 import ListedProduct from "../../components/shop/listed-product/listed-product.component.jsx";
 
-
+import {mergeProducts} from '../../services/dataTransformer.js';
 import {categories} from '../../services/categories/categories.component.jsx';
 
 import { ProductContext } from '../../context/products/products.context.jsx';
 // import { products } from '../../services/product/products.component.jsx'; // As
-
+import { fetchProducts } from '../../services/apiService.js';
 
 //const getRandomStars = () => Math.floor(Math.random() * 5) + 1;
 
 const Shop = ({ language}) => {
  // const { category, page } = useParams(); 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+  language = currentLanguage;
   const { category: rawCategory, page } = useParams();
-  const {products} = useContext( ProductContext);
+  const { products: staticProducts } = useContext(ProductContext); // Statično naloženi produkti
+  const [products, setProducts] = useState(staticProducts);
   const category = rawCategory ? decodeURIComponent(rawCategory) : null;
+  
+ // const [product, setProducts] = useState([]);
+  const [productList, setProductsList] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const { brand: rawBrand, bpage } = useParams();
   const brand = rawBrand ? decodeURIComponent(rawBrand) : null;
@@ -34,6 +43,30 @@ const Shop = ({ language}) => {
   const navigate = useNavigate();
 
   const [sortOption, setSortOption] = useState('');
+
+  useEffect(() => {
+    const loadProducts = async () => {
+        try {
+            console.log("Shop before loadProducts ");
+            const xtoken = null;
+            const productData = await fetchProducts(xtoken, currentLanguage);
+            console.log("loadProducts: productData: ",productData);
+            console.log("-- product ",productData[0]);
+            const updatedProducts = mergeProducts(products, productData); // Združi podatke
+            console.log("mergeProducts: updatedProducts ", updatedProducts[0]);
+            setProducts(updatedProducts); // Posodobi stanje
+            //setProductsList(productData);
+            //setProducts(productData);
+        } catch (err) {
+            setError('Failed to load products.');
+            console.error(err);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    loadProducts();
+  }, []);
 
 
   //const filteredProducts = category

@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import "./checkout-cart.styles.scss";
 
-import { removeItem, clearCart, updateQuantity } from "../../../features/cart-slice/cartSlice";
+import { setShippingMethod, removeItem, setCartSummary, clearCart, updateQuantity } from "../../../features/cart-slice/cartSlice";
+
 //import CartItem from "../../cart/cart-item";
 import CartItem from '../../cart/cart-item/cart-item.component'
 
@@ -17,7 +18,10 @@ const shippingOptions = [
 
 const CheckoutCart = ({cartStep, handleAction}) => {
     console.log("Debug CheckoutCart");
-    const { t } = useTranslation();
+     // import { useTranslation } from 'react-i18next';
+ const { t, i18n } = useTranslation();
+ const currentLanguage = i18n.language; // Trenutni jezik
+ 
     const { items, totalQuantity, totalAmount } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const [selectedShipping, setSelectedShipping] = useState(shippingOptions[0]?.cost || 0);
@@ -45,6 +49,7 @@ const CheckoutCart = ({cartStep, handleAction}) => {
     // Izračuni
     // const totalVAT1 = items.reduce((sum, item) => sum + item.quantity *item.price*item.vat_rate/100, 0);
     const totalVAT = items.reduce((sum, item) => {
+
         const vatAmount = item.quantity * (item.price - item.price / ((100 + item.vat_rate) / 100));
         return sum + vatAmount;
     }, 0);
@@ -82,6 +87,58 @@ const CheckoutCart = ({cartStep, handleAction}) => {
     }, [subtotal, selectedShipping]);
 
 
+
+
+    const handleProceedNext = () => {
+      /*
+   const totalVAT = items.reduce((sum, item) => {
+        const vatAmount = item.quantity * (item.price - item.price / ((100 + item.vat_rate) / 100));
+        return sum + vatAmount;
+    }, 0);
+     
+          const totalVAT = items.reduce((sum, item) => {
+            const vatAmount = item.quantity * (item.price - item.price / ((100 + item.vat_rate) / 100));
+            return sum + vatAmount;
+        }, 0);
+         */
+           /* if (!selectedAddress.nameto || !selectedAddress.addressLine1 || !selectedAddress.city) {
+                console.error('Address is incomplete.');
+                return;
+            }*/
+            //totalQuantity, totalAmount, selectedShipping, subtotal, total
+
+            
+
+            console.log("handleProceedNext: totalQuantity=",totalQuantity);
+            // ta znesek je napačen
+            // console.log("handleProceedNext: totalAmount=",totalAmount);  
+            console.log("Total VAT:", totalVAT);
+            console.log("handleProceedNext: selectedShipping=",selectedShipping);
+
+            console.log("handleProceedNext: total=",total);
+            // console.log("handleProceedNext: grandTotal=",grandTotal);
+            // Shranjevanje v Redux
+            dispatch(setCartSummary({
+              totalAmount: total,
+              totalVAT: totalVAT,
+              shippingCost: selectedShipping,
+            }));
+     
+            const selectedShippingOption = shippingOptions.find(option => option.cost === selectedShipping);
+            if (!selectedShippingOption) {
+              console.error('Selected shipping option not found.');
+              return;
+            }
+            console.log(t(selectedShippingOption.label));
+            dispatch(setShippingMethod({
+              text: t(selectedShippingOption.label),
+              cost: selectedShippingOption.cost,
+            }));
+           // dispatch(setShippingMethod({ text: 'Express Shipping', cost: 15.0 }));
+
+            //handleAction('payment', cartData); // Pokliči zbrane podatke in premik na plačilo
+            handleAction( "shipping");
+          };
 
     return (
         <>
@@ -188,34 +245,6 @@ const CheckoutCart = ({cartStep, handleAction}) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
      
 
@@ -224,9 +253,8 @@ const CheckoutCart = ({cartStep, handleAction}) => {
                     <a 
                         href="#" 
                         className="btn continue nav-button right" 
-                        onClick={() => {
-                            handleAction( "shipping");
-                        }}
+                        onClick={handleProceedNext}
+              
                     >Naslov za dostavo</a>
             </div>
 

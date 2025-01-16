@@ -14,7 +14,9 @@ import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 
 
 const LoginPage = () => {
-  const { t } = useTranslation();
+  
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
   const { login } = useContext(AuthContext);
 
   const [username, setUsername] = useState('');

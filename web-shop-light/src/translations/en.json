@@ -67,7 +67,24 @@
         "city":"City",
         "postalCode":"Postal Code",
         "country": "Country",
-        "nameto": "Name to Ship"
+        "nameto": "Name to Ship",
+        "addNewAddressTitle": "Add New Address",
+        "addressLine1Placeholder": "Enter Address Line 1",
+        "addressLine2Placeholder": "Enter Address Line 2",
+        "cityPlaceholder": "Enter City",
+        "statePlaceholder": "Enter State",
+        "postalCodePlaceholder": "Enter Postal Code",
+        "countryPlaceholder": "Enter Country",
+        "default": "Default",
+        "addAddressButton": "Add Address"  ,
+        "addNewAddressButton": "Add New Address",
+        "saveAddressButton": "Save Address",
+        "cancelButton": "Cancel",
+        "errorFetchingAddresses": "Error fetching addresses.",
+        "errorAddingAddress": "Error adding the address.",
+        "errorUpdatingDefaultAddress": "Error updating the default address."
+
+       
     },
     "user" : {
       "sidebarTitle":"User pages",
@@ -80,6 +97,42 @@
     "orders":{
       "title":"Your Orders",
       "empty": "No orders to display at the moment."
+    },
+
+    "order": {
+        "title": "Order #{id}",
+        "date": "Date",
+        "status": "Status",
+        "status_PENDING": "Pending",
+        "status_PROCESSING": "Processing",
+        "status_SHIPPED": "Shipped",
+        "status_DELIVERED": "Delivered",
+        "status_CANCELLED": "Cancelled",
+        "shippingBilling": "Shipping & Billing",
+        "customerName": "Customer Name",
+        "email": "Email",
+        "phone": "Phone",
+        "shippingAddress": "Shipping Address",
+        "billingAddress": "Billing Address",
+        "shippingMethod": "Shipping Method",
+        "payment": "Payment",
+        "paymentMethod": "Method",
+        "totalAmount": "Total Amount",
+        "vatAmount": "VAT Amount",
+        "discountAmount": "Discount Amount",
+        "customerNotes": "Customer Notes",
+        "notes": "Notes",
+        "products": "Products",
+        "noProducts": "No products in this order.",
+        "productTableHeaders": {
+          "index": "Index",
+          "sku": "SKU",
+          "productName": "Product Name",
+          "quantity": "Quantity",
+          "pricePerUnit": "Price per Unit",
+          "totalPrice": "Total Price",
+          "vatRate": "VAT Rate"
+        }
     },
     "shop" : {
       "title" : "Welcome to the Shop",
@@ -102,8 +155,17 @@
       "validThrough": "Valid Through",
       "cvv": "CVV",
       "placeOrder": "Place Order",
-      "finish": "Order Completed",
-      "thankYou": "Your order has been completed. Thank you for placing your order."
+      "finishTitleOK": "Order Completed",
+      "thankYou": "Your order has been completed. Thank you for placing your order.",
+      "finishTitleError": "An error has occurred",
+      "loading": "Loading your cart...",
+      "errorEmpty": "Your cart is empty.",
+      "errorNoAddress": "Shipping address is missing.",
+      "errorNoShippingMethod": "Shipping method is not selected.",
+      "errorOrderFailed": "Failed to submit the order. Please try again.",
+      "totalItems": "Number of items",
+      "totalAmount": "Total amount",
+      "continue": "Continue"
     },
     "cart":{
       "title": "Your Shopping Cart",
@@ -157,9 +219,6 @@
         "quantitty1": "product",
         "quantitty2": "products",
         "quantitty3": "products"
-
-
-
     },
     "page":{
       "skiptocontent": "Skip to content"

@@ -6,9 +6,11 @@ import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 // import PropTypes from 'prop-types';
 //const { t } = useTranslation();
 const RegisterUser = () => {
+
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
   const language = "en";
 
-  const { t } = useTranslation();
   const { register } = useContext(AuthContext);
   /*
   const texts = {
@@ -29,6 +31,7 @@ const RegisterUser = () => {
     userRole: '',
     firstname: '',
     lastname: '',
+    Tel:'',
     pwd: '',
     pwdrpt: '', // Dodano za potrditev gesla
     email: '',
@@ -102,8 +105,9 @@ const RegisterUser = () => {
     userData["PwdRpt"]=userData.pwdrpt;
     console.log("Register: ", userData)
     try {
-      await register(userData);
-      alert('Registration successful');
+
+      await register(userData, currentLanguage);
+      // alert('Registration successful');
       setError("");
 
     } catch (err) {
@@ -165,7 +169,21 @@ const RegisterUser = () => {
         placeholder={t('register.lastname')}
       />
     </div>
-
+    <div className="form-group mb-3">
+      <label htmlFor="tel" className="form-label">
+        {t('register.tel')}
+      </label>
+      <input
+        type="text"
+        className="form-control"
+        name="Tel"
+        id="Tel"
+        value={userData.Tel}
+        onChange={handleChange}
+        required
+        placeholder={t('EditUser.phone')}
+      />
+    </div>
     <div className="form-group mb-3">
       <label htmlFor="email" className="form-label">
         {t('register.email')}

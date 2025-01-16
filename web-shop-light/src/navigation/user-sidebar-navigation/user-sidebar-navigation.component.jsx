@@ -27,8 +27,10 @@ import { useTranslation } from 'react-i18next';
 */
 const UserSidebarNavigation = ({}) => {
   
-  const { user, logout } = useContext(AuthContext);
-  const { t } = useTranslation();
+  const { user, logout } = useContext(AuthContext);          //  import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; 
+
 
   const handleLogout = (e) => {
     e.preventDefault(); // Preprečimo privzeto obnašanje povezave
@@ -40,7 +42,10 @@ const UserSidebarNavigation = ({}) => {
       <>
  
         <h5>{t("user.sidebarTitle")}</h5>
-    
+        <div className='user-data-header'>
+        <p>{user}</p>
+        </div>
+        
         <ul className="list-group">
           <li className="list-group-item">
           <Link to="/user/edit" 

@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Registracija
-  const register = async (userData) => {
+  const register = async (userData, language) => {
     
     // Odstrani polje `pwdrpt` iz userData
     const { pwdrpt, ...rest } = userData;
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
     if (!response.ok) {
       throw new Error('Registration failed');
     }
-    return response.json();
+    return response;
   };
 
   /*

@@ -1,5 +1,5 @@
 // import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 import './stores-page.styles.scss';
 
 
@@ -9,15 +9,19 @@ import storeImage  from '../../img/stores/store1.jpeg';
 import storeManager  from '../../img/stores/janez-novak.jpg';
 
 const StoresPage = ({ language='sl' }) => {
+// import { useTranslation } from 'react-i18next';
+   const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language; // Trenutni jezik
   const texts = {
     en: { title: 'Our Stores', message: 'Find stores near you.' },
     sl: { title: 'Naše trgovine', message: 'Poiščite trgovine v vaši bližini.' },
   };
-  const  xtitle = language === 'sl' ? "Sporočila trgovine" : "Store Notifications";
+  language = currentLanguage;
+  const  xtitle = currentLanguage  === 'sl' ? "Sporočila trgovine" : "Store Notifications";
   // console.log(stores);
 
   const notificationsForStore = (store) => {
-    return language === 'sl' ? store.notifications.sl : store.notifications.en;
+    return currentLanguage  === 'sl' ? store.notifications.sl : store.notifications.en;
   };
 
   
@@ -26,7 +30,7 @@ const StoresPage = ({ language='sl' }) => {
 
 
 <div className="store-page">
-      <h1 className="mb-4 text-center">{language === 'sl' ? 'Naše Poslovalnice' : 'Our Stores'}</h1>
+      <h1 className="mb-4 text-center">{currentLanguage === 'sl' ? 'Naše Poslovalnice' : 'Our Stores'}</h1>
       <div className="row g-0">
         {stores.map((store) => {
 

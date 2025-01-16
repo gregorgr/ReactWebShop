@@ -9,10 +9,13 @@ import './language-navigator.styles.scss';
 // import enIcon from '../../assets/flagUsa.png';
 
 const LanguageNavigator = () => {
-  const { i18n } = useTranslation(); // Pridobite i18n iz useTranslation
+    //  import { useTranslation } from 'react-i18next';
+      const { t, i18n } = useTranslation();
+      const currentLanguage = i18n.language; 
+
    // const [currentLanguage, setCurrentLanguage] = useState({});
     //const [newlanguage, setLanguage] = useState('en'); // Privzeti jezik
-    const currentLanguage = i18n.language; // Trenutni jezik
+
     const currentTranslation = {
         en: ['Slovensko', 'Go to your shopping cart'],
         sl: ['English', 'Pojdi v svojo košarico'],

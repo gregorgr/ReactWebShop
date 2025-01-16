@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../../context/auth-context/auth-context.utils';
 
 const ForgotPassword = () => {
-  const { t } = useTranslation();
+  
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
   const [formClass, setFormClass] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');

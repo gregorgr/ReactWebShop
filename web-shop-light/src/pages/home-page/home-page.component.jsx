@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import { categories } from '../../services/categories/categories.component.jsx';
 
 import PropTypes from 'prop-types';
@@ -7,13 +7,15 @@ import './home-page.styles.scss';
 
 
 const Home = ({ language = 'en' }) => {
-
+//  import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
     const texts = {
         en: { title: 'Categories of The Month', message: 'Explore our website.',    gotoshop: 'Go Shop' },
         sl: { title: 'Kategorije meseca', message: 'Raziščite našo spletno stran.', gotoshop: 'V trgovino'  },
       };
 
-
+  language=currentLanguage;
       const [sortOrder, setSortOrder] = useState('asc');
 
       const sortedData = categories

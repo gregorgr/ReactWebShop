@@ -4,6 +4,7 @@ import  { useContext, useState, useEffect } from 'react';
 // import { useTranslation } from 'react-i18next';
 // import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import UserAddressListItem from "../user-address-list-item/user-address-list-item.component";
 import "./user-address-list.styles.scss";
 
@@ -12,7 +13,11 @@ import { getUserAddresses, updateUserAddress } from './../../../services/apiServ
 
 // handleDefaultChange, handleDelete
 const UserAddressList = ({enableButtons}) => {
-    const { user, token } = useAuth();
+ // import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+ // language = currentLanguage;
+  const { user, token } = useAuth();
     const [addresses, setAddresses] = useState([]);
 
 

@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import './contact.styles.scss';
 
 
 const Contact = ({ language }) => {
+  //  import { useTranslation } from 'react-i18next';
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language; 
+    language= currentLanguage;
   const texts = {
     en: {
       title: 'Contact Us',

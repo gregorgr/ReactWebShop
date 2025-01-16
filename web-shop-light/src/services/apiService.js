@@ -1,5 +1,8 @@
 
 import axios from 'axios';
+import { transformProductData , transformProduct} from './dataTransformer';
+
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
@@ -21,6 +24,78 @@ const isAddressEmpty = (address) => {
     )
   );
 };
+
+
+export const fetchProducts = async (token, language) => {
+ // const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:3000/api'; // Posodobi osnovni URL po potrebi
+  try {
+     // const headers = token ? { Authorization: `Bearer ${token}` } : {};
+   //   const response = await axios.get(, { headers });
+      const response = await fetch(`${API_BASE_URL}/Product`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept-Language': language, // Dodamo jezik v header
+            ...(token && { Authorization: `Bearer ${token}` }), // Dodamo žeton, če obstaja
+        },
+     });
+      // console.log("fetchProducts => response:", response);
+      console.log("fetchProducts 'Accept-Language': ",language,"=>response: ", response);
+      console.log("fetchProducts => response.data.$values:", response.data.$values);
+      // const transformedProducts = transformProduct(0, response.data[0]);
+      const transformedProducts = transformProductData( response.data);
+      console.log("fetchProducts => transformedProducts:", transformedProducts);
+
+      return transformedProducts; //transformedProducts; //response.data; // Vrne seznam produktov
+  } catch (error) {
+      console.error('Error fetching products:', error.response?.data || error.message);
+      throw error; // Vrne napako za nadaljnjo obravnavo
+  }
+};
+
+/**
+ * Fetch orders for a specific user by their ID.
+ * @param {number} userId - The ID of the user.
+ * @param {string} token - The authentication token.
+ * @returns {Promise<Array>} - A promise resolving to the user's orders.
+ */
+export const getOrders = async (user, token) => {
+  if (!token) {
+    throw new Error('Authentication token is required.');
+  }
+  const userId = user;
+  console.log("apiService: getOrders user: ",user);
+  try {
+    const url = "orders-by-user-id/"; //`"orders-by-user-id/"`; //; //  `"orders-by-user-id/${user}"`; 
+
+    const response = await axios.get(`${API_BASE_URL}/Order/${url}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log("apiService: getOrders response.data: ",response.data[0]);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+    throw new Error('Failed to fetch orders.');
+  }
+};
+
+
+export const sendOrder = async (orderData, token) => {
+  //const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:3000/api'; // Adjust as needed
+  console.log("apiService: sendOrder orderData: ",orderData);
+  try {
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      const response = await axios.post(`${API_BASE_URL}/Order`, orderData, { headers });
+      return response.data; // Successful response
+  } catch (error) {
+      console.error('Error sending order:', error.response?.data || error.message);
+      throw error; // Re-throw the error for further handling
+  }
+};
+
 //import axios from 'axios';
 //const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // User API services

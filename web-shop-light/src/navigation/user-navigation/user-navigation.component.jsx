@@ -17,7 +17,10 @@ import CartPreview from "../../components/cart/cart-preview/cart-preview.compone
 // '../components/cart-preview/cart-preview.component';
 
 const UserNavigation = ({ language }) => {
-  const { t } = useTranslation();
+         //  import { useTranslation } from 'react-i18next';
+         const { t, i18n } = useTranslation();
+         const currentLanguage = i18n.language; 
+         language= currentLanguage;
   const { user, logout } = useContext(AuthContext);
   const labels = {
     en: ['Search', 'Cart', 'User', 'Edit', 'Orders', 'Theme'],

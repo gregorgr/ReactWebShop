@@ -6,6 +6,7 @@ const initialState = {
   items: [], // Seznam izdelkov v košarici
   total: 0, // Skupna cena
   shippingMethod: null, // Način dostave
+  OrderStatus : "PENDING",
   shippingAddress: {
     firstname: '',
     lastname: '',
@@ -52,7 +53,7 @@ const cartReducer = (state, action) => {
     }
     case 'SET_SHIPPING_ADDRESS': {
       return { ...state, shippingAddress: action.payload };
-    }
+    } 
     case 'SET_PAYMENT': {
       return { ...state, payment: action.payload };
     }

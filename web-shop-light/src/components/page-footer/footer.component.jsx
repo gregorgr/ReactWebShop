@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useTranslation } from 'react-i18next';
 const PageFooter = () => {
+
+   // import { useTranslation } from 'react-i18next';
+ const { t, i18n } = useTranslation();
+ const currentLanguage = i18n.language; // Trenutni jezik
+
+
   return (
     <footer className="footer bg-dark text-light py-4">
     <div className="container">

@@ -8,6 +8,14 @@ const initialState = {
   totalQuantity: 0,
   totalAmount: 0,
   totalVAT: 0, // Novo: skupen DDV
+  shippingAddress: null,
+  shippingMethod: null,
+  shippingCost: 0,
+  orderDate: null,
+  payment: {
+    method: null,
+    code: null,
+  },
 };
 
 const calculateTotals = (items) => {
@@ -19,8 +27,17 @@ const calculateTotals = (items) => {
 
 
 const cartSlice = createSlice({
-  name: 'cart',
-  initialState,
+    name: 'cart',
+    initialState: {
+      items: [],
+      totalAmount: 0,
+      totalVAT: 0,
+      shippingAddress: null,
+      email: null,
+      shippingMethod: null,
+      shippingCost: 0,
+  },
+
   reducers: {
     addItem(state, action) {
       const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
@@ -50,6 +67,31 @@ const cartSlice = createSlice({
       state.totalAmount = 0;
       state.totalVAT = 0;
       localStorage.removeItem('cartItems');
+      localStorage.removeItem('shippingAddress');
+      state.shippingAddress = null;
+      state.shippingMethod = null;
+      state.shippingCost = 0;
+      state.orderDate = null;
+      state.payment = {
+          method: null,
+          code: null,
+      };
+    },
+    setShippingAddress: (state, action) => {
+      state.shippingAddress = action.payload;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+  },
+    setShippingMethod: (state, action) => {
+      state.shippingMethod = action.payload.text;
+      state.shippingCost = action.payload.cost;
+    },
+    setOrderDate: (state, action) => {
+      state.orderDate = action.payload;
+    },
+    setPayment: (state, action) => {
+        state.payment = action.payload;
     },
     updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
@@ -58,9 +100,25 @@ const cartSlice = createSlice({
         item.quantity = quantity;
       }
     },
+    setCartSummary: (state, action) => {
+      state.totalAmount = action.payload.totalAmount;
+      state.totalVAT = action.payload.totalVAT;
+      state.shippingCost = action.payload.shippingCost;
+    },
   },
 });
 
-export const { addItem, removeItem, clearCart, updateQuantity } = cartSlice.actions;
+export const { 
+  addItem, 
+  removeItem, 
+  clearCart, 
+  updateQuantity, 
+  setEmail,
+  setShippingAddress,
+  setShippingMethod,
+  setCartSummary,
+  setOrderDate,
+  setPayment
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -6,8 +6,11 @@ import { AuthContext } from '../../../context/auth-context/auth-context.utils';
 const UserChangePassword = () => {
   //const { language } = useContext(LanguageContext);
   const { changePassword, user, token } = useContext(AuthContext);
-  const { t } = useTranslation();
-
+   // import { useTranslation } from 'react-i18next';
+   const { t, i18n } = useTranslation();
+   const currentLanguage = i18n.language; // Trenutni jezik
+  // language = currentLanguage;
+//
   const [formData, setFormData] = useState({
     oldPassword: '',
     newPassword: '',
