@@ -25,8 +25,40 @@ const isAddressEmpty = (address) => {
   );
 };
 
+export const fetchSingleProduct = async (id, language, token ) => {
+  // const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:3000/api'; // Posodobi osnovni URL po potrebi
+   try {
+    console.log("fetchSingleProduct => id : ", id );
+      // const headers = token ? { Authorization: `Bearer ${token}` } : {};
+    //   const response = await axios.get(, { headers });
+       const response = await fetch(`${API_BASE_URL}/Product/${id}`, {
+         method: 'GET',
+         headers: {
+             'Content-Type': 'application/json',
+             'Accept-Language': language, // Dodamo jezik v header
+             ...(token && { Authorization: `Bearer ${token}` }), // Dodamo žeton, če obstaja
+         },
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to fetch products: ${response.statusText}`);
+      }
+       // console.log("fetchProducts => response:", response);
+       console.log("fetchProducts 'Accept-Language': ",language,"=>response: ", response);
+       const products = await response.json();
+       console.log("fetchProducts => products : ", products );
+       // const transformedProducts = transformProduct(0, response.data[0]);
+       //const transformedProducts = transformProductData( response.data);
+       //console.log("fetchProducts => transformedProducts:", transformedProducts);
+ 
+       return products; //
+       //  transformedProducts; //transformedProducts; //response.data; // Vrne seznam produktov
+   } catch (error) {
+       console.error('Error fetching products:', error.response?.data || error.message);
+       throw error; // Vrne napako za nadaljnjo obravnavo
+   }
+ };
 
-export const fetchProducts = async (token, language) => {
+export const fetchProducts = async (language, token ) => {
  // const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:3000/api'; // Posodobi osnovni URL po potrebi
   try {
      // const headers = token ? { Authorization: `Bearer ${token}` } : {};
@@ -39,14 +71,19 @@ export const fetchProducts = async (token, language) => {
             ...(token && { Authorization: `Bearer ${token}` }), // Dodamo žeton, če obstaja
         },
      });
+     if (!response.ok) {
+      throw new Error(`Failed to fetch products: ${response.statusText}`);
+    }
       // console.log("fetchProducts => response:", response);
       console.log("fetchProducts 'Accept-Language': ",language,"=>response: ", response);
-      console.log("fetchProducts => response.data.$values:", response.data.$values);
+      const products = await response.json();
+      console.log("fetchProducts => products : ", products );
       // const transformedProducts = transformProduct(0, response.data[0]);
-      const transformedProducts = transformProductData( response.data);
-      console.log("fetchProducts => transformedProducts:", transformedProducts);
+      //const transformedProducts = transformProductData( response.data);
+      //console.log("fetchProducts => transformedProducts:", transformedProducts);
 
-      return transformedProducts; //transformedProducts; //response.data; // Vrne seznam produktov
+      return products; //
+      //  transformedProducts; //transformedProducts; //response.data; // Vrne seznam produktov
   } catch (error) {
       console.error('Error fetching products:', error.response?.data || error.message);
       throw error; // Vrne napako za nadaljnjo obravnavo

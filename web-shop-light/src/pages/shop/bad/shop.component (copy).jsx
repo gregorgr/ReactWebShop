@@ -26,9 +26,10 @@ const Shop = ({ language}) => {
   language = currentLanguage;
   const { category: rawCategory, page } = useParams();
   const { products: staticProducts } = useContext(ProductContext); // Statično naloženi produkti
-  const [products, setProducts] = useState(staticProducts);
+  const [products, setProducts] = useState([]);
+ // const [products, setProducts] = useState(staticProducts);
   const category = rawCategory ? decodeURIComponent(rawCategory) : null;
-  
+
  // const [product, setProducts] = useState([]);
   const [productList, setProductsList] = useState([]);
   const [error, setError] = useState(null);
@@ -49,12 +50,13 @@ const Shop = ({ language}) => {
         try {
             console.log("Shop before loadProducts ");
             const xtoken = null;
-            const productData = await fetchProducts(xtoken, currentLanguage);
-            console.log("loadProducts: productData: ",productData);
-            console.log("-- product ",productData[0]);
-            const updatedProducts = mergeProducts(products, productData); // Združi podatke
-            console.log("mergeProducts: updatedProducts ", updatedProducts[0]);
-            setProducts(updatedProducts); // Posodobi stanje
+            const productsData = await fetchProducts(xtoken, currentLanguage);
+            console.log("loadProducts: productData: ",productsData);
+            setProducts(productsData); // Posodobimo stanje
+           // console.log("-- product ",productData[0]);
+           // const updatedProducts = mergeProducts(products, productData); // Združi podatke
+           // console.log("mergeProducts: updatedProducts ", updatedProducts[0]);
+          //  setProducts(updatedProducts); // Posodobi stanje
             //setProductsList(productData);
             //setProducts(productData);
         } catch (err) {
@@ -146,16 +148,24 @@ const Shop = ({ language}) => {
   switch (sortOption) {
     case 'alphabetical-asc':
       sorted.sort((a, b) => {
-        const categoryA = a.translations?.[language]?.category || a.category;
-        const categoryB = b.translations?.[language]?.category || b.category;
+        const categoryA = a.name ; // || a.categoryName;
+        const categoryB = b.name ; // || b.categoryName;
+       // const categoryA = a.categoryName || a.categoryName;
+       // const categoryB = b.categoryName || b.categoryName;
+       // const categoryA = a.translations?.[language]?.category || a.category;
+       // const categoryB = b.translations?.[language]?.category || b.category;
         return categoryA.localeCompare(categoryB);
       });
       break;
 
     case 'alphabetical-desc':
       sorted.sort((a, b) => {
-        const categoryA = a.translations?.[language]?.category || a.category;
-        const categoryB = b.translations?.[language]?.category || b.category;
+        const categoryA = a.name ; // || a.categoryName;
+        const categoryB = b.name ; // || b.categoryName;
+       // const categoryA = a.categoryName || a.categoryName;
+       // const categoryB = b.categoryName || b.categoryName;
+       // const categoryA = a.translations?.[language]?.category || a.category;
+       // const categoryB = b.translations?.[language]?.category || b.category;
         return categoryB.localeCompare(categoryA);
       });
       break;
@@ -220,7 +230,8 @@ const handlePageChange = (newPage) => {
 
           // Preštejemo izdelke v kategoriji
           const countCatElements = products.filter((product) => {
-            const productCategory = language === 'sl' ? product.category : product.translations.en.category;
+            const productCategory = product.categoryName
+            // language === 'sl' ? product.category : product.translations.en.category;
             return productCategory === categoryName;
           }).length;
 

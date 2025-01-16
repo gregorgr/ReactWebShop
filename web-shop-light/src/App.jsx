@@ -14,8 +14,8 @@ import PageFooter from './components/page-footer/footer.component.jsx';
 
 // pages
 import Home from './pages/home-page/home-page.component';
-import Shop from './pages/shop/shop.component';
-import ShopProduct from './pages/shop-product/shop-product.component.jsx';
+import ShopPage from './pages/shop/shop.page.component.jsx';
+import ShopProductPage from './pages/shop-product/shop-product.page.component.jsx';
 //import Product from './pages/shop/product/product.component';
 // import Cart from './pages/cart/cart.component.jsx';
 import CheckoutPage from './pages/checkout/checkout-page.component.jsx';
@@ -72,14 +72,14 @@ function App() {
                   <div className="row content-wrapper clearfix">
                     <Routes>
                       <Route path="/" element={<Home language={currentLanguage}  />} />
-                      <Route path="/shop" element={<Shop language={currentLanguage}  />} />
-                      <Route path="/shop/:category" element={<Shop language={currentLanguage}  />} />
-                      <Route path="/shop" element={<Shop language={currentLanguage} />} />
-                      <Route path="/shop/page/:page" element={<Shop language={currentLanguage}  />} />
-                      <Route path="/shop/:category" element={<Shop language={currentLanguage}  />} />
-                      <Route path="/shop/:category/page/:page" element={<Shop language={currentLanguage}  />} />
-                      <Route path="/shop/:category/product/:productId" element={<ShopProduct language={currentLanguage} />} />
-                      <Route path="/shop/brand/:brand/:page" element={<Shop language={currentLanguage}  />} />                  
+                      <Route path="/shop" element={<ShopPage language={currentLanguage}  />} />
+                      <Route path="/shop/:category" element={<ShopPage language={currentLanguage}  />} />
+                      <Route path="/shop" element={<ShopPage language={currentLanguage} />} />
+                      <Route path="/shop/page/:page" element={<ShopPage language={currentLanguage}  />} />
+                      <Route path="/shop/:category" element={<ShopPage language={currentLanguage}  />} />
+                      <Route path="/shop/:category/page/:page" element={<ShopPage language={currentLanguage}  />} />
+                      <Route path="/shop/:category/product/:productId" element={<ShopProductPage language={currentLanguage} />} />
+                      <Route path="/shop/brand/:brand/:page" element={<ShopPage language={currentLanguage}  />} />                  
                       <Route path="/checkout/" element={<CheckoutPage />} />
                       <Route path="/checkout/:step" element={<CheckoutPage />} />
                       <Route path="/stores" element={<StoresPage language={currentLanguage} />} />

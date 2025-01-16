@@ -4,7 +4,11 @@ import "./loading.styles.scss";
 
 const Loading = () => {
     return (
-        <><p><i>Loading...</i></p></>
+        <>
+        <div className="loading-container2">
+            <div class="loader"></div>
+        </div>
+        </>
     );
 };
 

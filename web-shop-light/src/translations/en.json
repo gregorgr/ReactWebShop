@@ -86,6 +86,7 @@
 
        
     },
+
     "user" : {
       "sidebarTitle":"User pages",
       "edit": "Edit user",
@@ -218,7 +219,12 @@
         "storageX": "products in stock",
         "quantitty1": "product",
         "quantitty2": "products",
-        "quantitty3": "products"
+        "quantitty3": "products",
+        "warrantyTitle": "Garancija",
+        "warrantyInfo": "5-letna garancija za vse izdelke.",
+        "techDetailsText": "Izdelano iz vrhunskih materialov, z vsestranskim zvokom in vzdržljivostjo."
+        
+ 
     },
     "page":{
       "skiptocontent": "Skip to content"

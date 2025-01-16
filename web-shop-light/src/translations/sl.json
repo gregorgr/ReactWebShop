@@ -122,7 +122,7 @@
 
     "orders":{
       "title":"Naročila",
-      "empty": "Trenutno ni naročil za prikaz."
+      "": "Trenutno ni naročil za prikaz."
     },
 
       "order": {
@@ -218,7 +218,10 @@
     "storageX": "izdelkov na zalogi",
     "quantitty1": "izdelek",
     "quantitty2": "izdelka",
-    "quantitty3": "izdelkov"
+    "quantitty3": "izdelkov",
+    "warrantyTitle": "Warranty",
+    "warrantyInfo": "5 years warranty for all products.",
+    "techDetailsText": "Crafted from premium materials, offering versatile sound and durability."    
     },
     "page":{
       "skiptocontent": "Preskoči na vsebino"

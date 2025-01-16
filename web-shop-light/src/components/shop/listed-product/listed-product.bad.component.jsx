@@ -3,7 +3,7 @@
 import  { useContext }  from 'react';
 import { Link } from 'react-router-dom';
 //import { CartContext } from '../../../context/cart-context/cart-context.provider';
-
+import { useTranslation } from 'react-i18next';
 import StarRating from '../../star-rating/star-rating.component';
 
 import { useDispatch } from 'react-redux';
@@ -13,11 +13,15 @@ import PropTypes from 'prop-types';
 import './listed-product.styles.scss';
 
 function ListedProduct({ product, language }) {
-
+ // import { useTranslation } from 'react-i18next';
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Trenutni jezik
+  // language = currentLanguage;
   //const { addItemToCart } = useContext(CartContext);
-  const languageToUse = language || 'en'; 
-  const translatedCategory = product.translations?.[language]?.category || product.category;
-  const translatedProductTitle = product.translations?.[language]?.title || product.title;
+  const languageToUse = language || currentLanguage;//'en'; 
+  //const translatedCategory = product.translations?.[language]?.category || product.category;
+  //const translatedProductTitle = product.translations?.[language]?.title || product.title;
+  const productName= product.name;
 
   const dispatch = useDispatch();
 
@@ -62,7 +66,7 @@ function ListedProduct({ product, language }) {
  const handleAddToCart = () => {
         dispatch(addItem({ 
           id: product.id, 
-          name: translatedProductTitle, 
+          name: productName, 
           price: product.price, 
           quantity: 1,
           vat_rate: product.vat_rate,
@@ -75,7 +79,8 @@ function ListedProduct({ product, language }) {
       <div className="card rounded-0">
         <img 
           className="card-img rounded-0 img-fluid" 
-          src={product.image} 
+          src={product.mainPictureUrl} 
+          title=""
           alt={translatedCategory} 
         />
         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
@@ -105,16 +110,16 @@ function ListedProduct({ product, language }) {
         </div>
       </div>
       <div className="card-body">
-      <h2><Link to={`/shop/${encodeURIComponent(product.category)}/product/${product.id}`} className="h3 text-decoration-none">
-         {translatedProductTitle}
+      <h2><Link to={`/shop/${encodeURIComponent(product.categoryName)}/product/${product.id}`} className="h3 text-decoration-none">
+         {productName}
         </Link></h2>
         {product.itemStorage > 0 ? (
           <span className='stockOK'>{product.itemStorage} in stock</span>
           ) : (
           <span className='stockZero'>Out of stock</span>)}
         <br />
-        <Link to={`/shop/${product.category}`} className="h3 text-decoration-none">
-          {translatedCategory}
+        <Link to={`/shop/${product.categoryName}`} className="h3 text-decoration-none">
+          {product.categoryName}
         </Link>
         
         <StarRating averageRating={product.averageRating} />

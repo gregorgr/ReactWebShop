@@ -107,7 +107,6 @@ brenkalo/
 ```plaintext
 Direktorij: BrenkaloWebStore/web-shop-light
 
-```
 ├── public
 ├── src
 │   ├── img
@@ -126,11 +125,11 @@ Direktorij: BrenkaloWebStore/web-shop-light
 │   │   ├── cart-context
 │   ├── pages
 │   │   ├── shop
-│   │   │   ├── orders
-│   │   │   ├── listed-product
-│   │   │   ├── product
+│   │   │   ├── bad
 │   │   ├── checkout
 │   │   ├── home-page
+│   │   ├── shop-product
+│   │   │   ├── bad
 │   │   ├── stores
 │   │   │   ├── store
 │   │   ├── user
@@ -144,13 +143,18 @@ Direktorij: BrenkaloWebStore/web-shop-light
 │   ├── components
 │   │   ├── star-rating
 │   │   ├── loading
+│   │   ├── shop
+│   │   │   ├── shop-sidebar-list
+│   │   │   ├── listed-product
+│   │   │   ├── shop-product-tabs
+│   │   │   ├── shop-helper-functions
+│   │   │   ├── product
 │   │   ├── checkout
 │   │   │   ├── checkout-finish
 │   │   │   ├── checkout-shipping
 │   │   │   ├── checkout-cart
 │   │   │   ├── checkout-payment
 │   │   ├── page-footer
-│   │   ├── shop-product
 │   │   ├── protected-route
 │   │   ├── responsive-image
 │   │   ├── cart
@@ -158,11 +162,13 @@ Direktorij: BrenkaloWebStore/web-shop-light
 │   │   │   ├── cart-item
 │   │   ├── product-list
 │   │   ├── user
+│   │   │   ├── _user-addresses-list
 │   │   │   ├── user-address-list-item
 │   │   │   ├── orders
 │   │   │   ├── user-change-password
 │   │   │   ├── user-address-add-form
 │   │   │   ├── user-address-list
+│   │   │   ├── order-item
 │   │   │   ├── user-edit
 │   │   │   ├── user-addresses-add
 │   │   │   ├── user-addresses
@@ -184,12 +190,13 @@ Direktorij: BrenkaloWebStore/web-shop-light
 │   │   ├── data
 │   ├── translations
 │   ├── features
-│   │   ├── cart
+│   │   ├── cart-slice
 
 
-77 directories, 197 files
-
+84 directories, 199 files
 ```
+
+
 
 ## Namestitev frontenda
 

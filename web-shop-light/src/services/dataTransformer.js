@@ -25,7 +25,29 @@ export const mergeProductFromList = (product, productsNewData) => {
     };
 };
 
+export  const mergeProductFull = (product, newProduct) => {
+    // Preverimo, če sta produkt in novi podatki veljavni
+    if (!product || !newProduct || !newProduct.id) {
+      console.error("Invalid input: product or newProduct is missing or invalid.", { product, newProduct });
+      return product;
+    }
+  
+    // Prepišemo obstoječi produkt z novimi podatki
+    if (product.id === newProduct.id) {
+      return {
+        ...product,
+        ...newProduct,
+        itemStorage: newProduct.itemStorage ,//|| product.category, // Posodobimo kategorijo
+        item_stock: newProduct.itemStorage ,//|| product.category, // Posodobimo kategorijo
+        title: newProduct.name ,
+        category: newProduct.categoryName,//|| product.category, // Posodobimo kategorijo
+        description: newProduct.shortDescription// || product.description, // Posodobimo opis
+      };
+    }
+  }
 
+
+  
 export const mergeProducts= (products, productNewData) => {
     // Pretvori `products` v mapo za hitrejši dostop po ID
     const productMap = new Map(products.map((product) => [product.id, product]));

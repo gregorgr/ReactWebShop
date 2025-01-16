@@ -1,5 +1,5 @@
-import { useEffect, useState, useMemo, useContext  } from "react-router-dom";
-import { useContext } from "react";
+import  { useState, useMemo, useEffect, useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -10,35 +10,62 @@ import './shop-product.styles.scss';
 import "./shop-tooltip.styless.scss";
 
 
-
-import {mergeProductFromList} from '../../services/dataTransformer.js';
-
 import StarRating from "../../components/star-rating/star-rating.component.jsx";
 import { addItem } from '../../features/cart-slice/cartSlice.js';
+import { fetchSingleProduct } from '../../services/apiService.js';
+
 
 import ResponsiveImage from "../../components/responsive-image/responsive-image.component.jsx";
 //"../../responsive-image/responsive-image.component.jsx";
-import { fetchProducts } from '../../services/apiService.js';
 
-const ShopProduct = () => {
 
-  const { t } = useTranslation();
-  const { i18n } = useTranslation(); // Pridobimo objekt i18n
+const ShopProductPage = () => {
+
+  const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language; // Trenutni jezik
-  const { productId } = useParams();
-  const { products } = useContext(ProductContext);
-  const dispatch = useDispatch();
-   const [product, setProduct] = useState([]);
-  const [error, setError] = useState(null);
-     const [isLoading, setIsLoading] = useState(true);
-   
-  // Poiščite produkt glede na ID
-  const staticProduct = products.find((item) => item.id === parseInt(productId));
 
-  if (!staticProduct) {
+  const { productId } = useParams();
+
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  //const { products: staticProducts } = useContext(ProductContext);
+  const [products, setProducts] = useState([]); //useState(staticProducts);
+  const dispatch = useDispatch();
+
+  
+  // Poiščite produkt glede na ID
+  const product = products.find((item) => item.id === parseInt(productId));
+
+
+
+
+  useEffect(() => {
+      const loadSingleProduct = async () => {
+        try {
+          setIsLoading(true);
+          const xtoken = null;
+          console.log("ShopPage: BEFORE loadSingleProduct: productData: ");
+          const productNewData = await fetchSingleProduct(productId, currentLanguage, xtoken);
+          console.log("ShopPage: BEFORE: product: ",product);
+          console.log("ShopPage:loadSingleProduct: productData: ",productNewData);
+
+          setProducts(productNewData); // Posodobimo stanje s pridobljenimi produkti
+         
+        } catch (err) {
+          console.error("Failed to fetch products:", err);
+          setError("Failed to load products.");
+        } finally {
+          setIsLoading(false);
+        }
+      };
+  
+      loadSingleProduct();
+    }, [currentLanguage, productId]);
+
+  if (!product) {
     return <p>Product not found</p>;
   }
-  setProduct(staticProduct);
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('sl-SI', {
@@ -48,45 +75,35 @@ const ShopProduct = () => {
     }).format(value).replace('€', ''); // Odstranimo simbol €, če je potreben samo znesek
   };
 
-   useEffect(() => {
-    const loadProducts = async () => {
-        try {
+ 
 
-            const xtoken = null;
-            const productData = await fetchProducts(xtoken);
-            //console.log("loadProducts: productData: ",productData);
-           // console.log("-- product ",productData[0]);
-            const updatedProduct = mergeProductFromList(product, productData); // Združi podatke
-            console.log("mergeProducts: updatedProduct ", updatedProduct);
-            setProduct(updatedProduct); // Posodobi stanje
-            //setProductsList(productData);
-            //setProducts(productData);
-        } catch (err) {
-            setError('Failed to load products.');
-            console.error(err);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    loadProducts();
-
-   }, []);
 
   const {
     id,
-    title,
-    description,
-    category,
-    longDescription,
+    name,
     image,
     price,
-    averageRating,
-    numberOfReviews,
-    translations,
-    itemStorage,
+    vat_rate,  
     producer,
-    original_product_url
+    original_product_url,
+    itemStorage,
+    categoryId, 
+    categoryName,
+    mainPictureUrl,
+    mainProductUrl,
+    brand,  
+    manufacturer,
+    longDescription,
+    shortDescription,
+    numberOfReviews, 
+    averageRating,
+    rewiews
+     // title,
+    // translations,
+    // description,
+       // item_stock, 
+   // category,
+   // category_id,
   } = product;
 
   const NewWindowLink = ({url, linkText, ...props}) => {
@@ -135,9 +152,9 @@ const addToCartTooltip = (itemStorage) => {
 */
 
   // Prevajanje
-  const translatedTitle = translations?.[currentLanguage]?.title || title;
-  const translatedDescription = translations?.[currentLanguage]?.description || description;
-  const translatedLongDescription = translations?.[currentLanguage]?.longDescription || longDescription;
+  //const translatedTitle = translations?.[currentLanguage]?.title || title;
+  //const translatedDescription = translations?.[currentLanguage]?.description || description;
+  //const translatedLongDescription = translations?.[currentLanguage]?.longDescription || longDescription;
 
   return (
     <div className="container-fluid product-content">
@@ -146,9 +163,9 @@ const addToCartTooltip = (itemStorage) => {
          <div className="row product-header py-4">
     <div className="col">
       <div className="container">
-        <span className="h3">{title}</span>
+        <span className="h3">{product.name}</span>
         <span className="h3 text-muted">&nbsp;|&nbsp;</span>
-        <span className="h4 text-muted">{category}</span>
+        <span className="h4 text-muted">{product.category}</span>
       </div>
     </div>
   </div>
@@ -160,8 +177,8 @@ const addToCartTooltip = (itemStorage) => {
       <div className="col-md-5 mb-4">       
         <ResponsiveImage 
             src={image}
-            alt={translatedTitle}
-            title={translatedTitle}
+            alt={product.name}
+            title={product.name}
            // className={`responsive-img lazyload ${className}`}
             className="responsive-img lazyload"
           
@@ -169,7 +186,7 @@ const addToCartTooltip = (itemStorage) => {
       </div>
       {/* Right Column */}
       <div className="col-md-6">
-        <h2 className="mb-3">{title}</h2>
+        <h2 className="mb-3">{product.name}</h2>
         <p className="text-muted produckt-price text-center">{formatCurrency(price)}€</p>
         <hr />
 
@@ -187,7 +204,7 @@ const addToCartTooltip = (itemStorage) => {
           &nbsp; &nbsp;
           <a href="#">{t("product.showall")}</a>
         </div>
-        <p>{translatedDescription}</p>
+        <p>{product.shortDescription}</p>
         <div className="my-3">
 
         <div className="con-tooltip top">
@@ -261,7 +278,7 @@ const addToCartTooltip = (itemStorage) => {
   {/* Tabs */}
   <div className="row bg-light py-4">
     <div className="col">
-      <h2 className="mb-3">{translatedTitle}</h2>
+      <h2 className="mb-3">{product.shortDescription}</h2>
       <ul className="nav nav-tabs">
         <li className="nav-item">
           <a className="nav-link active" href="#">
@@ -280,7 +297,7 @@ const addToCartTooltip = (itemStorage) => {
         </li>
       </ul>
       <div className="mt-3">
-        <p>{translatedLongDescription}</p>
+        <p>{product.longDescription}</p>
         <p>Rating: {averageRating} ({numberOfReviews} reviews)</p>
       </div>
     </div>
@@ -289,4 +306,4 @@ const addToCartTooltip = (itemStorage) => {
   );
 };
 
-export default ShopProduct;
+export default ShopProductPage;
