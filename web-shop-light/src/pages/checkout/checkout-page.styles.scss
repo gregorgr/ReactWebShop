@@ -131,10 +131,10 @@ padding: 1em 0 ;
   vertical-align: middle;
   padding: 1.5em;
  
-  border-bottom: 1px solid #fafafa;
-  &.even {
+ /* border-bottom: 1px solid #fafafa;*/
+ /* &.even {
     background: #fafafa;
-  }
+  }*/
   .infoWrap {
     display: table;
     width: 100%;
@@ -147,7 +147,7 @@ padding: 1em 0 ;
     
     .itemNumber {
 font-size: .75em;
-      color: #777;
+    /*  color: #777;*/
       margin-bottom: .5em;
 }
     
@@ -165,12 +165,12 @@ font-size: .75em;
       display: inline-block;
       font-size: .85em;
       
-      color: #777777;
+     /* color: #777777;*/
       font-family: $fontSans;
           .quantity {
       font-weight: bold;
-            color: #333;
-    }
+          /*  color: #333;*/
+      }
      /*
       &.stockStatus {
         color: rgb(60, 207, 212);
@@ -254,7 +254,7 @@ line-height: .85;
 }
 
 .promoCode {
-border:2px solid #efefef;
+/*border:2px solid #efefef;*/
 float: left;
 width: 35%;
 padding: 2%;
@@ -327,7 +327,7 @@ font-weight: normal;
 
 .promoCode & {
   font-size: .85em;
-  paddding: .5em 2em;
+  padding: .5em 2em;
 }
 }
 
@@ -354,7 +354,7 @@ width: 55%;
      font-family: $fontSans;
     font-size: .85em;
     text-transform: uppercase;
-    color: #777;
+  /*  color: #777;*/
   }
   .value {
 

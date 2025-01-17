@@ -63,7 +63,7 @@ UserAddressListItem.propTypes = {
   }).isRequired,
   handleDelete: PropTypes.func, //.isRequired, // mora biti funkcija
   handleDefaultChange: PropTypes.func, //.isRequired, // mora biti funkcija
-  enableButtons: false
+  enableButtons: PropTypes.bool
 };
 
 UserAddressListItem.defaultProps = {

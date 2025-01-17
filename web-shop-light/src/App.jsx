@@ -43,7 +43,7 @@ import { ProductsProvider } from './context/products/products.context.jsx';
 //import Cart from './context/cart-context/cart-context.component';
 
 import './App.scss';
-
+import './colors.scss';
 
 function App() {
   const { t } = useTranslation();

@@ -19,6 +19,7 @@ import { setShippingAddress, setEmail } from '../../../features/cart-slice/cartS
 import { useAuth } from '../../../context/auth-context/auth-context.utils';
 import { getUserAddresses, getUserData } from './../../../services/apiService'; 
 
+// import Loading from '../../loading/loading.component';
 
 const CheckoutShipping = ({cartStep, handleAction}) => {
      // import { useTranslation } from 'react-i18next';
@@ -106,7 +107,11 @@ const CheckoutShipping = ({cartStep, handleAction}) => {
             setSelectedAddress((prev) => ({ ...prev, [name]: value }));
         };
         */
-
+      const loadData = async () => {
+         setTimeout(() => {
+         setIsLoading(false);
+         }, 3000); // Pavza 3 sekunde
+      };
       const handleProceedToPayment = () => {
         if (!selectedAddress.nameto || !selectedAddress.addressLine1 || !selectedAddress.city) {
             console.error('Address is incomplete.');
@@ -126,7 +131,12 @@ const CheckoutShipping = ({cartStep, handleAction}) => {
 
         console.log("handleProceedToPayment  selectedAddress:",selectedAddress);
         console.log('Cart Data:', cartData);
+       // setIsLoading(true); 
+       // loadData();
+       // setIsLoading(true); 
+
         handleAction('payment', cartData); // Pokliči zbrane podatke in premik na plačilo
+
       };
 
 /*

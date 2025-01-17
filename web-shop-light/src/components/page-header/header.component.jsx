@@ -23,43 +23,44 @@ const PageHeader = ({ language }) => {
 
 
   return (
-    <header>
-     <nav className='navbar navbar-expand-lg navbar-light shadow'>
+    <header  >
+      <nav className='navbar navbar-expand-lg navbar-light shadow header-fixed'>
 
-     <div className="container-fluid">
+        <div className="container-fluid">
 
-  <div   
-  className='navbar-header navbar-brand  logo  align-self-center'
-  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', backgroundColor: '#fff' }}
-  >
-      <Link to="/"
-      
-      title={labels[language][0]} // Tooltip za vizualne uporabnike
-      aria-label={labels[language][0]}// Dostopna oznaka za bralnike zaslona
-      tabIndex="10" // Omogoča fokus s tipkovnico
-    
-      >
-        <img src={logo} alt="Logo"  title="Logo" /> <span>Brenkalo</span>
-      </Link>
-  </div>
-  {
-    //  <div className="nav navbar-nav navbar-right" id="templatemo_main_nav">
-    // nav navbar-nav navbar-right
-    // align-self-center  flex-fill  d-lg-flex justify-content-lg-between
+          <div   
+          className='navbar-header navbar-brand  logo  align-self-center'
+          style={{ display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            padding: '1rem', 
+            backgroundColor: '#fff',
+            }}
+          >
+              <Link to="/"
+              
+              title={labels[language][0]} // Tooltip za vizualne uporabnike
+              aria-label={labels[language][0]}// Dostopna oznaka za bralnike zaslona
+              tabIndex="10" // Omogoča fokus s tipkovnico
+            
+              >
+                <img src={logo} alt="Logo"  title="Logo" /> <span>Brenkalo</span>
+              </Link>
+          </div>
 
-    // nav navbar-nav navbar-rightalign-self-center
-   // flex-fill  d-lg-flex justify-content-lg-between
-   //  
-  }
-  <div className="nav navbar-nav navbar-right menu-container" id="templatemo_main_nav">
-        <MainNavigation language={language}  />
-        <UserNavigation language={language}  />
-  </div>
+          <div className="nav navbar-nav navbar-right menu-container flex-container" id="templatemo_main_nav">
+            <div className='header-menu  flex-container'><MainNavigation language={language}  /></div>
+                
+                <div className='header-menu  flex-container'>
+                  <UserNavigation language={language}  />
 
-  
-</div>
-</nav>
-    </header>
+                </div>
+                
+          </div>
+
+        </div>
+    </nav>
+  </header>
   );
 };
 

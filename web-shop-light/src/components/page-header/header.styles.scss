@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 .logo img {
-   width: 120px;
+   width: 100px;
   /*  padding-right: 100px;*/
 }
 
@@ -10,6 +10,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
+  padding-left: 10px;
   color: #2c3e50; /* temno modra barva */
   letter-spacing: 1px; /* rahlo razmaknjene črke */
   align-items: center;
@@ -84,7 +85,39 @@ header.container-fluid  {
   padding: 0 !important;
   margin: 0 !important;
 }
-body{
-  
- 
+
+
+/* responsive header  */
+header{
+  min-height: 10vh;
+}
+.flex-container{
+  display: flex;
+}
+.header-nav{
+  align-items: center;
+  flex-direction: column;
+}
+.header-menu{
+  flex-wrap: wrap;
+  justify-content: center;  
+  padding: .75em 0;
+}
+
+
+
+
+
+.header-fixed {
+
+	box-sizing: border-box;
+	/*top:-100px;*/
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
 }

@@ -8,8 +8,8 @@ const initialState = {
   totalQuantity: 0,
   totalAmount: 0,
   totalVAT: 0, // Novo: skupen DDV
-  shippingAddress: null,
-  shippingMethod: null,
+  shippingAddress: JSON.parse(localStorage.getItem('shippingAddress')) || null,
+  shippingMethod: JSON.parse(localStorage.getItem('shippingMethod')) || null,
   shippingCost: 0,
   orderDate: null,
   payment: {
@@ -51,6 +51,7 @@ const cartSlice = createSlice({
       state.totalQuantity = totalQuantity;
       state.totalAmount = totalAmount;
       state.totalVAT = totalVAT;
+
       localStorage.setItem('cartItems', JSON.stringify(state.items));
     },
     removeItem(state, action) {
@@ -59,6 +60,7 @@ const cartSlice = createSlice({
       state.totalQuantity = totalQuantity;
       state.totalAmount = totalAmount;
       state.totalVAT = totalVAT;
+
       localStorage.setItem('cartItems', JSON.stringify(state.items));
     },
     clearCart(state) {
@@ -66,8 +68,7 @@ const cartSlice = createSlice({
       state.totalQuantity = 0;
       state.totalAmount = 0;
       state.totalVAT = 0;
-      localStorage.removeItem('cartItems');
-      localStorage.removeItem('shippingAddress');
+ 
       state.shippingAddress = null;
       state.shippingMethod = null;
       state.shippingCost = 0;
@@ -76,9 +77,13 @@ const cartSlice = createSlice({
           method: null,
           code: null,
       };
+      localStorage.removeItem('cartItems');
+      localStorage.removeItem('shippingAddress');
+      localStorage.removeItem('shippingMethod');
     },
     setShippingAddress: (state, action) => {
       state.shippingAddress = action.payload;
+      localStorage.setItem('shippingAddress', JSON.stringify(state.shippingAddress));
     },
     setEmail: (state, action) => {
       state.email = action.payload;
@@ -99,6 +104,7 @@ const cartSlice = createSlice({
       if (item) {
         item.quantity = quantity;
       }
+      localStorage.setItem('cartItems', JSON.stringify(state.items));
     },
     setCartSummary: (state, action) => {
       state.totalAmount = action.payload.totalAmount;

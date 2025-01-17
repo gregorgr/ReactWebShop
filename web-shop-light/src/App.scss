@@ -41,20 +41,20 @@ body, ul, li, p, a, label, input, div {
 
 /* Footer styling */
 .footer {
-  background-color: #343a40; /* Temnejša barva ozadja */
-  color: #ffffff;
+  /*background-color: #343a40; */
+  /* Temnejša barva ozadja */
+ /* color: #ffffff;*/
   padding: 20px 0;
   clear: both; /* Prepreči prekrivanje z drugimi elementi */
 }
-
+/*
 .footer a {
   color: #ffc107;
   transition: color 0.2s;
 }
+*/
 
-.footer a:hover {
-  color: #e0a800;
-}
+
 /*  .container-fluid n*/
 .container
 {
@@ -81,8 +81,6 @@ body {
 }
 
 .footer {
-  background-color: #343a40;
-  color: #ffffff;
   padding: 20px 0;
   text-align: center;
 }
@@ -98,15 +96,13 @@ body {
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      background-color: #f1f1f1;
+   /*   background-color: #f1f1f1;*/
       height: 100%;
     }
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
+       padding: 15px;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -128,18 +124,12 @@ body {
       text-align: left;
     }
 
-    .stockOK{
-      color: rgb(40, 167, 69);;
-    }
-.stockZero{
-  color: orange;
-}
+
+
 .btn-success{
   border: none;
 }
-.product-overlay a.btn-success:hover {
-  background-color: rgb(40, 167, 69);
-}
+
 .main-content{
   margin: 0 3%;
 }
@@ -148,8 +138,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #000;
-  color: #fff;
+ /* background: #000;*/
+ /* color: #fff;*/
   padding: 0.5em;
   z-index: 1000;
   transform: translateY(-100%);
@@ -221,21 +211,21 @@ body {
 // CART HEADER
 .heading {
   padding: 1em 0;
-  border-bottom: 1px solid #D0D0D0;
+ /* border-bottom: 1px solid #D0D0D0;*/
  
 
   a.continue {
     &:link , &:visited {
 
-      color: #fff;
-      background: rgb(137, 137, 137);
+     /* color: #fff;*/
+    /*  background: rgb(137, 137, 137);*/
 
     }
     &:after {
       content: "\276f";
     }
     &:hover , &:focus, &:active {
-      background: #82ca9c;
+    /*  background: #82ca9c;*/
       &:after {
         right: -10px;
       }
@@ -246,14 +236,15 @@ body {
 
  .specialContent {
 
-  border-top: 1px solid #dadada;
+ /* border-top: 1px solid #dadada;*/
   &:before {
     content: "\21b3";
 
-    color: #8f8f8f;
+  /*  color: #8f8f8f;*/
   }}
   
 }
+/*
 a.remove {
 
   color: #ffffff;
@@ -261,15 +252,16 @@ a.remove {
   &:hover {
     background: #f30;
   }
-}
+}*/
+/*
 .cart-button{
   color:  #fff;
   background-color:  rgb(60, 207, 212);;
-}
+}*/
 .promoCode {
-  border:2px solid #efefef;
+ /* border:2px solid #efefef;*/
   input {
-    border: 1px solid #dadada;
+  /*  border: 1px solid #dadada;*/
     &:active, &:focus {
       outline: 0;
      
@@ -277,35 +269,20 @@ a.remove {
   }
   a.btn {
     text-align: center;
-    border: 1px solid #82ca9c;
-    &:hover {
+  /*  border: 1px solid #82ca9c;*/
+   /* &:hover {
        border: 1px solid #f69679;
        background: #ff6435;
-    }
+    }*/
   }
 }
 
-.product-content{
-  a.product-link{
 
-    color: rgb(53, 53, 53);
-  }
-  a.product-link:hover{
-    color: rgb(60, 207, 212);
-  }
-}
-.clear-cart-button{
-  
-  background-color: #cecece;
-  &:hover{
-    background-color: #e0a800;
-  }
-}
 .btn {
   &:link , &:visited {
 
-   color: #fff;
-   background: rgb(60, 207, 212);
+ /*  color: #fff;*/
+ /*  background: rgb(60, 207, 212);*/
    font-weight: bold;
    border-radius: 50px;
    text-align: right;
@@ -319,7 +296,7 @@ a.remove {
    
  }
  &:hover , &:focus, &:active {
-   background: #82ca9c;
+  /* background: #82ca9c;*/
      &:after {
      right: -10px;
    }
@@ -333,42 +310,16 @@ a.remove {
 
 
 
-.cart-preview {
 
-  .cart-dropdown {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  
-
-    .cart-items {
-       .cart-item {
-        p {
-
-          color: #555;
-        }
-      }
-    }
-
-    .go-cart-button {
-      background-color: rgb(60, 207, 212);
-      color: #fff;
-      &:hover {
-        background-color: #82ca9c;
-      }
-    }
-  }
-
-
-}
 
 .cart-preview .cart-icon .cart-count{
-  color:#fff;
-  background-color: rgb(60, 207, 212);
+/*  color:#fff;
+  background-color: rgb(60, 207, 212);*/
 }
 .list-group-item a{
   margin-left: 10px;
   cursor: pointer;
-  color: #212529;
+ /* color: #212529;*/
   text-decoration: underline;
   text-decoration: none;
 }
@@ -376,5 +327,5 @@ a.remove {
 .user-data-header p{
   font-size: 1.5em !important;
   font-weight: bolder !important;
-  color:#1f9954 !important;
+  /*color:#1f9954 !important;*/
 }

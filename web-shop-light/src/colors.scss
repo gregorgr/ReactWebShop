@@ -1,0 +1,204 @@
+
+
+// CART HEADER
+.heading {
+    border-bottom: 1px solid #D0D0D0;
+
+    a.continue {
+      &:link , &:visited {
+  
+        color: #fff;
+        background: rgb(137, 137, 137); 
+      }
+
+      &:hover , &:focus, &:active {
+        background: #82ca9c;
+      }
+    }
+  }
+
+  .special {
+
+    .specialContent {
+   
+     border-top: 1px solid #dadada;
+     &:before {
+   
+       color: #8f8f8f;
+     }}
+     
+   }
+
+   a.remove {
+
+    color: #ffffff;
+    background:  rgb(60, 207, 212);;
+    &:hover {
+      background: #f30;
+    }
+  }
+  .cart-button{
+    color:  #fff;
+    background-color:  rgb(60, 207, 212);;
+  }
+
+  .promoCode {
+    border:2px solid #efefef;
+    input {
+      border: 1px solid #dadada;
+    }
+    a.btn {
+      border: 1px solid #82ca9c;
+      &:hover {
+         border: 1px solid #f69679;
+         background: #ff6435;
+      }
+    }
+  }
+
+  .product-content{
+    a.product-link{
+      color: rgb(53, 53, 53);
+    }
+    a.product-link:hover{
+      color: rgb(60, 207, 212);
+    }
+  }
+  .clear-cart-button{
+    
+    background-color: #cecece;
+    &:hover{
+      background-color: #e0a800;
+    }
+  }
+.skip-to-content {
+    background: #000;
+    color: #fff;
+  }
+
+.stockOK{
+    color: rgb(40, 167, 69);;
+}
+.stockZero{
+    color: orange;
+  }
+  .product-overlay a.btn-success:hover {
+    background-color: rgb(40, 167, 69);
+  }
+  .btn {
+    &:link , &:visited {
+     color: #fff;
+     background: rgb(60, 207, 212);  
+   }
+  
+   &:hover , &:focus, &:active {
+     background: #82ca9c;
+   }
+  }
+
+
+.footer {
+    background-color: #343a40;
+    background-color: #555;
+     /* Temnejša barva ozadja */
+    color: #ffffff;
+/* Prepreči prekrivanje z drugimi elementi */
+  }
+
+.footer a {
+    color: #ffc107;
+    transition: color 0.2s;
+}
+.footer a:hover {
+    color: #e0a800;
+  }
+
+  .sidenav {
+    background-color: #f1f1f1;
+
+  }
+
+  .cart-preview {
+
+    .cart-dropdown {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+      .cart-items {
+         .cart-item {
+          p {
+            color: #555;
+          }
+        }
+      }
+      .go-cart-button {
+        background-color: rgb(60, 207, 212);
+        color: #fff;
+        &:hover {
+          background-color: #82ca9c;
+        }
+      }
+    }
+  }
+
+  .cart-preview .cart-icon .cart-count{
+    color:#fff !important;
+    background-color: rgb(60, 207, 212) !important;
+  }
+  .list-group-item a{
+    margin-left: 10px;
+    color: #212529;
+
+  }
+  
+  .user-data-header p{
+    font-size: 1.5em !important;
+    font-weight: bolder !important;
+    color:#1f9954 !important;
+  }
+
+
+
+  .items {
+   
+    border-bottom: 1px solid #fafafa;
+    &.even {
+      background: #fafafa;
+    }
+
+    .cartSection {
+
+      .itemNumber {
+
+        color: #777;
+ 
+  }
+      
+ 
+      p {
+
+        color: #777777;
+            .quantity {
+              color: #333;
+      }   
+      }
+    }
+  }
+
+  .promoCode {
+    border:2px solid #efefef;
+    }
+    .subtotal {
+        .totalRow {
+            .label {
+            color: #777;
+          }
+  
+        }
+        }
+
+        .cart-preview.cart-count{
+
+                color:#fff !important;
+                background-color: rgb(60, 207, 212) !important;
+        }
