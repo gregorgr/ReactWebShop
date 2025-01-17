@@ -33,6 +33,7 @@ const ShopProductTabs = ({product}) => {
                 <input type="radio" id="tab2" name="tab-control" />
                 <input type="radio" id="tab3" name="tab-control" />
                 <input type="radio" id="tab4" name="tab-control" />
+                <input type="radio" id="tab5" name="tab-control" />
                 <ul>
                     <li title={t("shop.descriptionTitle")}>
                     <label htmlFor="tab1" role="button">
@@ -47,19 +48,19 @@ const ShopProductTabs = ({product}) => {
                         <span>{t("product.techdetails")}</span></label>
                     </li>
                     <li title={t("product.warrantyTitle")}>
-                    <label htmlFor="tab2" role="button">
+                    <label htmlFor="tab3" role="button">
                         <img src={FeaturesSvg} alt="Features Icon" title="Features Icon"  className="filter-svg" />                   
                         <br />
                         <span>{t("product.warrantyTitle")}</span></label>
                     </li>
                     <li title={t("shop.shippingTitle")}>
-                    <label htmlFor="tab3" role="button">
+                    <label htmlFor="tab4" role="button">
                         <img src={ShippingSvg} alt="Shipping Icon" title="Shipping Icon"  className="filter-svg" />                    
                         <br/>
                         <span>{t("shop.shippingTitle")}</span></label>
                     </li>
                     <li title="Returns">
-                    <label htmlFor="tab4" role="button">
+                    <label htmlFor="tab5" role="button">
                         <img src={ReturnsSvg} alt="Returns Icon" title="Returns Icon"  className="filter-svg" />                    
                         <br />
                         <span>{t("shop.returnTitle")}</span></label>

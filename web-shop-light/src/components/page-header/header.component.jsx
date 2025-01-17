@@ -39,7 +39,7 @@ const PageHeader = ({ language }) => {
       tabIndex="10" // Omogoča fokus s tipkovnico
     
       >
-        <img src={logo} alt="Logo"  title="Logo" /> <span>Brenkalo-DEV</span>
+        <img src={logo} alt="Logo"  title="Logo" /> <span>Brenkalo</span>
       </Link>
   </div>
   {

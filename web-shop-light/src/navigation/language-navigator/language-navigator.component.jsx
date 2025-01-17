@@ -1,7 +1,7 @@
 import React, {  useEffect } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import PropTypes, { element } from 'prop-types';
+import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import './language-navigator.styles.scss';
 
@@ -21,6 +21,8 @@ const LanguageNavigator = () => {
         sl: ['English', 'Pojdi v svojo košarico'],
         de: ['German', 'Pojdi v svojo košarico'],
       };
+      const selectedLanguage = currentTranslation[currentLanguage][0];
+      
 /*
       const toggleLanguage1 = (selectedLanguage) => {
         if (language !== selectedLanguage) {
@@ -72,30 +74,56 @@ const LanguageNavigator = () => {
         <>
         <div className="nav-wrapper">
             <div className="sl-nav">
+                <ul>
+                  <li><b>{selectedLanguage}</b> 
+                    <i className="fa fa-angle-down" aria-hidden="true"></i>
+                    <div className="triangle"></div>
+                    <ul>
+                      <li>
+                        <i className="sl-flag flag-sl"></i> 
+                          <Link  onClick={(e) => toggleLanguage('sl',e)}>
+                              <span >Slovensko</span>
+                          </Link>
+                      </li>
+                      <li>                              
+                        <i className="sl-flag flag-usa"></i>                 
+                        <Link onClick={(e) => toggleLanguage('en',e)}>
+                          <span>English</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+      </>
+    );
+  };
+/*
 
+
+
+ <div className="nav-wrapper">
+            <div className="sl-nav">
                 <ul>
                   <li><b>{currentTranslation[currentLanguage][0]}</b> 
-                  <i className="fa fa-angle-down" aria-hidden="true"></i>
-                      <div className="triangle"></div>
-                      <ul>
- 
-                      <li >
-                              <i className="sl-flag flag-sl" 
-                             >
+                    <i className="fa fa-angle-down" aria-hidden="true"></i>
+                    <div className="triangle"></div>
+                    <ul>
+                      <li>
+                        <i className="sl-flag flag-sl">
                                 <div id="sl" style={{ pointerEvents: 'none' }}></div>
-                              </i> 
-                              <button onClick={(e) => toggleLanguage('sl',e)}><span  >Slovensko</span></button>
-                          </li>
-                          <li >                              
+                            </i> 
+                              <Link  onClick={(e) => toggleLanguage('sl',e)}>
+                                <span  >Slovensko</span></Link>
+                      </li>
+                      <li>                              
                             <i className="sl-flag flag-usa">
                                 <div id="en" style={{ pointerEvents: 'none' }}></div>
-                              </i> 
-                        
-                              <button onClick={(e) => toggleLanguage('en',e)}><span>English</span></button>
-                          </li>
-                          
-
-
+                            </i>                 
+                            <Link onClick={(e) => toggleLanguage('en',e)}>
+                                <span>English</span></Link>
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -103,12 +131,6 @@ const LanguageNavigator = () => {
         </div>
 
        
-
-      </>
-    );
-  };
-/*
-
 
 
    <div className="nav-wrapper">
