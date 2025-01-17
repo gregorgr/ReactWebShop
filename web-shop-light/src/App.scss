@@ -129,7 +129,7 @@ body {
     }
 
     .stockOK{
-      color: green;
+      color: rgb(40, 167, 69);;
     }
 .stockZero{
   color: orange;
@@ -250,9 +250,9 @@ body {
   &:before {
     content: "\21b3";
 
-    color: #6f6f6f;
+    color: #8f8f8f;
   }}
-
+  
 }
 a.remove {
 
@@ -282,6 +282,16 @@ a.remove {
        border: 1px solid #f69679;
        background: #ff6435;
     }
+  }
+}
+
+.product-content{
+  a.product-link{
+
+    color: rgb(53, 53, 53);
+  }
+  a.product-link:hover{
+    color: rgb(60, 207, 212);
   }
 }
 .clear-cart-button{

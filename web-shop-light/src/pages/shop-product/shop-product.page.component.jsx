@@ -10,6 +10,7 @@ import './shop-product.styles.scss';
 import "./shop-tooltip.styless.scss";
 
 import ShopProductTabs from '../../components/shop/shop-product-tabs/shop-product-tabs.component.jsx';
+import ShopReviewsContent from '../../components/shop/shop-reviews-content/shop-reviews-content.component.jsx';
 import StarRating from "../../components/star-rating/star-rating.component.jsx";
 import { addItem } from '../../features/cart-slice/cartSlice.js';
 import { fetchSingleProduct } from '../../services/apiService.js';
@@ -174,15 +175,121 @@ const addToCartTooltip = (itemStorage) => {
     <div className="container-fluid product-content">
         {/* Header */}
         <div className="row product-header py-4">
-        <div className="col">
-        <div className="container">
-        <span className="h3">{name}</span>
-        <span className="h3 text-muted">&nbsp;|&nbsp;</span>
-        <span className="h4 text-muted">{categoryName}</span>
+          <div className="col">
+            <div className="container">
+              <span className="h3">{name}</span>
+              <span className="h3 text-muted">&nbsp;|&nbsp;</span>
+              <span className="h4 text-muted">{categoryName}</span>
+            </div>
+          </div>
         </div>
+
+
+        {/* Product Section */}
+        <div className="container my-4">
+          <div className="row">
+            {/* Left Column */}
+            <div className="col-md-5 mb-4">       
+            <ResponsiveImage 
+              src={mainPictureUrl}
+              alt={name}
+              title={name}
+              // className={`responsive-img lazyload ${className}`}
+              className="responsive-img lazyload"
+            
+              />   
+            </div>
+
+
+
+
+{/* Right Column */}
+<div className="col-md-6">
+    <h2 className="mb-3">{name}</h2>
+    <p className="text-muted produckt-price text-center">{formatCurrency(price)}€</p>
+    <hr />
+
+
+
+    <div className="container">
+      <div className="d-flex flex-wrap">
+        <div className="box flex-fill p-3 text-center">
+          <div className="my-1 inline-li-content">
+
+            
+            <StarRating averageRating={averageRating} />
+            &nbsp; &nbsp;
+            <strong>{numberOfReviews} {t("product.reviews")}</strong>
+            &nbsp; &nbsp;
+            <a href="#">{t("product.showall")}</a>
+          </div>
+
+            <p>{product.shortDescription}</p>
+
+            <div className="my-3">
+              <div className="con-tooltip top">
+                <div className="rounded-0 product-overlay d-flex align-items-left justify-content-left">
+                    {
+                      // add to cart BUTTON
+                    }
+                    <Link className="btn btn-success text-white mt-2" 
+                          to="#"
+                          onClick={handleAddToCart}
+                      >
+                      <i className="fas fa-cart-plus"></i>
+                    </Link>
+                  <div className="tooltip ">
+                    <p>{addToCartTooltip(itemStorage)}...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
+
+
+        <div className="box flex-fill p-3 text-center">
+          <table className="table table-borderless">
+            <tbody>
+              <tr>
+                  <td className="text-end">{t("product.productID")}:</td>
+                  <td>{id}</td>
+              </tr>
+              <tr>
+                  <td className="text-end">{t("product.manufacturer")}:</td>
+                  <td>
+                    <NewWindowLink
+                      url={mainProductUrl}
+                      linkText={brand}
+                      title={t("product.productUrl")}
+                      className="product-link"
+                    ></NewWindowLink>
+                  </td>
+              </tr>
+              <tr>
+                <td className="text-end">{t("product.stock")}:</td>
+                <td>
+                {product.itemStorage > 0 ? (
+                    <span className='stockOK'>{product.itemStorage} {t("product.instock")}</span>
+                    ) : (
+                    <span className='stockZero'>{t("product.outofstock")}</span>)}
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
         </div>
+      </div> 
+    </div>
+</div>
+
+
+
+          </div>
+        </div>
+
+
         <ShopProductTabs product={product} />
+        <ShopReviewsContent  product={product} />
 
     </div>
 

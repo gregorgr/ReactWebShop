@@ -168,7 +168,12 @@
       "all" : "Vse",
       "brands": "Znamke",
       "icon": "Ikona košarice",
-      "gotocheckout": "Na blagajno"
+      "gotocheckout": "Na blagajno",
+      "shippingTitle": "Pošiljanje",
+      "shippingContent": "Ponujamo zanesljive in hitre možnosti pošiljanja, da vaše naročilo prispe pravočasno.",
+      "returnTitle": "Vračila",
+      "returnsContent": "Naročilo lahko vrnete v 30 dneh od nakupa za celotno povračilo ali zamenjavo.",
+      "descriptionTitle": "Podroben opis"
     },
     "cart":{
       "title": "Vaša nakupovalna košarica",

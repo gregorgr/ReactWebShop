@@ -3,6 +3,12 @@ import { useTranslation } from 'react-i18next';
 import "./shop-product-tabs.styles.scss";
 import PropTypes from 'prop-types';
 
+import FeaturesSvg  from '../../../assets/img/features.svg';
+import DeliverycontentSvg  from '../../../assets/img/deliverycontent.svg';
+import ShippingSvg  from '../../../assets/img/shipping.svg';
+import ReturnsSvg  from '../../../assets/img/returns.svg';
+
+
 const ShopProductTabs = ({product}) => {
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language; // Trenutni jezik
@@ -18,45 +24,80 @@ const ShopProductTabs = ({product}) => {
     return (
         <>
         {/* Tabs */}
-            <div className="row bg-light py-4">
-            <div className="col">
-            <h2 className="mb-3">{}</h2>
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link active" href="#">
-                    {t("product.details")}
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
+
+    <div className='product-bottom-tabs'>
+
+
+            <div className="tabs">
+                <input type="radio" id="tab1" name="tab-control" checked />
+                <input type="radio" id="tab2" name="tab-control" />
+                <input type="radio" id="tab3" name="tab-control" />
+                <input type="radio" id="tab4" name="tab-control" />
+                <ul>
+                    <li title={t("shop.descriptionTitle")}>
+                    <label htmlFor="tab1" role="button">
+                        <img src={FeaturesSvg} alt="Features Icon" title="Features Icon"  className="filter-svg" />                   
+                        <br />
+                        <span>{t("shop.descriptionTitle")}</span></label>
+                    </li>
+                    <li title={t("product.techdetails")}>
+                    <label htmlFor="tab2" role="button">
+                        <img src={FeaturesSvg} alt="Features Icon" title="Features Icon"  className="filter-svg" />                   
+                        <br />
+                        <span>{t("product.techdetails")}</span></label>
+                    </li>
+                    <li title={t("product.warrantyTitle")}>
+                    <label htmlFor="tab2" role="button">
+                        <img src={FeaturesSvg} alt="Features Icon" title="Features Icon"  className="filter-svg" />                   
+                        <br />
+                        <span>{t("product.warrantyTitle")}</span></label>
+                    </li>
+                    <li title={t("shop.shippingTitle")}>
+                    <label htmlFor="tab3" role="button">
+                        <img src={ShippingSvg} alt="Shipping Icon" title="Shipping Icon"  className="filter-svg" />                    
+                        <br/>
+                        <span>{t("shop.shippingTitle")}</span></label>
+                    </li>
+                    <li title="Returns">
+                    <label htmlFor="tab4" role="button">
+                        <img src={ReturnsSvg} alt="Returns Icon" title="Returns Icon"  className="filter-svg" />                    
+                        <br />
+                        <span>{t("shop.returnTitle")}</span></label>
+                    </li>
+                </ul>
+                <div className="slider">
+                    <div className="indicator"></div>
+                </div>
+                <div className="content">
+                    <section>
+                    <h2>{t("shop.descriptionTitle")}</h2>
+                    {product.longDescription}
+                    </section>
+                    <section>
+                    <h2>{t("product.techdetails")}</h2>
                     {t("product.techdetails")}
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                    {t("product.reviews")}
-                    </a>
-                </li>
-            </ul>
-            <div className="mt-3">
-            <p>{product.longDescription}</p>
-            <p>Rating: {product.averageRating} ({product.numberOfReviews} reviews)</p>
+                    </section>
+                    <section>
+                    <h2>{t("product.warrantyTitle")}</h2>
+                    {t("product.warrantyInfo")}
+                    </section>
+                    <section>
+                    <h2>{t("shop.shippingTitle")}</h2>
+                    {t("shop.shippingContent")}
+                    </section>
+                    <section>
+                    <h2>{t("shop.returnTitle")}</h2>
+                    {t("shop.returnsContent")}
+                    </section>
+                </div>
             </div>
-            </div>
-            </div>
-            <div>{product.longDescription}</div>
 
-            <div>
-                <h4>{t("product.techdetails")}</h4>
-                <p>{t("product.techDetailsText")}</p>
-            </div>
-            <div>
-                <h4>{t("product.warrantyTitle")}</h4>
-            <p> {t("product.warrantyInfo")}</p>
+          
+        
 
-            </div>
+      
             
-            
+            </div> 
         
         </>
     );

@@ -101,7 +101,7 @@
     },
 
     "order": {
-        "title": "Order #{id}",
+        "title": "Order #{{id}}",
         "date": "Date",
         "status": "Status",
         "status_PENDING": "Pending",
@@ -142,7 +142,12 @@
       "all" : "All",
       "brands": "Brands",
       "icon": "Shopping Cart Icon",
-      "gotocheckout": "Go to checkout"
+      "gotocheckout": "Go to checkout",
+      "shippingTitle": "Shipping",
+      "shippingContent": "We offer reliable and fast shipping options to ensure your order reaches you on time.",
+      "returnTitle": "Returns",
+      "returnsContent": "You can return your order within 30 days of purchase for a full refund or exchange.",
+      "descriptionTitle": "Description"
     },
     "checkout": {
       "shipping": "Shipping Details",

@@ -3,6 +3,22 @@
 
     margin: 0;
     padding: 0 10% !important;
+
+    .table-borderless{
+      text-align: left;
+    }
+    .container.my-4{
+      margin-bottom: 0;
+    }
+    a.product-link{
+      text-align: left;
+      font-weight: bold !important;
+   /*   color: rgb(53, 53, 53);*/
+      text-decoration: none;
+    }
+   /* a.product-link:hover{
+      color: rgb(13, 101, 104);
+    }*/
   }
 
   // Header styling
